@@ -1,0 +1,13 @@
+{
+	"name": "@nomercy-entertainment/visualizer-converters",
+	"version": "0.1.0",
+	"private": true,
+	"type": "module",
+	"description": "Pure functions that turn visualizer sources (twigl, Shadertoy, KodeLife, MilkDrop) into normalized programs. No DOM.",
+	"exports": {
+		".": "./src/index.ts"
+	},
+	"dependencies": {
+		"@shaderfrog/glsl-parser": "7.0.1"
+	}
+}

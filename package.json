@@ -1,0 +1,19 @@
+{
+	"name": "nomercy-visualizers",
+	"private": true,
+	"type": "module",
+	"workspaces": ["packages/*"],
+	"scripts": {
+		"test": "vitest run",
+		"typecheck": "tsc --noEmit",
+		"check:credits": "node scripts/check-credits.mjs .",
+		"build:bundle": "tsx scripts/build-bundle.ts"
+	},
+	"devDependencies": {
+		"@types/node": "^22.0.0",
+		"ajv": "8.20.0",
+		"tsx": "^4.19.0",
+		"typescript": "6.0.3",
+		"vitest": "4.1.11"
+	}
+}
