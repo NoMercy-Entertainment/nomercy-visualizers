@@ -1,6 +1,6 @@
 // Proves every shipped entry carries its credit and license.
 // Shaders: name, author and license header lines (or kodelife.json fields).
-// MilkDrop presets: a projectM source link pinned to one commit; the author where the source names one.
+// MilkDrop presets: an author, and a projectM source link pinned to one commit.
 // Usage: node scripts/check-credits.mjs [repo dir]. Exit 0 = every entry covered.
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs';
 import { join } from 'node:path';
@@ -41,7 +41,6 @@ const manifest = JSON.parse(readFileSync(join(md, 'manifest.json'), 'utf8'));
 const rights = JSON.parse(readFileSync(join(md, 'rights.json'), 'utf8'));
 if (!rights['projectm-presets'])
 	gaps.push('rights.json: no projectm-presets notice');
-let sourceLinkOnly = 0;
 for (const entry of manifest) {
 	const file = join(md, 'presets', `${entry.id}.json`);
 	if (!existsSync(file)) {
@@ -51,10 +50,10 @@ for (const entry of manifest) {
 	const { sourceUrl } = JSON.parse(readFileSync(file, 'utf8'));
 	if (!/^https:\/\/github\.com\/projectM-visualizer\/[^/]+\/blob\/[0-9a-f]{40}\//.test(sourceUrl ?? ''))
 		gaps.push(`preset ${entry.id}: no pinned source link`);
-	if (!entry.author)
-		sourceLinkOnly++;
+	if (!String(entry.author ?? '').trim())
+		gaps.push(`preset ${entry.id}: no author`);
 }
 
-console.log(`shaders ${shaders}, presets ${manifest.length} (credited by source link only: ${sourceLinkOnly}), gaps ${gaps.length}`);
+console.log(`shaders ${shaders}, presets ${manifest.length}, gaps ${gaps.length}`);
 gaps.slice(0, 20).forEach(gap => console.log(`  ${gap}`));
 process.exit(gaps.length ? 1 : 0);

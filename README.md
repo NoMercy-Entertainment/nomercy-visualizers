@@ -42,7 +42,7 @@ Each entry names its author and license.
 All of mrange's shaders are credited to mrange, at his request.
 The MilkDrop presets come from the projectM preset collection; `rights.json` holds their license texts.
 Each preset links its projectM source file (`sourceUrl`, pinned to one commit).
-Where that file's name gives no author, the link is the credit.
+Each preset names its author: from the `Author - Name` file name, or from the author tags at the start of a file name without that separator.
 
 ## Removal
 
