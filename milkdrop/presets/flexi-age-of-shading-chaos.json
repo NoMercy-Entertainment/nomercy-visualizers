@@ -1,1 +1,122 @@
-{"schema":1,"id":"flexi-age-of-shading-chaos","name":"age of shading chaos","author":"Flexi","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Flexi%20-%20age%20of%20shading%20chaos.milk","sourceSha1":"fa2371547599e4a9c2ab0fb6207155d8f5f72911","rights":"projectm-presets","textures":[],"preset":{"version":2,"baseVals":{"rating":0,"gammaadj":1.7,"decay":1,"echo_zoom":1,"echo_alpha":0.5,"wave_thick":1,"wave_brighten":0,"wrap":0,"darken":1,"invert":1,"wave_a":0.004,"wave_scale":0.01,"wave_smoothing":0,"wave_mystery":-0.44,"modwavealphastart":1,"modwavealphaend":1,"warpanimspeed":0.01,"warpscale":100,"zoomexp":0.92178,"zoom":0.9901,"warp":0.01,"wave_y":0.04,"ob_size":0.005,"ob_r":1,"ob_g":1,"ob_b":1,"ob_a":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":0.25,"mv_g":0.5,"mv_b":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"x1 = 0.9;\ny1 = 0.5;\n\nx2 = 0.5; y2 = 0.5;\nx3 = 0.5; y3 = 0.5;\nx4 = 0.5; y4 = 0.5;","frame_eqs_eel":"decay = 1;\nxx1 = xx1*0.9 + (bass)*0.01;\nxx2 = xx2*0.9 + (treb)*0.01;\nyy1 = yy1*0.94 + (treb+bass)*0.0075;\n\nx1 = 0.5 + (xx1-xx2);\ny1 = 0.85 + yy1*.3;\n\n//x2 = 0;y2 = 0;x3 = 0;y3 = 0;x4 = 0;y4 = 0;\n\nspring = 100;\ngrav = 11;\nresist = 0.2;\nbounce = 0.8;\ndt = 0.0001;\n\nvx2 = vx2*(1-resist*dt) + dt*((x1+x3-2*x2)*spring);\nvy2 = vy2*(1-resist*dt) + dt*((y1+y3-2*y2)*spring-grav);\nvx3 = vx3*(1-resist*dt) + dt*((x2+x4-2*x3)*spring);\nvy3 = vy3*(1-resist*dt) + dt*((y2+y4-2*y3)*spring-grav);\nvx4 = vx4*(1-resist*dt) + dt*((x3-x4)*spring);\nvy4 = vy4*(1-resist*dt) + dt*((y3-y4)*spring-grav);\n\nx2 = x2 + vx2;\ny2 = y2 + vy2;\nx3 = x3 + vx3;\ny3 = y3 + vy3;\nx4 = x4 + vx4;\ny4 = y4 + vy4;\n\nvx2 = if(above(x2,0),vx2,abs(vx2)*bounce);\nvx2 = if(below(x2,1),vx2,-abs(vx2)*bounce);\nvx3 = if(above(x3,0),vx3,abs(vx3)*bounce);\nvx3 = if(below(x3,1),vx3,-abs(vx3)*bounce);\nvx4 = if(above(x4,0),vx4,abs(vx4)*bounce);\nvx4 = if(below(x4,1),vx4,-abs(vx4)*bounce);\n\nvy2 = if(above(y2,0),vy2,abs(vy2)*bounce);\nvy2 = if(below(y2,1),vy2,-abs(vy2)*bounce);\nvy3 = if(above(y3,0),vy3,abs(vy3)*bounce);\nvy3 = if(below(y3,1),vy3,-abs(vy3)*bounce);\nvy4 = if(above(y4,0),vy4,abs(vy4)*bounce);\nvy4 = if(below(y4,1),vy4,-abs(vy4)*bounce);\nq3 = x4;\nq4 = x2;\nq7 = y4;\nq8 = y2;\nq9 = x1;\nq10 = y1;\nq11 = x3;\nq12 = y3;\n\nzoom = 1;\nbb = bb*0.99 + bass*0.02;\nmm = mm*0.99 + mid*0.02;\ntt = tt*0.99 + treb*0.02;\n\nmx = max(max(bb,mm),tt);\nmn = min(min(bb,mm),tt);\n\nob_r = (bb-mn)/(mx-mn);\nob_b = (mm-mn)/(mx-mn);\nob_g = (tt-mn)/(mx-mn);\n\nq2 = atan2(vx4,vy4);\nq13 = atan2(vx3,vy3);\nq1 = sqrt(vx4*vx4 + vy4*vy4);\nq14 = sqrt(vx3*vx3 + vy3*vy3);\nq6 = atan2(vx2,vy2);\nq5 = sqrt(vx2*vx2 + vy2*vy2);\n\n\na = a*0.95 + q5;\n\nmonitor = q7;","pixel_eqs_eel":"w1 = q9;\nw2 = q10;\nw3 = q11;\nw4 = q12;\nw5 = q13;\nw6 = q14;\n\n\ndir = -q6*1 + asin(1)*1;\n\nb1 = 0.075; // distance\nm1 = q5*50;//-0.6 + q5*200; // size\nt1 = 0.1; // velocity\n\nxx = q4;\nyy = 1-q8;\n\n\nx1 = xx   +cos(dir+1.5708)*b1;\ny1 = yy -sin(dir+1.5708)*b1;\n\nx2 = xx   -cos(dir+1.5708)*b1;\ny2 = yy +sin(dir+1.5708)*b1;\n\nd1 = sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y))-b1*2;\nsi1 = 1- 1/(1+pow(2,-d1*100));\n\nd2 = sqrt((x2-x)*(x2-x)+(y2-y)*(y2-y))-b1*2;\nsi2 = 1- 1/(1+pow(2,-d2*100));\n\nsi3 = -pow(q5,3)*10;\n\ndx = (si1*sin(y1-y)*m1*d1  - si2*sin(y2-y)*m1*d2 + si3*cos(dir)*t1)*2;\ndy = (-si1*sin(x1-x)*m1*d1 + si2*sin(x2-x)*m1*d2 - si3*sin(dir)*t1)*2;\n\nm = 1- si1 - si2;\n\ndir = -q2*1 + asin(1)*0;\nxx = q3;\nyy = 1-q7;\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.05;\nv = -35*q1;\ndx = dx + v*sin(dir)*(r-d)*(1-sigmoid(d-r,280));\ndy = dy + v*cos(dir)*(r-d)*(1-sigmoid(d-r,280));\n\nxx = w1;\nyy = 1-w2;\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.1;\nv = -35;\ndx = dx + v*(x-xx)*(r-d)*(1-sigmoid(d-r,70));\ndy = dy + v*(y-yy)*(r-d)*(1-sigmoid(d-r,70));\n\nxx = w3;\nyy = 1- w4;\n\ndir = w5;\n\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.1;\nv = 20;\nv2 = w6;\ndx = dx + (v*(sin(y-yy)*(d-r)-(x-xx)*(d-r/2)) + cos(dir)*v2)*(1.00-sigmoid(d-r,180));\ndy = dy + (-v*(sin(x-xx)*(d-r)+(y-yy)*(d-r/2)) -sin(dir)*v2)*(1.00-sigmoid(d-r,180));\n\n\n\nd = sqrt((x-0.5)*(x-0.5)+(y-0.5)*(y-0.5))*rad;\nn=80;\n\nt = q3*3*0 +time*0;\n\nw= -q6 + asin(1)/2;\n\n//x = x - xx;\n//y = y - yy;\nv = 0.1*q3;\nX2 = x-0.5;\nY2 = y-0.5;\nX1 = sin(w)*X2 -cos(w)*Y2;\nY1 = cos(w)*X2 +sin(w)*Y2;\nx = X1;\ny = Y1;\ndx1 = 0.01*(cos((-x+y)*n+t) + sin((x+y)*n+t));//*bass;\ndy1 = 0.01*(cos((x-y)*n-t) + sin((-x-y)*n-t));//*bass;\ndx2 = sin(-w)*dx1 - cos(-w)*dy1;\ndy2 = cos(-w)*dx1 + sin(-w)*dy1;\n//dx = dx + v*dx2*m;\n//dy = dy + v*dy2*m;","warp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = (texture(sampler_fc_main, uv)).xyz);\n    (ret *= vec3 (1.000000));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }","comp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float rad, float ang) {\n    vec3 ret;\n    float rad_lq = float( ((rad * length((texsize).xy)) * 0.500000) );\n    float ang_lq = float( ang );\n    vec2 uv_temp1 = vec2( ((uv - vec2 (0.500000)) * (texsize).xy) );\n    float rad_hq = float( length(uv_temp1) );\n    float ang_hq = float( atan((-(uv_temp1).y), (uv_temp1).x) );\n    vec2 uv2 = vec2( (uv - vec2 (0.500000)) );\n    float rad2 = float( (rad_lq * 0.800000) );\n    float ang2 = float( (((ang_lq * 0.159155) + (rad_lq * 0.000000)) + (time * 0.000000)) );\n    float fins = float( 6 );\n    (ang2 = (fract((ang2 * fins)) / fins));\n    (ang2 = abs((ang2 - (0.500000 / fins))));\n    (ang2 *= 6.283185);\n    (uv = (vec2 (0.500000) + ((vec2 (rad2) * vec2(cos(ang2), sin(ang2))) * (texsize).zw)));\n    (ret = (vec3 (1.400000) * pow((clamp((((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)), 0.0, 1.0) * (vec3 (texture(sampler_pc_main, uv)) - (((texture(sampler_blur3, uv)).xyz * vec3 (scale3)) + vec3 (bias3)))), vec3 (0.500000))));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, rad, ang);\n    ret = result.rgb;\n }"}}
+{
+	"schema": 1,
+	"id": "flexi-age-of-shading-chaos",
+	"name": "age of shading chaos",
+	"author": "Flexi",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Flexi%20-%20age%20of%20shading%20chaos.milk",
+	"sourceSha1": "fa2371547599e4a9c2ab0fb6207155d8f5f72911",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 2,
+		"baseVals": {
+			"rating": 0,
+			"gammaadj": 1.7,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"darken": 1,
+			"invert": 1,
+			"wave_a": 0.004,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0,
+			"wave_mystery": -0.44,
+			"modwavealphastart": 1,
+			"modwavealphaend": 1,
+			"warpanimspeed": 0.01,
+			"warpscale": 100,
+			"zoomexp": 0.92178,
+			"zoom": 0.9901,
+			"warp": 0.01,
+			"wave_y": 0.04,
+			"ob_size": 0.005,
+			"ob_r": 1,
+			"ob_g": 1,
+			"ob_b": 1,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0.25,
+			"mv_g": 0.5,
+			"mv_b": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "x1 = 0.9;\ny1 = 0.5;\n\nx2 = 0.5; y2 = 0.5;\nx3 = 0.5; y3 = 0.5;\nx4 = 0.5; y4 = 0.5;",
+		"frame_eqs_eel": "decay = 1;\nxx1 = xx1*0.9 + (bass)*0.01;\nxx2 = xx2*0.9 + (treb)*0.01;\nyy1 = yy1*0.94 + (treb+bass)*0.0075;\n\nx1 = 0.5 + (xx1-xx2);\ny1 = 0.85 + yy1*.3;\n\n//x2 = 0;y2 = 0;x3 = 0;y3 = 0;x4 = 0;y4 = 0;\n\nspring = 100;\ngrav = 11;\nresist = 0.2;\nbounce = 0.8;\ndt = 0.0001;\n\nvx2 = vx2*(1-resist*dt) + dt*((x1+x3-2*x2)*spring);\nvy2 = vy2*(1-resist*dt) + dt*((y1+y3-2*y2)*spring-grav);\nvx3 = vx3*(1-resist*dt) + dt*((x2+x4-2*x3)*spring);\nvy3 = vy3*(1-resist*dt) + dt*((y2+y4-2*y3)*spring-grav);\nvx4 = vx4*(1-resist*dt) + dt*((x3-x4)*spring);\nvy4 = vy4*(1-resist*dt) + dt*((y3-y4)*spring-grav);\n\nx2 = x2 + vx2;\ny2 = y2 + vy2;\nx3 = x3 + vx3;\ny3 = y3 + vy3;\nx4 = x4 + vx4;\ny4 = y4 + vy4;\n\nvx2 = if(above(x2,0),vx2,abs(vx2)*bounce);\nvx2 = if(below(x2,1),vx2,-abs(vx2)*bounce);\nvx3 = if(above(x3,0),vx3,abs(vx3)*bounce);\nvx3 = if(below(x3,1),vx3,-abs(vx3)*bounce);\nvx4 = if(above(x4,0),vx4,abs(vx4)*bounce);\nvx4 = if(below(x4,1),vx4,-abs(vx4)*bounce);\n\nvy2 = if(above(y2,0),vy2,abs(vy2)*bounce);\nvy2 = if(below(y2,1),vy2,-abs(vy2)*bounce);\nvy3 = if(above(y3,0),vy3,abs(vy3)*bounce);\nvy3 = if(below(y3,1),vy3,-abs(vy3)*bounce);\nvy4 = if(above(y4,0),vy4,abs(vy4)*bounce);\nvy4 = if(below(y4,1),vy4,-abs(vy4)*bounce);\nq3 = x4;\nq4 = x2;\nq7 = y4;\nq8 = y2;\nq9 = x1;\nq10 = y1;\nq11 = x3;\nq12 = y3;\n\nzoom = 1;\nbb = bb*0.99 + bass*0.02;\nmm = mm*0.99 + mid*0.02;\ntt = tt*0.99 + treb*0.02;\n\nmx = max(max(bb,mm),tt);\nmn = min(min(bb,mm),tt);\n\nob_r = (bb-mn)/(mx-mn);\nob_b = (mm-mn)/(mx-mn);\nob_g = (tt-mn)/(mx-mn);\n\nq2 = atan2(vx4,vy4);\nq13 = atan2(vx3,vy3);\nq1 = sqrt(vx4*vx4 + vy4*vy4);\nq14 = sqrt(vx3*vx3 + vy3*vy3);\nq6 = atan2(vx2,vy2);\nq5 = sqrt(vx2*vx2 + vy2*vy2);\n\n\na = a*0.95 + q5;\n\nmonitor = q7;",
+		"pixel_eqs_eel": "w1 = q9;\nw2 = q10;\nw3 = q11;\nw4 = q12;\nw5 = q13;\nw6 = q14;\n\n\ndir = -q6*1 + asin(1)*1;\n\nb1 = 0.075; // distance\nm1 = q5*50;//-0.6 + q5*200; // size\nt1 = 0.1; // velocity\n\nxx = q4;\nyy = 1-q8;\n\n\nx1 = xx   +cos(dir+1.5708)*b1;\ny1 = yy -sin(dir+1.5708)*b1;\n\nx2 = xx   -cos(dir+1.5708)*b1;\ny2 = yy +sin(dir+1.5708)*b1;\n\nd1 = sqrt((x1-x)*(x1-x)+(y1-y)*(y1-y))-b1*2;\nsi1 = 1- 1/(1+pow(2,-d1*100));\n\nd2 = sqrt((x2-x)*(x2-x)+(y2-y)*(y2-y))-b1*2;\nsi2 = 1- 1/(1+pow(2,-d2*100));\n\nsi3 = -pow(q5,3)*10;\n\ndx = (si1*sin(y1-y)*m1*d1  - si2*sin(y2-y)*m1*d2 + si3*cos(dir)*t1)*2;\ndy = (-si1*sin(x1-x)*m1*d1 + si2*sin(x2-x)*m1*d2 - si3*sin(dir)*t1)*2;\n\nm = 1- si1 - si2;\n\ndir = -q2*1 + asin(1)*0;\nxx = q3;\nyy = 1-q7;\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.05;\nv = -35*q1;\ndx = dx + v*sin(dir)*(r-d)*(1-sigmoid(d-r,280));\ndy = dy + v*cos(dir)*(r-d)*(1-sigmoid(d-r,280));\n\nxx = w1;\nyy = 1-w2;\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.1;\nv = -35;\ndx = dx + v*(x-xx)*(r-d)*(1-sigmoid(d-r,70));\ndy = dy + v*(y-yy)*(r-d)*(1-sigmoid(d-r,70));\n\nxx = w3;\nyy = 1- w4;\n\ndir = w5;\n\nd = sqrt((x-xx)*(x-xx)+(y-yy)*(y-yy));\n\nr = 0.1;\nv = 20;\nv2 = w6;\ndx = dx + (v*(sin(y-yy)*(d-r)-(x-xx)*(d-r/2)) + cos(dir)*v2)*(1.00-sigmoid(d-r,180));\ndy = dy + (-v*(sin(x-xx)*(d-r)+(y-yy)*(d-r/2)) -sin(dir)*v2)*(1.00-sigmoid(d-r,180));\n\n\n\nd = sqrt((x-0.5)*(x-0.5)+(y-0.5)*(y-0.5))*rad;\nn=80;\n\nt = q3*3*0 +time*0;\n\nw= -q6 + asin(1)/2;\n\n//x = x - xx;\n//y = y - yy;\nv = 0.1*q3;\nX2 = x-0.5;\nY2 = y-0.5;\nX1 = sin(w)*X2 -cos(w)*Y2;\nY1 = cos(w)*X2 +sin(w)*Y2;\nx = X1;\ny = Y1;\ndx1 = 0.01*(cos((-x+y)*n+t) + sin((x+y)*n+t));//*bass;\ndy1 = 0.01*(cos((x-y)*n-t) + sin((-x-y)*n-t));//*bass;\ndx2 = sin(-w)*dx1 - cos(-w)*dy1;\ndy2 = cos(-w)*dx1 + sin(-w)*dy1;\n//dx = dx + v*dx2*m;\n//dy = dy + v*dy2*m;",
+		"warp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = (texture(sampler_fc_main, uv)).xyz);\n    (ret *= vec3 (1.000000));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }",
+		"comp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float rad, float ang) {\n    vec3 ret;\n    float rad_lq = float( ((rad * length((texsize).xy)) * 0.500000) );\n    float ang_lq = float( ang );\n    vec2 uv_temp1 = vec2( ((uv - vec2 (0.500000)) * (texsize).xy) );\n    float rad_hq = float( length(uv_temp1) );\n    float ang_hq = float( atan((-(uv_temp1).y), (uv_temp1).x) );\n    vec2 uv2 = vec2( (uv - vec2 (0.500000)) );\n    float rad2 = float( (rad_lq * 0.800000) );\n    float ang2 = float( (((ang_lq * 0.159155) + (rad_lq * 0.000000)) + (time * 0.000000)) );\n    float fins = float( 6 );\n    (ang2 = (fract((ang2 * fins)) / fins));\n    (ang2 = abs((ang2 - (0.500000 / fins))));\n    (ang2 *= 6.283185);\n    (uv = (vec2 (0.500000) + ((vec2 (rad2) * vec2(cos(ang2), sin(ang2))) * (texsize).zw)));\n    (ret = (vec3 (1.400000) * pow((clamp((((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)), 0.0, 1.0) * (vec3 (texture(sampler_pc_main, uv)) - (((texture(sampler_blur3, uv)).xyz * vec3 (scale3)) + vec3 (bias3)))), vec3 (0.500000))));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, rad, ang);\n    ret = result.rgb;\n }"
+	}
+}

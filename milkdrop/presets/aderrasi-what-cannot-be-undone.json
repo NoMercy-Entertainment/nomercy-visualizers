@@ -1,1 +1,107 @@
-{"schema":1,"id":"aderrasi-what-cannot-be-undone","name":"What Cannot Be Undone","author":"Aderrasi","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20What%20Cannot%20Be%20Undone.milk","sourceSha1":"d8e8a65439370f09b568406eff7e4c7b6581ca1b","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1,"decay":1,"echo_zoom":2.216706,"echo_alpha":0.5,"echo_orient":2,"wave_mode":7,"wave_thick":1,"wave_brighten":0,"wave_a":100,"wave_scale":3.749272,"wave_smoothing":0.5,"modwavealphastart":0.5,"modwavealphaend":1,"dx":0.00001,"dy":0.00001,"warp":0.01,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"wave_y":0.99,"ob_size":0,"ob_a":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0,"mv_x":0,"mv_y":0,"mv_l":1,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 0.35*sin(1.4*time) + 0.25*sin(2.5*time);\nwave_g = wave_g + 0.35*sin(1.7*time) - 0.25*sin(1.11*time);\nwave_b = wave_b + 0.35*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;","pixel_eqs_eel":"thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\ndy = dy + dy_r +below(y,0.5)*0.005;\ndy = dy - dy_r -above(y,0.5)*0.005;\ndx = dx + dx_r+ above(y,sin(time))*0.005 - below(y,0.8*sin(time))*0.005;\ndx = dx + dx_r+ above(y,0.76*sin(1.2*time))*0.005 - below(y,0.55*sin(2*time))*0.005;\nnx = 0.8*x * sin(time) - 0.4*x *sin(1.22*time);\nny = 0.8*y * cos(time) - 0.4*y *cos(1.4*time);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "aderrasi-what-cannot-be-undone",
+	"name": "What Cannot Be Undone",
+	"author": "Aderrasi",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20What%20Cannot%20Be%20Undone.milk",
+	"sourceSha1": "d8e8a65439370f09b568406eff7e4c7b6581ca1b",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 2.216706,
+			"echo_alpha": 0.5,
+			"echo_orient": 2,
+			"wave_mode": 7,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wave_a": 100,
+			"wave_scale": 3.749272,
+			"wave_smoothing": 0.5,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 0.01,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"wave_y": 0.99,
+			"ob_size": 0,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"mv_x": 0,
+			"mv_y": 0,
+			"mv_l": 1,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 0.35*sin(1.4*time) + 0.25*sin(2.5*time);\nwave_g = wave_g + 0.35*sin(1.7*time) - 0.25*sin(1.11*time);\nwave_b = wave_b + 0.35*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;",
+		"pixel_eqs_eel": "thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\ndy = dy + dy_r +below(y,0.5)*0.005;\ndy = dy - dy_r -above(y,0.5)*0.005;\ndx = dx + dx_r+ above(y,sin(time))*0.005 - below(y,0.8*sin(time))*0.005;\ndx = dx + dx_r+ above(y,0.76*sin(1.2*time))*0.005 - below(y,0.55*sin(2*time))*0.005;\nnx = 0.8*x * sin(time) - 0.4*x *sin(1.22*time);\nny = 0.8*y * cos(time) - 0.4*y *cos(1.4*time);",
+		"warp": "",
+		"comp": ""
+	}
+}

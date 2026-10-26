@@ -1,1 +1,126 @@
-{"schema":1,"id":"goody-vertigo","name":"Vertigo","author":"Goody","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Goody%20-%20Vertigo.milk","sourceSha1":"501bbdd9d45b7dac8e6ab6d680416b7a9fbada75","rights":"projectm-presets","textures":[],"preset":{"version":2,"baseVals":{"rating":4,"gammaadj":2.001,"decay":1,"echo_zoom":1,"wave_mode":7,"wave_thick":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":1.029,"wave_scale":4.687,"wave_smoothing":0.9,"modwavealphastart":0.2,"modwavealphaend":2,"warpanimspeed":0.274,"warpscale":1.331,"zoom":0.99941,"warp":0.01,"ob_size":0,"ib_size":0,"ib_b":0,"ib_a":1,"mv_x":12.8,"mv_y":14.4,"mv_l":5,"mv_r":0.5,"mv_g":0.5,"mv_b":0.5,"mv_a":0,"b1ed":0.2},"shapes":[{"baseVals":{"enabled":1,"additive":1,"textured":1,"x":0.46,"rad":1.99863,"tex_zoom":0.48364,"r":0.9,"g":0.3,"b":0.6,"a":0.07,"r2":1,"b2":0.4,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"","pixel_eqs_eel":"xd = sin(time)*x-cos(time)*y;\nyd = cos(time)*x+sin(time)*y;\n\ndx=dx+.0015*sin(xd*20);\ndy=dy+.0015*sin(yd*20);\n\nrot=rot+.015*sin(time*.35+treb_att*.1);","warp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float ang) {\n    vec3 ret;\n    (ret = (texture(sampler_fw_main, uv)).xyz);\n    vec2 bl = vec2( (vec3 (0.034000) * (texture(sampler_main, vec2 (((((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)) + vec3 (sin(((ang * float (20)) + (0.100000 * time)))))))).xyz) );\n    (ret = vec3 (texture(sampler_main, (uv - bl))));\n    (ret = ((ret * vec3(0.870000, 0.986000, 0.980000)) - vec3 (0.002000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, ang);\n    ret = result.rgb;\n }","comp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = vec3 (texture(sampler_fw_main, uv)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }"}}
+{
+	"schema": 1,
+	"id": "goody-vertigo",
+	"name": "Vertigo",
+	"author": "Goody",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Goody%20-%20Vertigo.milk",
+	"sourceSha1": "501bbdd9d45b7dac8e6ab6d680416b7a9fbada75",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 2,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 2.001,
+			"decay": 1,
+			"echo_zoom": 1,
+			"wave_mode": 7,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 1.029,
+			"wave_scale": 4.687,
+			"wave_smoothing": 0.9,
+			"modwavealphastart": 0.2,
+			"modwavealphaend": 2,
+			"warpanimspeed": 0.274,
+			"warpscale": 1.331,
+			"zoom": 0.99941,
+			"warp": 0.01,
+			"ob_size": 0,
+			"ib_size": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 12.8,
+			"mv_y": 14.4,
+			"mv_l": 5,
+			"mv_r": 0.5,
+			"mv_g": 0.5,
+			"mv_b": 0.5,
+			"mv_a": 0,
+			"b1ed": 0.2
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"additive": 1,
+					"textured": 1,
+					"x": 0.46,
+					"rad": 1.99863,
+					"tex_zoom": 0.48364,
+					"r": 0.9,
+					"g": 0.3,
+					"b": 0.6,
+					"a": 0.07,
+					"r2": 1,
+					"b2": 0.4,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "",
+		"pixel_eqs_eel": "xd = sin(time)*x-cos(time)*y;\nyd = cos(time)*x+sin(time)*y;\n\ndx=dx+.0015*sin(xd*20);\ndy=dy+.0015*sin(yd*20);\n\nrot=rot+.015*sin(time*.35+treb_att*.1);",
+		"warp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float ang) {\n    vec3 ret;\n    (ret = (texture(sampler_fw_main, uv)).xyz);\n    vec2 bl = vec2( (vec3 (0.034000) * (texture(sampler_main, vec2 (((((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)) + vec3 (sin(((ang * float (20)) + (0.100000 * time)))))))).xyz) );\n    (ret = vec3 (texture(sampler_main, (uv - bl))));\n    (ret = ((ret * vec3(0.870000, 0.986000, 0.980000)) - vec3 (0.002000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, ang);\n    ret = result.rgb;\n }",
+		"comp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = vec3 (texture(sampler_fw_main, uv)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }"
+	}
+}

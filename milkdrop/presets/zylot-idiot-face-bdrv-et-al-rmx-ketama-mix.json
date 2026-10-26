@@ -1,1 +1,124 @@
-{"schema":1,"id":"zylot-idiot-face-bdrv-et-al-rmx-ketama-mix","name":"Face BDRV et  AL  rmx ketama mix","author":"Zylot & Idiot","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20%26%20Idiot%20-%20Face%20BDRV%20et%20%20AL%20%20rmx%20ketama%20mix.milk","sourceSha1":"5bf8204d40ff34db775fcfc054a2ba2afce826a7","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":4,"gammaadj":1.98,"decay":0.94,"darken":1,"wave_a":0.001,"wave_scale":2.988,"fshader":1,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":32,"rad":0.18,"r":0,"b":0.6,"r2":1,"b2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"x=.2+.02*sin(time*3);\ny=.7+.02*sin(time*4);;\nrad=rad+.03*sin(bass);"},{"baseVals":{"enabled":1,"sides":32,"rad":0.18,"r":0,"b":1,"r2":1,"b2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"x=.8+.02*sin(time*3);\ny=.7+.02*sin(time*4);;\nrad=rad+.03*sin(Bass);"},{"baseVals":{"enabled":1,"sides":3,"rad":0.17,"g":0.7,"b":0.4,"r2":1,"g2":0.6,"b2":0.4,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang = 1.57+.2*sin(time*6);\nrad=rad+.08*sin(time*3);\ny = .63"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"spectrum":1,"usedots":1,"thick":1,"scaling":0.12032},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"y=.3+pow(value1*.01,.2);\nr=rand(10)*.1;\ng=rand(10)*.1;\nb=rand(10)*.1;\nx = if(equal(frame%2,0),.6 + -sample*.45,.4+sample*.45);\nx = if(above(sample,.2),x,-1);"},{"baseVals":{"enabled":1,"spectrum":1,"usedots":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"x = if(equal(frame%2,0),.6 + -sample*.45,.4+sample*.45);\ny=.5-pow(value2*.01,.2);\nr=rand(10)*.1;\ng=rand(10)*.1;\nb=rand(10)*.1;\nx = if(above(sample,.2),x,-1);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp = 0;","pixel_eqs_eel":"thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\n\nzoom = zoom + 1.2*abs(2*dy_r*(1.5*(sin(2*bass_att)*(0.5-rad)*sin(8*ang))*bass_att*4));\nzoom = zoom - 1.2*abs(2*dx_r*(1.5*(sin(4*bass_att)*(1-rad)*sin(8*ang))*bass_att*4));\n\nrot = rot + 2*(dy_r*(2.5*(cos(3*bass_att)*0.5-rad*sin(12*rad))*bass_att));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "zylot-idiot-face-bdrv-et-al-rmx-ketama-mix",
+	"name": "Face BDRV et  AL  rmx ketama mix",
+	"author": "Zylot & Idiot",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20%26%20Idiot%20-%20Face%20BDRV%20et%20%20AL%20%20rmx%20ketama%20mix.milk",
+	"sourceSha1": "5bf8204d40ff34db775fcfc054a2ba2afce826a7",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 1.98,
+			"decay": 0.94,
+			"darken": 1,
+			"wave_a": 0.001,
+			"wave_scale": 2.988,
+			"fshader": 1,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 32,
+					"rad": 0.18,
+					"r": 0,
+					"b": 0.6,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=.2+.02*sin(time*3);\ny=.7+.02*sin(time*4);;\nrad=rad+.03*sin(bass);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 32,
+					"rad": 0.18,
+					"r": 0,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=.8+.02*sin(time*3);\ny=.7+.02*sin(time*4);;\nrad=rad+.03*sin(Bass);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 3,
+					"rad": 0.17,
+					"g": 0.7,
+					"b": 0.4,
+					"r2": 1,
+					"g2": 0.6,
+					"b2": 0.4,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang = 1.57+.2*sin(time*6);\nrad=rad+.08*sin(time*3);\ny = .63"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"spectrum": 1,
+					"usedots": 1,
+					"thick": 1,
+					"scaling": 0.12032
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "y=.3+pow(value1*.01,.2);\nr=rand(10)*.1;\ng=rand(10)*.1;\nb=rand(10)*.1;\nx = if(equal(frame%2,0),.6 + -sample*.45,.4+sample*.45);\nx = if(above(sample,.2),x,-1);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"spectrum": 1,
+					"usedots": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "x = if(equal(frame%2,0),.6 + -sample*.45,.4+sample*.45);\ny=.5-pow(value2*.01,.2);\nr=rand(10)*.1;\ng=rand(10)*.1;\nb=rand(10)*.1;\nx = if(above(sample,.2),x,-1);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp = 0;",
+		"pixel_eqs_eel": "thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\n\nzoom = zoom + 1.2*abs(2*dy_r*(1.5*(sin(2*bass_att)*(0.5-rad)*sin(8*ang))*bass_att*4));\nzoom = zoom - 1.2*abs(2*dx_r*(1.5*(sin(4*bass_att)*(1-rad)*sin(8*ang))*bass_att*4));\n\nrot = rot + 2*(dy_r*(2.5*(cos(3*bass_att)*0.5-rad*sin(12*rad))*bass_att));",
+		"warp": "",
+		"comp": ""
+	}
+}

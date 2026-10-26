@@ -1,1 +1,105 @@
-{"schema":1,"id":"nil-vortex-of-vortices","name":"Vortex of Vortices","author":"nil","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/nil%20-%20Vortex%20of%20Vortices.milk","sourceSha1":"58fb4195d216fca3ac5637b28e15e282f8ad797c","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.998,"echo_zoom":7.113829,"echo_alpha":0.470001,"echo_orient":2,"additivewave":1,"wave_thick":1,"modwavealphabyvolume":1,"wave_brighten":0,"wave_a":4.099998,"wave_scale":3.985613,"wave_smoothing":0,"modwavealphastart":0.09,"modwavealphaend":0.82,"warpscale":1.331,"warp":0.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0.04,"ob_r":0.01,"ob_a":0.2,"ib_size":0.0035,"ib_a":0.7,"mv_x":3.615999,"mv_y":3.720001,"mv_l":0.35,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r=sin(time*2.345);\nwave_g=sin(time*1.456);\nwave_b=sin(time*1.789);","pixel_eqs_eel":"zoom=zoom+if(above(rad,.666),rad*.01,rad*.1)+sin(ang+time*.534)*.2;\nrot=sin((rad+time*.666+bass_att*.2)*9)*.2;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "nil-vortex-of-vortices",
+	"name": "Vortex of Vortices",
+	"author": "nil",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/nil%20-%20Vortex%20of%20Vortices.milk",
+	"sourceSha1": "58fb4195d216fca3ac5637b28e15e282f8ad797c",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.998,
+			"echo_zoom": 7.113829,
+			"echo_alpha": 0.470001,
+			"echo_orient": 2,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wave_a": 4.099998,
+			"wave_scale": 3.985613,
+			"wave_smoothing": 0,
+			"modwavealphastart": 0.09,
+			"modwavealphaend": 0.82,
+			"warpscale": 1.331,
+			"warp": 0.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0.04,
+			"ob_r": 0.01,
+			"ob_a": 0.2,
+			"ib_size": 0.0035,
+			"ib_a": 0.7,
+			"mv_x": 3.615999,
+			"mv_y": 3.720001,
+			"mv_l": 0.35,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r=sin(time*2.345);\nwave_g=sin(time*1.456);\nwave_b=sin(time*1.789);",
+		"pixel_eqs_eel": "zoom=zoom+if(above(rad,.666),rad*.01,rad*.1)+sin(ang+time*.534)*.2;\nrot=sin((rad+time*.666+bass_att*.2)*9)*.2;",
+		"warp": "",
+		"comp": ""
+	}
+}

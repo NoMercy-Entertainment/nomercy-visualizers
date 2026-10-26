@@ -1,1 +1,114 @@
-{"schema":1,"id":"rovastar-che-definitly-not-for-the-epileptic-inner-perspective-of-life-mix","name":"Definitly Not For The Epileptic (Inner Perspective Of Life Mix)","author":"Rovastar & Che","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20%26%20Che%20-%20Definitly%20Not%20For%20The%20Epileptic%20(Inner%20Perspective%20Of%20Life%20Mix).milk","sourceSha1":"fdeac568d485550e83cda08296e6d28a82c9bbe7","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1,"decay":1,"echo_zoom":1.0004,"wave_mode":1,"additivewave":1,"wave_dots":1,"wave_thick":1,"modwavealphabyvolume":1,"darken_center":1,"darken":1,"wave_a":1.00573,"wave_scale":0.28209,"wave_smoothing":0,"modwavealphastart":1.489999,"modwavealphaend":0.75,"warpscale":1.331,"zoomexp":0.690737,"fshader":1,"zoom":2.380962,"cx":0.4999,"cy":0.4999,"dx":0.2,"dy":0.2,"warp":0.01,"sx":0.463935,"sy":0.535239,"wave_r":0,"wave_b":0,"ob_size":0.03,"ob_a":1,"ib_size":0.005,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":1.248},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"// che's sensor - alpha\nle=1.4*bass_att+.1*bass+.5*treb;\npulse=band(above(le,th),above(le-th,block));\nblock=le-th;\nth=if(above(le,th),le+114/(le+10)-7.407,\nth+th*.07/(th-12)+below(th,2.7)*.1*(2.7-th));\n\ncycle=if(pulse,cycle+1,cycle);\nq1=cycle;\n\nwave_r = 0.5 + 0.350*( 0.60*sin(0.825*time) + 0.40*sin(0.915*time) );\nwave_g = 0.5+ 0.350*( 0.60*sin(0.900*time) + 0.40*sin(1.025*time) );\nwave_b = 0.5 + 0.350*( 0.60*sin(0.810*time) + 0.40*sin(0.950*time) );\nmv_r= 0.5 + 0.350*( 0.60*sin(0.900*time) + 0.40*sin(0.750*time) );\nmv_g= 0.5+ 0.350*( 0.60*sin(0.825*time) + 0.40*sin(0.950*time) );\nmv_b= 0.5 + 0.350*( 0.60*sin(0.775*time) + 0.40*sin(1.025*time) );\nib_r=mv_b;\nib_b=1-mv_g;\nib_g=wave_r;\nob_b=mv_r;\nob_r=0.5*(wave_b + wave_g);\nob_g=0.5*(wave_r+mv_b);\nzoom = zoom-(0.10-(.5*th+.2*le+pulse))*0.1;\nwarp = 0;","pixel_eqs_eel":"rot = -ang+sin(q1);\nzoom = zoom - rot*.08;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-che-definitly-not-for-the-epileptic-inner-perspective-of-life-mix",
+	"name": "Definitly Not For The Epileptic (Inner Perspective Of Life Mix)",
+	"author": "Rovastar & Che",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20%26%20Che%20-%20Definitly%20Not%20For%20The%20Epileptic%20(Inner%20Perspective%20Of%20Life%20Mix).milk",
+	"sourceSha1": "fdeac568d485550e83cda08296e6d28a82c9bbe7",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1.0004,
+			"wave_mode": 1,
+			"additivewave": 1,
+			"wave_dots": 1,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"darken_center": 1,
+			"darken": 1,
+			"wave_a": 1.00573,
+			"wave_scale": 0.28209,
+			"wave_smoothing": 0,
+			"modwavealphastart": 1.489999,
+			"modwavealphaend": 0.75,
+			"warpscale": 1.331,
+			"zoomexp": 0.690737,
+			"fshader": 1,
+			"zoom": 2.380962,
+			"cx": 0.4999,
+			"cy": 0.4999,
+			"dx": 0.2,
+			"dy": 0.2,
+			"warp": 0.01,
+			"sx": 0.463935,
+			"sy": 0.535239,
+			"wave_r": 0,
+			"wave_b": 0,
+			"ob_size": 0.03,
+			"ob_a": 1,
+			"ib_size": 0.005,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 1.248
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "// che's sensor - alpha\nle=1.4*bass_att+.1*bass+.5*treb;\npulse=band(above(le,th),above(le-th,block));\nblock=le-th;\nth=if(above(le,th),le+114/(le+10)-7.407,\nth+th*.07/(th-12)+below(th,2.7)*.1*(2.7-th));\n\ncycle=if(pulse,cycle+1,cycle);\nq1=cycle;\n\nwave_r = 0.5 + 0.350*( 0.60*sin(0.825*time) + 0.40*sin(0.915*time) );\nwave_g = 0.5+ 0.350*( 0.60*sin(0.900*time) + 0.40*sin(1.025*time) );\nwave_b = 0.5 + 0.350*( 0.60*sin(0.810*time) + 0.40*sin(0.950*time) );\nmv_r= 0.5 + 0.350*( 0.60*sin(0.900*time) + 0.40*sin(0.750*time) );\nmv_g= 0.5+ 0.350*( 0.60*sin(0.825*time) + 0.40*sin(0.950*time) );\nmv_b= 0.5 + 0.350*( 0.60*sin(0.775*time) + 0.40*sin(1.025*time) );\nib_r=mv_b;\nib_b=1-mv_g;\nib_g=wave_r;\nob_b=mv_r;\nob_r=0.5*(wave_b + wave_g);\nob_g=0.5*(wave_r+mv_b);\nzoom = zoom-(0.10-(.5*th+.2*le+pulse))*0.1;\nwarp = 0;",
+		"pixel_eqs_eel": "rot = -ang+sin(q1);\nzoom = zoom - rot*.08;",
+		"warp": "",
+		"comp": ""
+	}
+}

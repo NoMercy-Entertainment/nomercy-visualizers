@@ -1,1 +1,131 @@
-{"schema":1,"id":"martin-butterflies","name":"butterflies","author":"martin","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/martin%20-%20butterflies.milk","sourceSha1":"4dda01c10dd980cc2b8a5f2943401c54ee6a0a2c","rights":"projectm-presets","textures":["clouds"],"preset":{"version":2,"baseVals":{"rating":4,"gammaadj":1.980001,"decay":0.5,"echo_zoom":0.999998,"echo_alpha":0.5,"echo_orient":3,"wave_mode":4,"additivewave":1,"wave_dots":1,"wave_thick":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"darken":1,"wave_a":0.001,"wave_scale":0.5274,"wave_smoothing":0.45,"modwavealphastart":0,"modwavealphaend":1.32,"warpanimspeed":1.4595,"warpscale":2.0067,"zoom":0.9999,"warp":0.01,"sx":0.9999,"wave_r":0.8,"wave_g":0.49,"ob_size":0.015,"ob_a":1,"ib_size":0.26,"mv_x":64,"mv_y":48,"mv_l":1.85,"mv_r":0.4999,"mv_g":0.4999,"mv_b":0.4999,"mv_a":0,"b1ed":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"samples":282,"sep":20,"additive":1,"scaling":7.858,"smoothing":0.1,"r":0.2,"g":0.3,"a":0.25},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"x = .2+sample/2; y = 0.5;\n\nr = .5 + .2*sin(time/17);\ng = .5 + .2*sin(time/23);\nb = .5 + .2*sin(time/11);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"xk = 0;","frame_eqs_eel":"dec_med = pow (0.8, 30/fps);\ndec_slow = pow (0.95, 30/fps);\ndec_xlow = pow (0.995, 30/fps);\nbeat = max (max (bass, mid), treb); \navg = avg*dec_slow + beat*(1-dec_slow);\nis_beat = above(beat, .2+avg+peak) * above (time, t0+.2);\nt0 = is_beat*time + (1-is_beat)*t0;\npeak = is_beat * beat + (1-is_beat)*peak*dec_med;\nindex = (index + is_beat) %16;\nindex2 = (index2 + is_beat*bnot(index))%2;\n\nq21 = beat;\nq22 = peak;\nq23 = index;\nq24 = is_beat;\nq26 = bass_att + mid_att + treb_att;\nq27 = index + 1;\n\n\nk1 =  is_beat*equal(index%3,0);\np1 =  k1*(p1+1) + (1-k1)*p1;\np2 = dec_med * p2+ (1-dec_med)*p1;\nrott = p2 * 3.1416/4;\n\nq1 = cos(rott);\nq2 = sin(rott);\nq3 = -q2;\nq4 = q1;\n\ntrel = time/3;\nq5 = cos(trel);\nq6 = sin(trel);\nq7 = -q6;\nq8 = q5;\n\npuls = puls*dec_slow + q22*(1-dec_slow);\nq17 = min(8,puls+4)*31;\nq18 = .006 + .04*(sin(time/14)+1)/2; \nq19 = sin(time*1)*.05;\nq20 = cos(time*1.6)*.05;\n\nmonitor = q18;","pixel_eqs_eel":"","warp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec3 color, mus;\nfloat dx, dy;\nvec2 rs, rs0, uv1, c, tmp, zz, uvo;\nvec3 noise, ret1;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (uvo = uv_orig);\n    (uv1 = (uv_orig - vec2 (0.500000)));\n    float z = float( (float (1) / abs(((uv1).y + 0.300000))) );\n    ((rs).x = ((uv1).x * float (10)));\n    ((rs).y = (z * float (2)));\n    (rs0 = rs);\n    (rs *= vec2 (2));\n    (c = ((uv1 * vec2 (4)) + vec2((-0.500000), 0)));\n    (zz = c);\n    for ((n = 1); (n <= 6); (n++)) {\n        (tmp = zz);\n        ((zz).x = (((tmp).x * (tmp).x) - ((tmp).y * (tmp).y)));\n        ((zz).y = ((float (2) * (tmp).x) * (tmp).y));\n        (zz = (zz + c));\n    }\n    float len = float( dot(zz, zz) );\n    (ret = vec3 (((texture(sampler_noise_lq, (abs(zz) / vec2 (12))) * vec4 (0.150000)) / vec4 ((len + float (2))))));\n    (ret += vec3 (texture(sampler_fc_main, (uv + (zz * vec2 (q18))))));\n    (ret *= vec3 (1));\n    (ret = ((ret * vec3 (0.990000)) - vec3 (0.010000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }","comp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_clouds;\nuniform sampler2D sampler_pw_noise_lq;\nvec3 noise, noise1, bfly, neu, bush;\nvec2 rs, uv1, dz, uvo;\nfloat k, z0, z, dk, hinten;\nvec4 main_shader_sentinel(vec2 uv, vec2 uv_orig) {\n    vec3 ret;\n    (uvo = uv_orig);\n    (uv1 = (uv - vec2(0.500000, 1)));\n    (uv1 *= (aspect).xy);\n    (hinten = (float (1) / ((uv1).y - 0.100000)));\n    (hinten = clamp(hinten, float ((-6)), float (0)));\n    (bfly = vec3 (0));\n    float trel = float( time );\n    for ((n = 1); (n <= 2); (n++)) {\n        (k = float (0));\n        (z0 = (float (n) * 1.500000));\n        ((rs).x = ((((uv1).x * z0) * hinten) + float ((n / 4))));\n        ((rs).y = ((z0 * hinten) - trel));\n        (noise1 = vec3 (texture(sampler_pw_noise_lq, (rs / vec2 (256)))));\n        (k += (0.400000 * sin(((time * float (16)) * (0.500000 + (noise1).r)))));\n        (z = ((k * abs((fract((rs).x) - 0.500000))) + z0));\n        (z -= (0.040000 * k));\n        ((rs).y = ((z * hinten) - trel));\n        (rs = fract((rs).yx));\n        (neu = ((((texture(sampler_blur1, rs)).xyz * vec3 (scale1)) + vec3 (bias1)) - (vec3 ((float (1) - (q18 * float (16)))) * (((texture(sampler_blur2, rs)).xyz * vec3 (scale2)) + vec3 (bias2)))));\n        (neu *= (((normalize(noise1) * vec3 (8)) * vec3 (clamp((float (6) + hinten), 0.0, 1.0))) / vec3 (hinten)));\n        (bfly += ((abs(neu) * vec3 ((dot(noise1, vec3(0.320000, 0.490000, 0.290000)) >= 0.860000))) * vec3 ((hinten <= float (0)))));\n    }\n    vec2 uv4 = vec2( uv1 );\n    float z4 = float( clamp((float (1) / abs(((uv4).y - 0.100000))), float ((-0)), float (18)) );\n    (rs = (vec2(((uv4).x * z4), ((z4 * float (2)) + time)) / vec2 (12)));\n    vec3 clouds = vec3( dot(texture(sampler_noise_hq, (rs + vec2 ((0.000000 * time)))), vec4 (vec3(0.320000, 0.490000, 0.290000), 0)) );\n    (clouds *= vec3 (clamp((float (1) - (uv).y), 0.0, 1.0)));\n    (clouds *= (vec3(0.400000, 0.700000, (float (1) - (uv4).y)) * vec3 (0.500000)));\n    (bush = vec3 (0));\n    for ((n = 0); (n <= 1); (n++)) {\n        vec2 uv5 = vec2( (uv1 + vec2(0, (float ((-n)) * 0.040000))) );\n        ((uv5).x += (((uv).y * 1.050000) * ((q19 * float ((n % 2))) + (q20 * float (((n + 1) % 2))))));\n        (neu = vec3 (((abs((uv5).y) * (float (1) + (texture(sampler_noise_lq, vec2(((uv5).x * float (2)), ((uv5).y * float (4))))).g)) * (float (3) + (float (2) * (texture(sampler_noise_hq, vec2 ((((uv5).x / float (2)) * float ((1 + (n % 2))))))).g)))));\n        (neu = (clamp(((vec3 (0.200000) * neu) - vec3 (0.400000)), 0.0, 1.0) * vec3 (clamp((float ((-8)) * (uv5).y), 0.0, 1.0))));\n        float red = float( (vec4 (0.500000) + (vec4 (0.500000) * texture(sampler_noise_hq, (uv5 * vec2 (2))))) );\n        float vis = float( clamp(((vec4 (4) * texture(sampler_noise_hq, (uv5 * vec2 (8)))) * texture(sampler_noise_hq, (uv5 * vec2 (24)))), 0.0, 1.0) );\n        (neu *= (vec3((float (2) * red), 1, 0.200000) * vec3 (vis)));\n        (bush = max(bush, neu));\n    }\n    vec3 scene = vec3( (clamp((clouds * (vec3 (1) - (vec3 (32) * bush))), 0.0, 1.0) + bush) );\n    (ret = ((scene * clamp((vec3 (1) - (vec3 (8) * bfly)), 0.0, 1.0)) + bfly));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, uv_orig);\n    ret = result.rgb;\n }"}}
+{
+	"schema": 1,
+	"id": "martin-butterflies",
+	"name": "butterflies",
+	"author": "martin",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/martin%20-%20butterflies.milk",
+	"sourceSha1": "4dda01c10dd980cc2b8a5f2943401c54ee6a0a2c",
+	"rights": "projectm-presets",
+	"textures": [
+		"clouds"
+	],
+	"preset": {
+		"version": 2,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 1.980001,
+			"decay": 0.5,
+			"echo_zoom": 0.999998,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_mode": 4,
+			"additivewave": 1,
+			"wave_dots": 1,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"darken": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.5274,
+			"wave_smoothing": 0.45,
+			"modwavealphastart": 0,
+			"modwavealphaend": 1.32,
+			"warpanimspeed": 1.4595,
+			"warpscale": 2.0067,
+			"zoom": 0.9999,
+			"warp": 0.01,
+			"sx": 0.9999,
+			"wave_r": 0.8,
+			"wave_g": 0.49,
+			"ob_size": 0.015,
+			"ob_a": 1,
+			"ib_size": 0.26,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 1.85,
+			"mv_r": 0.4999,
+			"mv_g": 0.4999,
+			"mv_b": 0.4999,
+			"mv_a": 0,
+			"b1ed": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"samples": 282,
+					"sep": 20,
+					"additive": 1,
+					"scaling": 7.858,
+					"smoothing": 0.1,
+					"r": 0.2,
+					"g": 0.3,
+					"a": 0.25
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "x = .2+sample/2; y = 0.5;\n\nr = .5 + .2*sin(time/17);\ng = .5 + .2*sin(time/23);\nb = .5 + .2*sin(time/11);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "xk = 0;",
+		"frame_eqs_eel": "dec_med = pow (0.8, 30/fps);\ndec_slow = pow (0.95, 30/fps);\ndec_xlow = pow (0.995, 30/fps);\nbeat = max (max (bass, mid), treb); \navg = avg*dec_slow + beat*(1-dec_slow);\nis_beat = above(beat, .2+avg+peak) * above (time, t0+.2);\nt0 = is_beat*time + (1-is_beat)*t0;\npeak = is_beat * beat + (1-is_beat)*peak*dec_med;\nindex = (index + is_beat) %16;\nindex2 = (index2 + is_beat*bnot(index))%2;\n\nq21 = beat;\nq22 = peak;\nq23 = index;\nq24 = is_beat;\nq26 = bass_att + mid_att + treb_att;\nq27 = index + 1;\n\n\nk1 =  is_beat*equal(index%3,0);\np1 =  k1*(p1+1) + (1-k1)*p1;\np2 = dec_med * p2+ (1-dec_med)*p1;\nrott = p2 * 3.1416/4;\n\nq1 = cos(rott);\nq2 = sin(rott);\nq3 = -q2;\nq4 = q1;\n\ntrel = time/3;\nq5 = cos(trel);\nq6 = sin(trel);\nq7 = -q6;\nq8 = q5;\n\npuls = puls*dec_slow + q22*(1-dec_slow);\nq17 = min(8,puls+4)*31;\nq18 = .006 + .04*(sin(time/14)+1)/2; \nq19 = sin(time*1)*.05;\nq20 = cos(time*1.6)*.05;\n\nmonitor = q18;",
+		"pixel_eqs_eel": "",
+		"warp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec3 color, mus;\nfloat dx, dy;\nvec2 rs, rs0, uv1, c, tmp, zz, uvo;\nvec3 noise, ret1;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (uvo = uv_orig);\n    (uv1 = (uv_orig - vec2 (0.500000)));\n    float z = float( (float (1) / abs(((uv1).y + 0.300000))) );\n    ((rs).x = ((uv1).x * float (10)));\n    ((rs).y = (z * float (2)));\n    (rs0 = rs);\n    (rs *= vec2 (2));\n    (c = ((uv1 * vec2 (4)) + vec2((-0.500000), 0)));\n    (zz = c);\n    for ((n = 1); (n <= 6); (n++)) {\n        (tmp = zz);\n        ((zz).x = (((tmp).x * (tmp).x) - ((tmp).y * (tmp).y)));\n        ((zz).y = ((float (2) * (tmp).x) * (tmp).y));\n        (zz = (zz + c));\n    }\n    float len = float( dot(zz, zz) );\n    (ret = vec3 (((texture(sampler_noise_lq, (abs(zz) / vec2 (12))) * vec4 (0.150000)) / vec4 ((len + float (2))))));\n    (ret += vec3 (texture(sampler_fc_main, (uv + (zz * vec2 (q18))))));\n    (ret *= vec3 (1));\n    (ret = ((ret * vec3 (0.990000)) - vec3 (0.010000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }",
+		"comp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_clouds;\nuniform sampler2D sampler_pw_noise_lq;\nvec3 noise, noise1, bfly, neu, bush;\nvec2 rs, uv1, dz, uvo;\nfloat k, z0, z, dk, hinten;\nvec4 main_shader_sentinel(vec2 uv, vec2 uv_orig) {\n    vec3 ret;\n    (uvo = uv_orig);\n    (uv1 = (uv - vec2(0.500000, 1)));\n    (uv1 *= (aspect).xy);\n    (hinten = (float (1) / ((uv1).y - 0.100000)));\n    (hinten = clamp(hinten, float ((-6)), float (0)));\n    (bfly = vec3 (0));\n    float trel = float( time );\n    for ((n = 1); (n <= 2); (n++)) {\n        (k = float (0));\n        (z0 = (float (n) * 1.500000));\n        ((rs).x = ((((uv1).x * z0) * hinten) + float ((n / 4))));\n        ((rs).y = ((z0 * hinten) - trel));\n        (noise1 = vec3 (texture(sampler_pw_noise_lq, (rs / vec2 (256)))));\n        (k += (0.400000 * sin(((time * float (16)) * (0.500000 + (noise1).r)))));\n        (z = ((k * abs((fract((rs).x) - 0.500000))) + z0));\n        (z -= (0.040000 * k));\n        ((rs).y = ((z * hinten) - trel));\n        (rs = fract((rs).yx));\n        (neu = ((((texture(sampler_blur1, rs)).xyz * vec3 (scale1)) + vec3 (bias1)) - (vec3 ((float (1) - (q18 * float (16)))) * (((texture(sampler_blur2, rs)).xyz * vec3 (scale2)) + vec3 (bias2)))));\n        (neu *= (((normalize(noise1) * vec3 (8)) * vec3 (clamp((float (6) + hinten), 0.0, 1.0))) / vec3 (hinten)));\n        (bfly += ((abs(neu) * vec3 ((dot(noise1, vec3(0.320000, 0.490000, 0.290000)) >= 0.860000))) * vec3 ((hinten <= float (0)))));\n    }\n    vec2 uv4 = vec2( uv1 );\n    float z4 = float( clamp((float (1) / abs(((uv4).y - 0.100000))), float ((-0)), float (18)) );\n    (rs = (vec2(((uv4).x * z4), ((z4 * float (2)) + time)) / vec2 (12)));\n    vec3 clouds = vec3( dot(texture(sampler_noise_hq, (rs + vec2 ((0.000000 * time)))), vec4 (vec3(0.320000, 0.490000, 0.290000), 0)) );\n    (clouds *= vec3 (clamp((float (1) - (uv).y), 0.0, 1.0)));\n    (clouds *= (vec3(0.400000, 0.700000, (float (1) - (uv4).y)) * vec3 (0.500000)));\n    (bush = vec3 (0));\n    for ((n = 0); (n <= 1); (n++)) {\n        vec2 uv5 = vec2( (uv1 + vec2(0, (float ((-n)) * 0.040000))) );\n        ((uv5).x += (((uv).y * 1.050000) * ((q19 * float ((n % 2))) + (q20 * float (((n + 1) % 2))))));\n        (neu = vec3 (((abs((uv5).y) * (float (1) + (texture(sampler_noise_lq, vec2(((uv5).x * float (2)), ((uv5).y * float (4))))).g)) * (float (3) + (float (2) * (texture(sampler_noise_hq, vec2 ((((uv5).x / float (2)) * float ((1 + (n % 2))))))).g)))));\n        (neu = (clamp(((vec3 (0.200000) * neu) - vec3 (0.400000)), 0.0, 1.0) * vec3 (clamp((float ((-8)) * (uv5).y), 0.0, 1.0))));\n        float red = float( (vec4 (0.500000) + (vec4 (0.500000) * texture(sampler_noise_hq, (uv5 * vec2 (2))))) );\n        float vis = float( clamp(((vec4 (4) * texture(sampler_noise_hq, (uv5 * vec2 (8)))) * texture(sampler_noise_hq, (uv5 * vec2 (24)))), 0.0, 1.0) );\n        (neu *= (vec3((float (2) * red), 1, 0.200000) * vec3 (vis)));\n        (bush = max(bush, neu));\n    }\n    vec3 scene = vec3( (clamp((clouds * (vec3 (1) - (vec3 (32) * bush))), 0.0, 1.0) + bush) );\n    (ret = ((scene * clamp((vec3 (1) - (vec3 (8) * bfly)), 0.0, 1.0)) + bfly));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, uv_orig);\n    ret = result.rgb;\n }"
+	}
+}

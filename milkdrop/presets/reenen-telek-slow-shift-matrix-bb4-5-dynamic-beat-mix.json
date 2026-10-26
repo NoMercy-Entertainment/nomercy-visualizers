@@ -1,1 +1,140 @@
-{"schema":1,"id":"reenen-telek-slow-shift-matrix-bb4-5-dynamic-beat-mix","name":"Slow Shift Matrix (bb4.5 (Dynamic Beat) Mix)","author":"Reenen & Telek","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Reenen%20%26%20Telek%20-%20Slow%20Shift%20Matrix%20(bb4.5%20(Dynamic%20Beat)%20Mix).milk","sourceSha1":"303c55a4d69ebb02a2337579dbc235fbfad83e6f","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.9,"echo_zoom":1,"echo_orient":3,"wave_mode":3,"additivewave":1,"wave_a":0.001645,"wave_scale":0.3873,"wave_smoothing":0.63,"wave_mystery":1,"modwavealphastart":2,"modwavealphaend":2,"warpanimspeed":43.865211,"warpscale":3.645675,"warp":0.001,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0,"ob_b":0.3,"ob_a":1,"ib_size":0.05,"ib_r":1,"ib_a":1,"mv_x":0,"mv_y":48,"mv_dx":-0.941273,"mv_dy":0.426319,"mv_l":5,"mv_r":0.315997,"mv_g":0.078173,"mv_b":0.941976,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":44,"additive":1,"textured":1,"rad":0.662305,"tex_zoom":0.999996,"g":1,"b":1,"a":0.7,"r2":1,"b2":1,"border_a":0},"init_eqs_eel":"ox = 0.5;\noy = 0.5;","frame_eqs_eel":"btime = btime + min(bass*0.1,0.05);\nang = btime*.1;\nr = abs(sin(time*1.4+5));\ng = abs(sin(time*1.6+3));\nb = abs(sin(time*1.8+1));\nbt = btime*sign(sin(time/fps));\nx = ox + 0.01*sin(bt) + 0.005*sin(bt+bass);\nx = if(above(x,1),1+(1-x),x);\ny = oy + 0.01*cos(bt) + 0.005*cos(bt+bass);\ny = if(above(y,1),1+(1-y),y);\nx = if(below(x,0),-x,x);\ny = if(below(y,0),-y,y);\nox = x;\noy = y;"},{"baseVals":{"enabled":1,"sides":33,"additive":1,"rad":0.54279,"r":0.5,"g":0.5,"b":0.5,"a":0.7,"r2":0.4999,"g2":0.5,"b2":0.5,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"bv = treb*.1+.7*bv;\ntt=tt+bv*0.05;\nr = r+0.2*sin(tt*1.4+5);\ng = g+0.2*sin(tt*1.6+3);\nb = b+0.2*sin(tt*1.8+1);\nr2 = r;\nb2 = b;\ng2 = g;\nx = 0.5 + 0.3*sin(tt) + 0.1*sin(time);\ny = 0.5 + 0.3*cos(tt) + 0.1*cos(time);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"tt = rand(10000);","frame_eqs_eel":"warp = 0;\nrate = fps/(fps+2);\nbv = bass*.1+.7*bv;\ntt=tt+bv*0.05;\n\nbeat = above(bass*bass_att,bthresh);\nbthresh = beat*15 + (1-beat)*((bthresh - 4.5)*rate + 4.5);\n\nbeat2 = above(mid,bthresh2);\nbthresh2 = beat2*15 + (1-beat2)*((bthresh2 - 1.5)*rate + 1.5);\n\nwarp = beat2*3 + (1-beat2)*ow;\now = warp*rate*rate;\n\ntt = if(beat,rand(32768),tt);\nwave_x =-1;\ndx = .3*sin(tt*.12)+10*sin(tt*.015);\ndy = .39*sin(tt*.21)+20*sin(tt*.041);\nrot = 1*sin(tt*.15);\ncx = sin(tt*.16)*.5+.5;\ncy = cos(tt*.46)*.5+.5;\nib_r = sin(tt*.51)*.5+.5;\nib_g = sin(tt*.71)*.5+.5;\nib_b = sin(tt*.81)*.5+.5;\nib_a = 1-pow(.5,(mid_att + bass_att + treb_att)/3);\nmonitor = 1-pow(.5,mid_att + bass_att + treb_att);","pixel_eqs_eel":"zoom = .8-.2*pow(1-rad,1);\n//cx = q8*(0&(x*10-0.5))*0.1+0.05;\n//cy = q8*(0&(y*10-0.5))*0.1+0.05;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "reenen-telek-slow-shift-matrix-bb4-5-dynamic-beat-mix",
+	"name": "Slow Shift Matrix (bb4.5 (Dynamic Beat) Mix)",
+	"author": "Reenen & Telek",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Reenen%20%26%20Telek%20-%20Slow%20Shift%20Matrix%20(bb4.5%20(Dynamic%20Beat)%20Mix).milk",
+	"sourceSha1": "303c55a4d69ebb02a2337579dbc235fbfad83e6f",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.9,
+			"echo_zoom": 1,
+			"echo_orient": 3,
+			"wave_mode": 3,
+			"additivewave": 1,
+			"wave_a": 0.001645,
+			"wave_scale": 0.3873,
+			"wave_smoothing": 0.63,
+			"wave_mystery": 1,
+			"modwavealphastart": 2,
+			"modwavealphaend": 2,
+			"warpanimspeed": 43.865211,
+			"warpscale": 3.645675,
+			"warp": 0.001,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0,
+			"ob_b": 0.3,
+			"ob_a": 1,
+			"ib_size": 0.05,
+			"ib_r": 1,
+			"ib_a": 1,
+			"mv_x": 0,
+			"mv_y": 48,
+			"mv_dx": -0.941273,
+			"mv_dy": 0.426319,
+			"mv_l": 5,
+			"mv_r": 0.315997,
+			"mv_g": 0.078173,
+			"mv_b": 0.941976,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 44,
+					"additive": 1,
+					"textured": 1,
+					"rad": 0.662305,
+					"tex_zoom": 0.999996,
+					"g": 1,
+					"b": 1,
+					"a": 0.7,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "ox = 0.5;\noy = 0.5;",
+				"frame_eqs_eel": "btime = btime + min(bass*0.1,0.05);\nang = btime*.1;\nr = abs(sin(time*1.4+5));\ng = abs(sin(time*1.6+3));\nb = abs(sin(time*1.8+1));\nbt = btime*sign(sin(time/fps));\nx = ox + 0.01*sin(bt) + 0.005*sin(bt+bass);\nx = if(above(x,1),1+(1-x),x);\ny = oy + 0.01*cos(bt) + 0.005*cos(bt+bass);\ny = if(above(y,1),1+(1-y),y);\nx = if(below(x,0),-x,x);\ny = if(below(y,0),-y,y);\nox = x;\noy = y;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 33,
+					"additive": 1,
+					"rad": 0.54279,
+					"r": 0.5,
+					"g": 0.5,
+					"b": 0.5,
+					"a": 0.7,
+					"r2": 0.4999,
+					"g2": 0.5,
+					"b2": 0.5,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "bv = treb*.1+.7*bv;\ntt=tt+bv*0.05;\nr = r+0.2*sin(tt*1.4+5);\ng = g+0.2*sin(tt*1.6+3);\nb = b+0.2*sin(tt*1.8+1);\nr2 = r;\nb2 = b;\ng2 = g;\nx = 0.5 + 0.3*sin(tt) + 0.1*sin(time);\ny = 0.5 + 0.3*cos(tt) + 0.1*cos(time);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "tt = rand(10000);",
+		"frame_eqs_eel": "warp = 0;\nrate = fps/(fps+2);\nbv = bass*.1+.7*bv;\ntt=tt+bv*0.05;\n\nbeat = above(bass*bass_att,bthresh);\nbthresh = beat*15 + (1-beat)*((bthresh - 4.5)*rate + 4.5);\n\nbeat2 = above(mid,bthresh2);\nbthresh2 = beat2*15 + (1-beat2)*((bthresh2 - 1.5)*rate + 1.5);\n\nwarp = beat2*3 + (1-beat2)*ow;\now = warp*rate*rate;\n\ntt = if(beat,rand(32768),tt);\nwave_x =-1;\ndx = .3*sin(tt*.12)+10*sin(tt*.015);\ndy = .39*sin(tt*.21)+20*sin(tt*.041);\nrot = 1*sin(tt*.15);\ncx = sin(tt*.16)*.5+.5;\ncy = cos(tt*.46)*.5+.5;\nib_r = sin(tt*.51)*.5+.5;\nib_g = sin(tt*.71)*.5+.5;\nib_b = sin(tt*.81)*.5+.5;\nib_a = 1-pow(.5,(mid_att + bass_att + treb_att)/3);\nmonitor = 1-pow(.5,mid_att + bass_att + treb_att);",
+		"pixel_eqs_eel": "zoom = .8-.2*pow(1-rad,1);\n//cx = q8*(0&(x*10-0.5))*0.1+0.05;\n//cy = q8*(0&(y*10-0.5))*0.1+0.05;",
+		"warp": "",
+		"comp": ""
+	}
+}

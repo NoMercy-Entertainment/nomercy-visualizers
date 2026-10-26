@@ -1,1 +1,135 @@
-{"schema":1,"id":"shifter-eo-s-phat-fractical-dancer-inside-the-neural-net","name":"Fractical dancer (inside the neural net)","author":"Shifter & Eo.S+Phat","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Shifter%20%26%20Eo.S%2BPhat%20-%20Fractical%20dancer%20(inside%20the%20neural%20net).milk","sourceSha1":"8c6b7489f7121fe25d74e73841f82ce1c2881de5","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":4,"gammaadj":1,"decay":0.94,"echo_zoom":1.10443,"echo_alpha":0.85,"echo_orient":3,"additivewave":1,"wave_brighten":0,"brighten":1,"darken":1,"wave_a":0.001,"wave_scale":0.01,"wave_smoothing":0.63,"wave_mystery":-1,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpanimspeed":0.796895,"warpscale":1.331,"zoomexp":0.741798,"zoom":13.290894,"dx":-0.28,"dy":-0.32,"warp":0.094414,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0.02,"ib_size":0.05,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":5,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":100,"rad":0.49138,"r2":0.3,"g2":0,"b2":0.5,"a2":0.05,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"rad = rad*q6;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"sides":24,"rad":0.2216,"tex_zoom":0.136686,"g":1,"b":1,"r2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"rad = rad*q6;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"tic = time - tir;\ntir = time;\n\nmixa = (mixa + q1*tic)*below(mixa,10000);\nt1 = mixa - int(mixa);\nmixb = (mixb + q2*tic)*below(mixb,10000);\nt2 = mixb - int(mixb);\nmixc = (mixc + q3*tic)*below(mixc,10000);\nt3 = mixc - int(mixc);","point_eqs_eel":"it = (it+1)*above(sample,0);\n\ndc = (dc + equal(it%48,0))*above(sample,0);\n\nlx = t1*equal(dc,0) + (1-t3)*(equal(dc,2) + equal(dc,1)) + t2*equal(dc,3);\nly = 0 + (equal(dc,1) + equal(dc,3))*.975;\n\nmx = equal((it+6)%6,0)*-.1 + equal((it+1)%6,0)*-.1 + equal((it+4)%6,0)*.1 + equal((it+3)%6,0)*.1;\nmy = (my + equal((it+3)%6,0)*.01 + equal((it)%6,0)*.01)*(above(sample,0) - equal((it*.5)%48,0));\n\nx = if(below(dc,2),lx + mx*.2,ly + my*.1);\ny = if(below(dc,2),ly + my*.1,lx + mx*.2);\n\nb = 1;\nr = equal(mx,0)*.8;\ng = equal(mx,0)*1;\na = equal(mx,0)*below(dc,4);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"zoom=1;\nxpos=0;\nypos=0;","frame_eqs_eel":"decay=1;\n\nwarp = 0;\n\ntic = min(time - tin,.1);\ntin = time;\n\nra = 10;\n\ntreb_avg = tic*(treb_avg*(1/tic - ra) + ra*treb);\nmid_avg = tic*(mid_avg*(1/tic - ra) + ra*mid);\nbass_avg = tic*(bass_avg*(1/tic - ra) + ra*bass);\n\nrb = 1;\nvav = tic*(vav*(1/tic - rb) + rb*(bass+treb+mid)*.33333);\n\nq1 = treb_avg;\nq2 = mid_avg;\nq3 = bass_avg;\nq4 = vav;\n\n\ntm = if(above(vav,tm),tm + tic,tm - tic*.3);\ntd = (td + tic*tm*4)*below(td,10000);\n\nq6 = .75 + sin(td)*.25;\nq7 = tm;","pixel_eqs_eel":"rd=sqrt( sqr((x-.5)*(1.5 + sin(time*.11)*.2)) + sqr((y-.5)*(3.5 + sin(time*.15)*.2)));\n\nsz = .01*q7;\n\nzoom=(rd*rd)/2.5 + sz - q6*sz;\n\nwarp = 2*q4 + max(1-rad*2,0)*8*3*q4;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "shifter-eo-s-phat-fractical-dancer-inside-the-neural-net",
+	"name": "Fractical dancer (inside the neural net)",
+	"author": "Shifter & Eo.S+Phat",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Shifter%20%26%20Eo.S%2BPhat%20-%20Fractical%20dancer%20(inside%20the%20neural%20net).milk",
+	"sourceSha1": "8c6b7489f7121fe25d74e73841f82ce1c2881de5",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 1,
+			"decay": 0.94,
+			"echo_zoom": 1.10443,
+			"echo_alpha": 0.85,
+			"echo_orient": 3,
+			"additivewave": 1,
+			"wave_brighten": 0,
+			"brighten": 1,
+			"darken": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.63,
+			"wave_mystery": -1,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpanimspeed": 0.796895,
+			"warpscale": 1.331,
+			"zoomexp": 0.741798,
+			"zoom": 13.290894,
+			"dx": -0.28,
+			"dy": -0.32,
+			"warp": 0.094414,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0.02,
+			"ib_size": 0.05,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 5,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"rad": 0.49138,
+					"r2": 0.3,
+					"g2": 0,
+					"b2": 0.5,
+					"a2": 0.05,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rad = rad*q6;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 24,
+					"rad": 0.2216,
+					"tex_zoom": 0.136686,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rad = rad*q6;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "tic = time - tir;\ntir = time;\n\nmixa = (mixa + q1*tic)*below(mixa,10000);\nt1 = mixa - int(mixa);\nmixb = (mixb + q2*tic)*below(mixb,10000);\nt2 = mixb - int(mixb);\nmixc = (mixc + q3*tic)*below(mixc,10000);\nt3 = mixc - int(mixc);",
+				"point_eqs_eel": "it = (it+1)*above(sample,0);\n\ndc = (dc + equal(it%48,0))*above(sample,0);\n\nlx = t1*equal(dc,0) + (1-t3)*(equal(dc,2) + equal(dc,1)) + t2*equal(dc,3);\nly = 0 + (equal(dc,1) + equal(dc,3))*.975;\n\nmx = equal((it+6)%6,0)*-.1 + equal((it+1)%6,0)*-.1 + equal((it+4)%6,0)*.1 + equal((it+3)%6,0)*.1;\nmy = (my + equal((it+3)%6,0)*.01 + equal((it)%6,0)*.01)*(above(sample,0) - equal((it*.5)%48,0));\n\nx = if(below(dc,2),lx + mx*.2,ly + my*.1);\ny = if(below(dc,2),ly + my*.1,lx + mx*.2);\n\nb = 1;\nr = equal(mx,0)*.8;\ng = equal(mx,0)*1;\na = equal(mx,0)*below(dc,4);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "zoom=1;\nxpos=0;\nypos=0;",
+		"frame_eqs_eel": "decay=1;\n\nwarp = 0;\n\ntic = min(time - tin,.1);\ntin = time;\n\nra = 10;\n\ntreb_avg = tic*(treb_avg*(1/tic - ra) + ra*treb);\nmid_avg = tic*(mid_avg*(1/tic - ra) + ra*mid);\nbass_avg = tic*(bass_avg*(1/tic - ra) + ra*bass);\n\nrb = 1;\nvav = tic*(vav*(1/tic - rb) + rb*(bass+treb+mid)*.33333);\n\nq1 = treb_avg;\nq2 = mid_avg;\nq3 = bass_avg;\nq4 = vav;\n\n\ntm = if(above(vav,tm),tm + tic,tm - tic*.3);\ntd = (td + tic*tm*4)*below(td,10000);\n\nq6 = .75 + sin(td)*.25;\nq7 = tm;",
+		"pixel_eqs_eel": "rd=sqrt( sqr((x-.5)*(1.5 + sin(time*.11)*.2)) + sqr((y-.5)*(3.5 + sin(time*.15)*.2)));\n\nsz = .01*q7;\n\nzoom=(rd*rd)/2.5 + sz - q6*sz;\n\nwarp = 2*q4 + max(1-rad*2,0)*8*3*q4;",
+		"warp": "",
+		"comp": ""
+	}
+}

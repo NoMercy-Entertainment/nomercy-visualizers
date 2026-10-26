@@ -1,1 +1,105 @@
-{"schema":1,"id":"rozzor-che-inside-the-house-of-nil","name":"Inside The House Of Nil","author":"Rozzor & Che","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Che%20-%20Inside%20The%20House%20Of%20Nil.milk","sourceSha1":"1f8fff40807008f2e80fed54980c9795197ebb16","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":1,"gammaadj":1,"decay":1,"echo_zoom":1,"echo_orient":3,"wave_mode":1,"modwavealphabyvolume":1,"wave_brighten":0,"wave_a":100,"wave_scale":1.175613,"wave_smoothing":0.306,"wave_mystery":-0.46,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpscale":1.331,"zoomexp":0.854653,"warp":0.01,"wave_r":0,"wave_g":0,"wave_b":0,"ob_size":0.5,"ob_r":0.19,"ob_g":0.12,"ib_size":0.015,"ib_a":1,"mv_x":7.679999,"mv_y":11.519997,"mv_l":1,"mv_a":0.34},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"slowtime = slowtime+beat*time;\nvol_now =  .4 * bass + 0.1 * (bass_att+treb+mid);\nvol_mean =  if(equal(frame%50,0),vol_mean-0.5*(vol_mean-vol_now),0.1*(vol_mean*9 + vol_now));\nbeat = if(above(vol_now,1.5*vol_mean),1,0);\nib_r = - abs(cos(time));\nib_g = sin(time);\nib_b= cos(time)*sign(cos(time));\nmv_r = abs(sin(time));\nmv_g = sin(slowtime) ;\nmv_b= cos(slowtime)*sign(cos(slowtime));\nredneg = if(below(mv_r,0),1,0);\ngreenneg = if(below(mv_g,0),1,0);\nblueneg = if(below(mv_b,0),1,0);\nwave_r = if(redneg,if(bor(greenneg , blueneg),1,1+mv_r),mv_r);\nwave_g = if(greenneg,if(equal(greenneg + blueneg,2),1,1+mv_g),mv_g);\nwave_b = if(blueneg,1 + mv_b, mv_b);\ndx=sin(slowtime*1.234)*.0125;\ndy=cos(slowtime*.9666)*.0125;\nq1 = sin(slowtime);\nq2 = wave_b;","pixel_eqs_eel":"zoom=1+above(sin(1.7*q2),-.5)*.1*sin(2*q2+.027*q1+4*(1+sin(.7*time+q2))*sin(.05*q2+time)*rad);\nrot=.1*sin(q2)*sin(2.3*q2+.027*q1+2*sin(.07*q1+1.2*time)*(rad+sin(time+above(sin(q2),0)*4*sin(q2)*ang)));\nrot=above(sin(1.2*q2+1.3),-.5)*rot;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rozzor-che-inside-the-house-of-nil",
+	"name": "Inside The House Of Nil",
+	"author": "Rozzor & Che",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Che%20-%20Inside%20The%20House%20Of%20Nil.milk",
+	"sourceSha1": "1f8fff40807008f2e80fed54980c9795197ebb16",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 1,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_orient": 3,
+			"wave_mode": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wave_a": 100,
+			"wave_scale": 1.175613,
+			"wave_smoothing": 0.306,
+			"wave_mystery": -0.46,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpscale": 1.331,
+			"zoomexp": 0.854653,
+			"warp": 0.01,
+			"wave_r": 0,
+			"wave_g": 0,
+			"wave_b": 0,
+			"ob_size": 0.5,
+			"ob_r": 0.19,
+			"ob_g": 0.12,
+			"ib_size": 0.015,
+			"ib_a": 1,
+			"mv_x": 7.679999,
+			"mv_y": 11.519997,
+			"mv_l": 1,
+			"mv_a": 0.34
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "slowtime = slowtime+beat*time;\nvol_now =  .4 * bass + 0.1 * (bass_att+treb+mid);\nvol_mean =  if(equal(frame%50,0),vol_mean-0.5*(vol_mean-vol_now),0.1*(vol_mean*9 + vol_now));\nbeat = if(above(vol_now,1.5*vol_mean),1,0);\nib_r = - abs(cos(time));\nib_g = sin(time);\nib_b= cos(time)*sign(cos(time));\nmv_r = abs(sin(time));\nmv_g = sin(slowtime) ;\nmv_b= cos(slowtime)*sign(cos(slowtime));\nredneg = if(below(mv_r,0),1,0);\ngreenneg = if(below(mv_g,0),1,0);\nblueneg = if(below(mv_b,0),1,0);\nwave_r = if(redneg,if(bor(greenneg , blueneg),1,1+mv_r),mv_r);\nwave_g = if(greenneg,if(equal(greenneg + blueneg,2),1,1+mv_g),mv_g);\nwave_b = if(blueneg,1 + mv_b, mv_b);\ndx=sin(slowtime*1.234)*.0125;\ndy=cos(slowtime*.9666)*.0125;\nq1 = sin(slowtime);\nq2 = wave_b;",
+		"pixel_eqs_eel": "zoom=1+above(sin(1.7*q2),-.5)*.1*sin(2*q2+.027*q1+4*(1+sin(.7*time+q2))*sin(.05*q2+time)*rad);\nrot=.1*sin(q2)*sin(2.3*q2+.027*q1+2*sin(.07*q1+1.2*time)*(rad+sin(time+above(sin(q2),0)*4*sin(q2)*ang)));\nrot=above(sin(1.2*q2+1.3),-.5)*rot;",
+		"warp": "",
+		"comp": ""
+	}
+}

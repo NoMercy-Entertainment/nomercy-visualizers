@@ -1,1 +1,134 @@
-{"schema":1,"id":"fishbrain-lost-in-the-bottle","name":"lost in the bottle","author":"fiShbRaiN","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/fiShbRaiN%20-%20lost%20in%20the%20bottle.milk","sourceSha1":"2f53b1a28116d62940095c73e48ad6f0100eb3d0","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1.7,"decay":0.925,"echo_zoom":1.356732,"echo_alpha":0.5,"echo_orient":3,"wave_mode":1,"additivewave":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":0.001,"wave_scale":1.732989,"wave_smoothing":0.9,"modwavealphastart":0.91,"modwavealphaend":1.3,"warpanimspeed":0.905287,"warpscale":2.188998,"zoomexp":0.094414,"fshader":1,"zoom":1.093153,"rot":0.2,"warp":100,"sx":0.999996,"sy":0.819498,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0.2,"ob_r":0.01,"ib_size":0.26,"mv_x":64,"mv_y":48,"mv_l":0,"mv_a":0.4},"shapes":[{"baseVals":{"enabled":1,"sides":6,"textured":1,"rad":1.08926,"g":0.8,"b":1,"a":0.9,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"rad=rad+(bass_att+treb_att)*.15;"},{"baseVals":{"enabled":1,"sides":6,"rad":0.599575,"r":0.8,"g":0.8,"b":1,"a":0.2,"g2":0,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang=time;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"mv_x=(sin(time)*.5)+.5;\necho_zoom=bass_att;","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "fishbrain-lost-in-the-bottle",
+	"name": "lost in the bottle",
+	"author": "fiShbRaiN",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/fiShbRaiN%20-%20lost%20in%20the%20bottle.milk",
+	"sourceSha1": "2f53b1a28116d62940095c73e48ad6f0100eb3d0",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1.7,
+			"decay": 0.925,
+			"echo_zoom": 1.356732,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_mode": 1,
+			"additivewave": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.001,
+			"wave_scale": 1.732989,
+			"wave_smoothing": 0.9,
+			"modwavealphastart": 0.91,
+			"modwavealphaend": 1.3,
+			"warpanimspeed": 0.905287,
+			"warpscale": 2.188998,
+			"zoomexp": 0.094414,
+			"fshader": 1,
+			"zoom": 1.093153,
+			"rot": 0.2,
+			"warp": 100,
+			"sx": 0.999996,
+			"sy": 0.819498,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0.2,
+			"ob_r": 0.01,
+			"ib_size": 0.26,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_a": 0.4
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 6,
+					"textured": 1,
+					"rad": 1.08926,
+					"g": 0.8,
+					"b": 1,
+					"a": 0.9,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rad=rad+(bass_att+treb_att)*.15;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 6,
+					"rad": 0.599575,
+					"r": 0.8,
+					"g": 0.8,
+					"b": 1,
+					"a": 0.2,
+					"g2": 0,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang=time;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "mv_x=(sin(time)*.5)+.5;\necho_zoom=bass_att;",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

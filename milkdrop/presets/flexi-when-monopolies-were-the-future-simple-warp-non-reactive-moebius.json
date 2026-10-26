@@ -1,1 +1,131 @@
-{"schema":1,"id":"flexi-when-monopolies-were-the-future-simple-warp-non-reactive-moebius","name":"when monopolies were the future [simple warp + non-reactive moebius]","author":"Flexi","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Flexi%20-%20when%20monopolies%20were%20the%20future%20%5Bsimple%20warp%20%2B%20non-reactive%20moebius%5D.milk","sourceSha1":"de40208923bbdb13a307aafe9c1b389292dd29e8","rights":"projectm-presets","textures":["sunrise"],"preset":{"version":2,"baseVals":{"rating":3,"gammaadj":1,"decay":1,"echo_zoom":1,"wave_mode":7,"wave_thick":1,"wave_brighten":0,"wrap":0,"wave_a":0.001,"wave_scale":0.01,"wave_smoothing":0.9,"wave_mystery":1,"modwavealphastart":0.5,"modwavealphaend":1,"warpanimspeed":2.155,"warpscale":0.591,"zoomexp":1.00016,"dx":0.00001,"dy":0.00001,"warp":8.31106,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"wave_y":0.6,"ob_size":0.005,"ob_a":1,"ib_size":0.005,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":0.1,"mv_x":64,"mv_y":48,"mv_l":1.5,"mv_r":0,"mv_g":0,"mv_b":0,"mv_a":0,"b1ed":1},"shapes":[{"baseVals":{"enabled":1,"textured":1,"y":1.8},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"textured":1,"y":1.8},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"textured":1,"y":1.8},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"// the möbius transformation\n// z -> (az+b)/(cz-d); where a,b,c,d are complex numbers and z will be the uv-vector\n// (az+b)/(cz-d) = a/c + mu/(cz+d), with mu = (bc-ad)/c\n// so a/c and mu can be calculated outside of the shader\n\n//before inversion\n\nscale = 1;\nangle = time*.2;\ntranslation_x = 0;\ntranslation_y = 0.12;\n\na_r = cos(angle)*scale;\na_i = sin(angle)*scale;\nb_r = translation_x;\nb_i = translation_y;\n\n//complex inverted\nscale = 1;\nangle = sin(time*0.1337)*0.3;\ntranslation_u = 0;\ntranslation_v = -0.2;\n\n// c\nq15 = cos(angle)*scale;\nq16 = sin(angle)*scale;\n\n// d\nq17 = translation_u;\nq18 = translation_v;\n\n// c^(-1)\nc_inv_r = q15/(q15*q15+q16*q16);\nc_inv_i = q16/(q15*q15+q16*q16);\n\n// a*c^(-1)\nq11 = (a_r*c_inv_r - a_i*c_inv_i);\nq12 = (a_r*c_inv_i - a_i*c_inv_r);\n\n// (bc-ad)\nbcad_r = (b_r*q15 - b_i*q16)-(a_r*q17-a_i*q18);\nbcad_i = (b_r*q16 - b_i*q15)-(a_r*q18-a_i*q17);\n\n// mu*c^(-1)\nq13 = bcad_r*c_inv_r - bcad_i*c_inv_i;\nq14 = bcad_r*c_inv_i - bcad_i*c_inv_r;","pixel_eqs_eel":"","warp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_sunrise;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (uv = (vec2 (0.500000) + ((uv - vec2 (0.500000)) * vec2 (0.850000))));\n    (ret = (texture(sampler_sunrise, clamp(uv, 0.0, 1.0))).xyz);\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }","comp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_sunrise;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    vec2 ac = vec2( vec2(q11, q12) );\n    vec2 mu = vec2( vec2(q13, q14) );\n    vec2 c = vec2( vec2(q15, q16) );\n    vec2 d = vec2( vec2(q17, q18) );\n    vec2 z = vec2( (uv - vec2 (0.500000)) );\n    vec2 czd = vec2( ((vec2((((z).x * (c).x) - ((z).y * (c).y)), (((z).x * (c).y) - ((z).y * (c).x))) * (aspect).yx) + d) );\n    vec2 moebius = vec2( ((vec2((((mu).x * (czd).x) + ((mu).y * (czd).y)), (((mu).y * (czd).x) - ((mu).x * (czd).y))) / vec2 ((((czd).x * (czd).x) + ((czd).y * (czd).y)))) + ac) );\n    (moebius = (vec2 (0.500000) + (((vec2 (1.000000) - abs(((fract((moebius * vec2 (0.500000))) * vec2 (2)) - vec2 (1.000000)))) - vec2 (0.500000)) * vec2 (0.990000))));\n    (uv = moebius);\n    (ret = (((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }"}}
+{
+	"schema": 1,
+	"id": "flexi-when-monopolies-were-the-future-simple-warp-non-reactive-moebius",
+	"name": "when monopolies were the future [simple warp + non-reactive moebius]",
+	"author": "Flexi",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Flexi%20-%20when%20monopolies%20were%20the%20future%20%5Bsimple%20warp%20%2B%20non-reactive%20moebius%5D.milk",
+	"sourceSha1": "de40208923bbdb13a307aafe9c1b389292dd29e8",
+	"rights": "projectm-presets",
+	"textures": [
+		"sunrise"
+	],
+	"preset": {
+		"version": 2,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1,
+			"wave_mode": 7,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.001,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.9,
+			"wave_mystery": 1,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"warpanimspeed": 2.155,
+			"warpscale": 0.591,
+			"zoomexp": 1.00016,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 8.31106,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"wave_y": 0.6,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0.005,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 0.1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 1.5,
+			"mv_r": 0,
+			"mv_g": 0,
+			"mv_b": 0,
+			"mv_a": 0,
+			"b1ed": 1
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"y": 1.8
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"y": 1.8
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"y": 1.8
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "// the möbius transformation\n// z -> (az+b)/(cz-d); where a,b,c,d are complex numbers and z will be the uv-vector\n// (az+b)/(cz-d) = a/c + mu/(cz+d), with mu = (bc-ad)/c\n// so a/c and mu can be calculated outside of the shader\n\n//before inversion\n\nscale = 1;\nangle = time*.2;\ntranslation_x = 0;\ntranslation_y = 0.12;\n\na_r = cos(angle)*scale;\na_i = sin(angle)*scale;\nb_r = translation_x;\nb_i = translation_y;\n\n//complex inverted\nscale = 1;\nangle = sin(time*0.1337)*0.3;\ntranslation_u = 0;\ntranslation_v = -0.2;\n\n// c\nq15 = cos(angle)*scale;\nq16 = sin(angle)*scale;\n\n// d\nq17 = translation_u;\nq18 = translation_v;\n\n// c^(-1)\nc_inv_r = q15/(q15*q15+q16*q16);\nc_inv_i = q16/(q15*q15+q16*q16);\n\n// a*c^(-1)\nq11 = (a_r*c_inv_r - a_i*c_inv_i);\nq12 = (a_r*c_inv_i - a_i*c_inv_r);\n\n// (bc-ad)\nbcad_r = (b_r*q15 - b_i*q16)-(a_r*q17-a_i*q18);\nbcad_i = (b_r*q16 - b_i*q15)-(a_r*q18-a_i*q17);\n\n// mu*c^(-1)\nq13 = bcad_r*c_inv_r - bcad_i*c_inv_i;\nq14 = bcad_r*c_inv_i - bcad_i*c_inv_r;",
+		"pixel_eqs_eel": "",
+		"warp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_sunrise;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (uv = (vec2 (0.500000) + ((uv - vec2 (0.500000)) * vec2 (0.850000))));\n    (ret = (texture(sampler_sunrise, clamp(uv, 0.0, 1.0))).xyz);\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }",
+		"comp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nuniform sampler2D sampler_sunrise;\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    vec2 ac = vec2( vec2(q11, q12) );\n    vec2 mu = vec2( vec2(q13, q14) );\n    vec2 c = vec2( vec2(q15, q16) );\n    vec2 d = vec2( vec2(q17, q18) );\n    vec2 z = vec2( (uv - vec2 (0.500000)) );\n    vec2 czd = vec2( ((vec2((((z).x * (c).x) - ((z).y * (c).y)), (((z).x * (c).y) - ((z).y * (c).x))) * (aspect).yx) + d) );\n    vec2 moebius = vec2( ((vec2((((mu).x * (czd).x) + ((mu).y * (czd).y)), (((mu).y * (czd).x) - ((mu).x * (czd).y))) / vec2 ((((czd).x * (czd).x) + ((czd).y * (czd).y)))) + ac) );\n    (moebius = (vec2 (0.500000) + (((vec2 (1.000000) - abs(((fract((moebius * vec2 (0.500000))) * vec2 (2)) - vec2 (1.000000)))) - vec2 (0.500000)) * vec2 (0.990000))));\n    (uv = moebius);\n    (ret = (((texture(sampler_blur1, uv)).xyz * vec3 (scale1)) + vec3 (bias1)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }"
+	}
+}

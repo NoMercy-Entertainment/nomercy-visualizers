@@ -1,1 +1,107 @@
-{"schema":1,"id":"rovastar-jester-s-surreal-tornado","name":"Jester's Surreal Tornado","author":"Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Jester's%20Surreal%20Tornado.milk","sourceSha1":"2dd0ffb30a6af0acc8fb21a9aae8b6459395890a","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1,"decay":1,"echo_zoom":1,"echo_orient":3,"wave_mode":7,"additivewave":1,"wave_thick":1,"darken":1,"wave_a":100,"wave_scale":0.01,"wave_smoothing":0.5,"wave_mystery":1,"modwavealphastart":0.5,"modwavealphaend":1,"zoomexp":0.999996,"dx":0.00001,"dy":0.00001,"warp":0.01,"wave_y":0.98,"ob_size":0.0145,"ob_a":1,"ib_size":0.015,"ib_r":1,"ib_g":0.6,"ib_b":0.5,"ib_a":1,"mv_x":64,"mv_y":2.4,"mv_dy":-0.1,"mv_l":5},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp = 0;\nib_r = 0.6 + 0.4*sin(time*0.894);\nib_g = 0.43 + 0.13*sin(time*7.143);\nib_b = 0.5+ 0.33*sin(time*0.465);\nthresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.004*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.004*sin(6*time)+(1-equal(thresh,2))*dy_r;\ndx = 1.1* dx_r;\ndy = 1.1* dy_r;\nq2 = dx + if(above(bass+bass_att,2.6), 11*dx_r, 0);\nq2 =q2*15 +  if(above(dx_r,0),0.04 + 0.01*sin(time*0.573),-0.04+ 0.01*sin(time*0.573));\nmv_l =10000;\nmv_y =2.0;\nmv_dy = -0.1;\nmv_r =0.7+0.148*(ib_r+ib_b);\nmv_b =1-0.2*(ib_r+ib_b);\nmv_g =0.6+ 0.19*(ib_g+ib_r);\nzoom = zoom -0.02*thresh + 0.01;\nwave_r = ib_r;\nwave_b = ib_b;\nwave_g = ib_g;\nob_r = 1-ib_g;\nob_b = 0.5*(ib_r+ib_g);","pixel_eqs_eel":"rot = q2*(1-rad);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-jester-s-surreal-tornado",
+	"name": "Jester's Surreal Tornado",
+	"author": "Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Jester's%20Surreal%20Tornado.milk",
+	"sourceSha1": "2dd0ffb30a6af0acc8fb21a9aae8b6459395890a",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_orient": 3,
+			"wave_mode": 7,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"darken": 1,
+			"wave_a": 100,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.5,
+			"wave_mystery": 1,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"zoomexp": 0.999996,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 0.01,
+			"wave_y": 0.98,
+			"ob_size": 0.0145,
+			"ob_a": 1,
+			"ib_size": 0.015,
+			"ib_r": 1,
+			"ib_g": 0.6,
+			"ib_b": 0.5,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 2.4,
+			"mv_dy": -0.1,
+			"mv_l": 5
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp = 0;\nib_r = 0.6 + 0.4*sin(time*0.894);\nib_g = 0.43 + 0.13*sin(time*7.143);\nib_b = 0.5+ 0.33*sin(time*0.465);\nthresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.004*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.004*sin(6*time)+(1-equal(thresh,2))*dy_r;\ndx = 1.1* dx_r;\ndy = 1.1* dy_r;\nq2 = dx + if(above(bass+bass_att,2.6), 11*dx_r, 0);\nq2 =q2*15 +  if(above(dx_r,0),0.04 + 0.01*sin(time*0.573),-0.04+ 0.01*sin(time*0.573));\nmv_l =10000;\nmv_y =2.0;\nmv_dy = -0.1;\nmv_r =0.7+0.148*(ib_r+ib_b);\nmv_b =1-0.2*(ib_r+ib_b);\nmv_g =0.6+ 0.19*(ib_g+ib_r);\nzoom = zoom -0.02*thresh + 0.01;\nwave_r = ib_r;\nwave_b = ib_b;\nwave_g = ib_g;\nob_r = 1-ib_g;\nob_b = 0.5*(ib_r+ib_g);",
+		"pixel_eqs_eel": "rot = q2*(1-rad);",
+		"warp": "",
+		"comp": ""
+	}
+}

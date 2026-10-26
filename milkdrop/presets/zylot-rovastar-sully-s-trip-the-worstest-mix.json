@@ -1,1 +1,114 @@
-{"schema":1,"id":"zylot-rovastar-sully-s-trip-the-worstest-mix","name":"Sully's Trip (The Worstest Mix)","author":"Zylot & Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20%26%20Rovastar%20-%20Sully's%20Trip%20(The%20Worstest%20Mix).milk","sourceSha1":"7b0f8a1475d49c90bc03391213d0de9d45325a4f","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":1,"echo_zoom":0.999609,"echo_alpha":0.5,"echo_orient":3,"wave_dots":1,"wave_brighten":0,"darken_center":1,"wave_a":100,"wave_scale":0.011683,"wave_smoothing":0.801,"wave_mystery":-0.6,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpscale":1.331,"zoomexp":0.906938,"zoom":0.97787,"rot":-0.38,"warp":0.01,"wave_g":0,"wave_b":0,"ob_size":0.05,"ob_r":0.45,"ob_g":0.45,"ob_b":0.45,"ob_a":0.2,"ib_size":0.003,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":1.2,"mv_dy":-0.06,"mv_l":5,"mv_g":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"colorcounter = 1;\ncounter1 = 0;\ncounter2 = 1;\ncdelay1 = 0;\ncdelay2 = 0;","frame_eqs_eel":"counter1 = if(equal(counter2,1),if(equal(counter1,1),0,counter1+.2),1);\ncounter2 = if(equal(counter1,1),if(equal(counter2,1),0,counter2+.2),1);\ncdelay1 = if(equal(cdelay2,1),1,if(equal(colorcounter%2,1),if(equal(counter1,1),2 ,0), if(equal(counter2,1),2,0)));\ncdelay2 = if(equal(cdelay1,2),1,0);\ncolorcounter = if(above(colorcounter,7),0,if(equal(cdelay1,1),colorcounter+1,colorcounter));\nob_r = if(equal(colorcounter,1),1, if(equal(colorcounter,2),1, if(equal(colorcounter,3),1, if(equal(colorcounter,4),sin(counter2+2.1), if(equal(colorcounter,5),0, if(equal(colorcounter,6),0,sin(counter1)))))));\nob_g = if(equal(colorcounter,1),0, if(equal(colorcounter,2),sin(counter2*.5), if(equal(colorcounter,3),sin((counter1+1.75)*.4), if(equal(colorcounter,4),1, if(equal(colorcounter,5),1, if(equal(colorcounter,6),sin(counter2+2),0))))));\nob_b = if(equal(colorcounter,1),sin(counter1+2.1), if(equal(colorcounter,2),0, if(equal(colorcounter,3),0, if(equal(colorcounter,4),0, if(equal(colorcounter,5),sin(counter1), if(equal(colorcounter,6),1,1))))));\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ntreb_thresh=above(treb_att,treb_thresh)*2+\n(1-above(treb_att,treb_thresh))*((treb_thresh-1.3)*0.96+1.3);\nmid_thresh=above(mid_att,mid_thresh)*2+\n(1-above(mid_mid_att,mid_thresh))*((mid_thresh-1.3)*0.96+1.3);\nvol_thresh=bass_thresh+mid_thresh+treb_thresh;\nwave_r = .5+.3*sin(time)+.1*sin(time*10);\nwave_g = .5+.3*sin(time/1.5)+.1*sin(time*12);\nwave_b = .5+.3*sin(time/1.75)+.1*sin(time*14);\n\nbass_counter = equal(bass_thresh,2)*1+bass_counter;\ntreb_counter=equal(treb_thresh,2)*1+treb_counter;\nmid_counter=equal(mid_thresh,2)*1+mid_counter;\nvol_counter=equal(vol_thresh,2)*1+vol_counter;\nbass_cycler = bass_counter%8;\ntreb_cycler=treb_counter%8;\nmid_cycler=mid_counter%8;\nvol_cycler=vol_cycler%8;\nq1=bass_cycler;\nq2=treb_cycler;\nq3=mid_cycler;\nq4=bass_thresh;\nq5=mid_thresh;\nq6=treb_thresh;\nq7=vol_cycler;\nq8=vol_thresh;\nwave_mystery = wave_mystery+.1*sin(q8) - 0.1;\nmv_b = bass+bass_att-2;\nresidual = equal(bass_thresh,2)*0.016*sin(time*7) + (1-equal(bass_thresh,2))*residual;\nib_size = bass*.01;","pixel_eqs_eel":"rad_cycle=rad*rad*x*60*rad*sin(q1);\nrot=if(above(q2,q8),.06*sin(rad_cycle-3*Sin(Q3)-x*ang*q3)*equal(Rad,x+y)*sin(Q6)-.3*sin(Q7\n),.02*sin(Q3));\nzoom =if(above(q2,q8), 2*rot*rad + 1 - 0.01*q1*rad-(X-.3*sin(Q4))+(x*.25*sin(Q2)),1.10);;\nzoomexp = 1 - 0.1*rad;\ndx=if(above(q2,q8),equal(x,raD)*sin(Q3)/y*sin(Q1),.009*sin(q5)*x*rad+d*sin(q2));\ndy=if(above(q2,q8),equal(y,rad)*sin(q2)/x*sin(q5),.009*sin(Q3)*y*rad+r*sin(q1));\n//there was a semicolon here, it's gone now\nd=above(y,sin(ang*3+time));\nr=above(y,sin(ang*3+time));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "zylot-rovastar-sully-s-trip-the-worstest-mix",
+	"name": "Sully's Trip (The Worstest Mix)",
+	"author": "Zylot & Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20%26%20Rovastar%20-%20Sully's%20Trip%20(The%20Worstest%20Mix).milk",
+	"sourceSha1": "7b0f8a1475d49c90bc03391213d0de9d45325a4f",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 0.999609,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_dots": 1,
+			"wave_brighten": 0,
+			"darken_center": 1,
+			"wave_a": 100,
+			"wave_scale": 0.011683,
+			"wave_smoothing": 0.801,
+			"wave_mystery": -0.6,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpscale": 1.331,
+			"zoomexp": 0.906938,
+			"zoom": 0.97787,
+			"rot": -0.38,
+			"warp": 0.01,
+			"wave_g": 0,
+			"wave_b": 0,
+			"ob_size": 0.05,
+			"ob_r": 0.45,
+			"ob_g": 0.45,
+			"ob_b": 0.45,
+			"ob_a": 0.2,
+			"ib_size": 0.003,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 1.2,
+			"mv_dy": -0.06,
+			"mv_l": 5,
+			"mv_g": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "colorcounter = 1;\ncounter1 = 0;\ncounter2 = 1;\ncdelay1 = 0;\ncdelay2 = 0;",
+		"frame_eqs_eel": "counter1 = if(equal(counter2,1),if(equal(counter1,1),0,counter1+.2),1);\ncounter2 = if(equal(counter1,1),if(equal(counter2,1),0,counter2+.2),1);\ncdelay1 = if(equal(cdelay2,1),1,if(equal(colorcounter%2,1),if(equal(counter1,1),2 ,0), if(equal(counter2,1),2,0)));\ncdelay2 = if(equal(cdelay1,2),1,0);\ncolorcounter = if(above(colorcounter,7),0,if(equal(cdelay1,1),colorcounter+1,colorcounter));\nob_r = if(equal(colorcounter,1),1, if(equal(colorcounter,2),1, if(equal(colorcounter,3),1, if(equal(colorcounter,4),sin(counter2+2.1), if(equal(colorcounter,5),0, if(equal(colorcounter,6),0,sin(counter1)))))));\nob_g = if(equal(colorcounter,1),0, if(equal(colorcounter,2),sin(counter2*.5), if(equal(colorcounter,3),sin((counter1+1.75)*.4), if(equal(colorcounter,4),1, if(equal(colorcounter,5),1, if(equal(colorcounter,6),sin(counter2+2),0))))));\nob_b = if(equal(colorcounter,1),sin(counter1+2.1), if(equal(colorcounter,2),0, if(equal(colorcounter,3),0, if(equal(colorcounter,4),0, if(equal(colorcounter,5),sin(counter1), if(equal(colorcounter,6),1,1))))));\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ntreb_thresh=above(treb_att,treb_thresh)*2+\n(1-above(treb_att,treb_thresh))*((treb_thresh-1.3)*0.96+1.3);\nmid_thresh=above(mid_att,mid_thresh)*2+\n(1-above(mid_mid_att,mid_thresh))*((mid_thresh-1.3)*0.96+1.3);\nvol_thresh=bass_thresh+mid_thresh+treb_thresh;\nwave_r = .5+.3*sin(time)+.1*sin(time*10);\nwave_g = .5+.3*sin(time/1.5)+.1*sin(time*12);\nwave_b = .5+.3*sin(time/1.75)+.1*sin(time*14);\n\nbass_counter = equal(bass_thresh,2)*1+bass_counter;\ntreb_counter=equal(treb_thresh,2)*1+treb_counter;\nmid_counter=equal(mid_thresh,2)*1+mid_counter;\nvol_counter=equal(vol_thresh,2)*1+vol_counter;\nbass_cycler = bass_counter%8;\ntreb_cycler=treb_counter%8;\nmid_cycler=mid_counter%8;\nvol_cycler=vol_cycler%8;\nq1=bass_cycler;\nq2=treb_cycler;\nq3=mid_cycler;\nq4=bass_thresh;\nq5=mid_thresh;\nq6=treb_thresh;\nq7=vol_cycler;\nq8=vol_thresh;\nwave_mystery = wave_mystery+.1*sin(q8) - 0.1;\nmv_b = bass+bass_att-2;\nresidual = equal(bass_thresh,2)*0.016*sin(time*7) + (1-equal(bass_thresh,2))*residual;\nib_size = bass*.01;",
+		"pixel_eqs_eel": "rad_cycle=rad*rad*x*60*rad*sin(q1);\nrot=if(above(q2,q8),.06*sin(rad_cycle-3*Sin(Q3)-x*ang*q3)*equal(Rad,x+y)*sin(Q6)-.3*sin(Q7\n),.02*sin(Q3));\nzoom =if(above(q2,q8), 2*rot*rad + 1 - 0.01*q1*rad-(X-.3*sin(Q4))+(x*.25*sin(Q2)),1.10);;\nzoomexp = 1 - 0.1*rad;\ndx=if(above(q2,q8),equal(x,raD)*sin(Q3)/y*sin(Q1),.009*sin(q5)*x*rad+d*sin(q2));\ndy=if(above(q2,q8),equal(y,rad)*sin(q2)/x*sin(q5),.009*sin(Q3)*y*rad+r*sin(q1));\n//there was a semicolon here, it's gone now\nd=above(y,sin(ang*3+time));\nr=above(y,sin(ang*3+time));",
+		"warp": "",
+		"comp": ""
+	}
+}

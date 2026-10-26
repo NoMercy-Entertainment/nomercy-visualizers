@@ -1,1 +1,109 @@
-{"schema":1,"id":"aderrasi-bitterfeld-crystal-border-mix","name":"Bitterfeld (Crystal Border Mix)","author":"Aderrasi","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20Bitterfeld%20(Crystal%20Border%20Mix).milk","sourceSha1":"450f0b083ec512e8855dd91d61c6741ced928c66","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":1,"echo_zoom":2.448626,"wave_mode":7,"wave_thick":1,"wave_brighten":0,"wave_a":100,"wave_scale":1.310603,"wave_smoothing":0.9,"modwavealphastart":0.5,"modwavealphaend":1,"zoomexp":0.9999,"zoom":0.999999,"dx":0.00001,"dy":0.00001,"warp":0.01,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_size":0.005,"ob_a":1,"ib_size":0.05,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":0.2,"mv_x":64,"mv_y":48,"mv_l":0,"mv_g":0.6,"mv_b":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 0.25*sin(1.4*time) + 0.25*sin(2.25*time);\nwave_g = wave_g + 0.25*sin(1.7*time) + 0.25*sin(2.11*time);\nwave_b = wave_b + 0.25*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;\nib_r =wave_r;\nib_g = wave_g;\nib_b = wave_b;\nwave_mystery = wave_mystery + 0.3*time;","pixel_eqs_eel":"thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\nzoom = zoom - 0.2*(1.5-rad)*sin(bass/2*treb_att)*(rad*2*(rad*abs(sin(9*ang))));\nrot = rot + dy_r*(2-zoom)*0.3*cos(bass)*20;\nrot = rot - 0.4*(rad*cos(abs(12*ang)))*below(rad,0.3+ 0.4*sin(bass));\ndx = dx + 0.5*abs(rad+x-0.5*(bass/y*0.2))*dx_r;\ndy = dy + 0.5*abs(rad+y-0.5*(treb/x*0.2))*dy_r;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "aderrasi-bitterfeld-crystal-border-mix",
+	"name": "Bitterfeld (Crystal Border Mix)",
+	"author": "Aderrasi",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20Bitterfeld%20(Crystal%20Border%20Mix).milk",
+	"sourceSha1": "450f0b083ec512e8855dd91d61c6741ced928c66",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 2.448626,
+			"wave_mode": 7,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wave_a": 100,
+			"wave_scale": 1.310603,
+			"wave_smoothing": 0.9,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"zoomexp": 0.9999,
+			"zoom": 0.999999,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 0.01,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0.05,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 0.2,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_g": 0.6,
+			"mv_b": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 0.25*sin(1.4*time) + 0.25*sin(2.25*time);\nwave_g = wave_g + 0.25*sin(1.7*time) + 0.25*sin(2.11*time);\nwave_b = wave_b + 0.25*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;\nib_r =wave_r;\nib_g = wave_g;\nib_b = wave_b;\nwave_mystery = wave_mystery + 0.3*time;",
+		"pixel_eqs_eel": "thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\nzoom = zoom - 0.2*(1.5-rad)*sin(bass/2*treb_att)*(rad*2*(rad*abs(sin(9*ang))));\nrot = rot + dy_r*(2-zoom)*0.3*cos(bass)*20;\nrot = rot - 0.4*(rad*cos(abs(12*ang)))*below(rad,0.3+ 0.4*sin(bass));\ndx = dx + 0.5*abs(rad+x-0.5*(bass/y*0.2))*dx_r;\ndy = dy + 0.5*abs(rad+y-0.5*(treb/x*0.2))*dy_r;",
+		"warp": "",
+		"comp": ""
+	}
+}

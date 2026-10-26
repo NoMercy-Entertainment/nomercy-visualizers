@@ -1,1 +1,165 @@
-{"schema":1,"id":"eo-s-glowsticks-v2-03-music-shifter-edit-b-stahl-s-reactive-rmx-v2i2-feat-flexi-phat","name":"glowsticks v2 03 music shifter edit b (Stahl's Reactive RMX V2i2 - feat. flexi + phat)","author":"Eo.S.","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Eo.S.%20-%20glowsticks%20v2%2003%20music%20shifter%20edit%20b%20(Stahl's%20Reactive%20RMX%20V2i2%20-%20feat.%20flexi%20%2B%20phat).milk","sourceSha1":"3903223e364b7483dff6ce4e47694d348972bb36","rights":"projectm-presets","textures":[],"preset":{"version":2,"baseVals":{"rating":4,"gammaadj":1.7,"decay":0.96,"echo_zoom":1,"echo_alpha":0.5,"echo_orient":3,"wave_mode":2,"wave_dots":1,"wave_brighten":0,"darken":1,"wave_a":0.001,"wave_scale":0.012,"wave_smoothing":0.9,"warpanimspeed":0.037,"warpscale":0.015,"zoomexp":1.22019,"warp":0.033,"wave_r":0.5,"wave_g":0.4,"wave_b":0.3,"ob_size":0,"ob_a":1,"ib_size":0.09,"ib_r":0,"ib_g":0,"ib_b":0,"mv_x":3,"mv_y":2,"mv_dx":0.02,"mv_dy":-0.02,"mv_l":0.15,"mv_r":0.49,"mv_g":0.48,"mv_b":0.3,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":100,"textured":1,"rad":1.38615,"tex_zoom":1.14605,"g":1,"b":1,"a":0.1,"r2":1,"b2":1,"a2":0.05,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang = .25*time;"},{"baseVals":{"enabled":1,"sides":5,"textured":1,"rad":1.0677,"ang":0.7539,"tex_zoom":0.7797,"g":1,"b":1,"a":0.6,"r2":1,"b2":1,"a2":0.01,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang=sin(q1*0.15);\nx=sin(q1*0.5+3.14) * 0.05 + 0.6;\ny=cos(q1*0.63+3.14)* 0.05 + 0.6"},{"baseVals":{"enabled":1,"sides":5,"textured":1,"rad":1.0677,"ang":0.7539,"tex_zoom":0.7797,"g":1,"b":1,"a":0.6,"r2":1,"b2":1,"a2":0.01,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang=sin(q1*0.15);\nx=sin(q1*0.5) * 0.05 + 0.4;\ny=cos(q1*0.63)* 0.05 + 0.4;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"thick":1,"r":0,"g":0.5,"b":0.1},"init_eqs_eel":"","frame_eqs_eel":"t1=bass_att*(sin(time)*0.5+0.5);\nt2=bass_att*(sin(time+2.1)*0.5+0.5);\nt3=treb_att*(sin(time+4.2)*0.5+0.5);\n\nt4=treb_att*(sin(-time+1.1)*0.5+0.5);\nt5=mid_att*(sin(-time+3.1)*0.5+0.5);\nt6=mid_att*(sin(-time+5.2)*0.5+0.5);","point_eqs_eel":"n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=(flip+1)*below(flip,1);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nxq=xp;\nsinang=sin(ang);cosang=cos(ang);\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\ng = .5 + .5*sin(cang);\nb = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"},{"baseVals":{"enabled":1,"thick":1,"r":0.2,"b":0.6},"init_eqs_eel":"","frame_eqs_eel":"t1=mid_att*(sin(1.57+time)*0.5+0.5);\nt2=treb_att*(sin(1.57+time+2.1)*0.5+0.5);\nt3=mid_att*(sin(1.57+time+4.2)*0.5+0.5);\n\nt4=bass_att*(sin(-time+1.1)*0.5+0.5);\nt5=bass_att*(sin(-time+3.1)*0.5+0.5);\nt6=treb_att*(sin(-time+5.2)*0.5+0.5);","point_eqs_eel":"n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=flip+1;\nflip=flip*below(flip,2);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2 +0.1;\nyp=-yp;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\nb = .5 + .5*sin(cang);\ng = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"},{"baseVals":{"enabled":1,"thick":1,"r":0,"g":0.5,"b":0.1},"init_eqs_eel":"","frame_eqs_eel":"t1=treb_att*(sin(time+3.14)*0.5+0.5);\nt2=mid_att*(sin(time+2.1+3.14)*0.5+0.5);\nt3=bass_att*(sin(time+4.2+3.14)*0.5+0.5);\n\nt4=bass_att*(sin(-time+1.1+3.14)*0.5+0.5);\nt5=treb_att*(sin(-time+3.1+3.14)*0.5+0.5);\nt6=mid_att*(sin(-time+5.2+3.14)*0.5+0.5);","point_eqs_eel":"n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=(flip+1)*below(flip,1);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nxq=xp;\nsinang=sin(ang);cosang=cos(ang);\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\ng = .5 + .5*sin(cang);\nb = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"mv_x=64;mv_y=48;\nnut=0;\nstp=0;stq=0;\nrtp=0;rtq=0;\nwvr=0;\ndecay=0;\ndcsp=0","frame_eqs_eel":"decay=1;\nzoom=0.95+.075*max(treb_att,bass_att);\n\nwarp = 0;\n\nvol=(bass_att+mid_att+treb_att)*0.25;\nvol=vol*vol;\nmtime=mtime+vol*0.1;\n\nq1=mtime*0.4-.05*time;","pixel_eqs_eel":"","warp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = (texture(sampler_main, uv)).xyz);\n    vec2 v = vec2( (normalize((uv - uv_orig)) * (texsize).zw) );\n    vec3 s;\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv + v)) * vec4 (0.970000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv - v)) * vec4 (0.970000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv + (v * vec2 (2)))) * vec4 (0.900000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv - (v * vec2 (2)))) * vec4 (0.900000)))));\n    (ret *= vec3 (0.950000));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }","comp":"\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float rad, vec2 uv_orig) {\n    vec3 ret;\n    vec2 uv_echo2 = vec2( ((((uv - vec2 (0.500000)) * vec2 (1.000000)) * vec2((-1), 1)) + vec2 (0.500000)) );\n    vec3 ret3 = vec3( ((texture(sampler_main, uv)).xyz * (+clamp((((((texture(sampler_blur2, uv)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    vec3 ret4 = vec3( ((texture(sampler_main, uv_echo2)).xyz * (+clamp((((((texture(sampler_blur2, uv_echo2)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    (ret3 = mix(ret3, ret4, vec3 (0.500000)));\n    (ret3 *= ret3);\n    (ret3 *= vec3(0.900000, 1.600000, 2.300000));\n    (ret3 *= vec3 (2));\n    (uv = ((vec2 ((float (6) + (float (2) * sin(q1)))) * uv) - vec2 (sin(q1))));\n    vec2 m = vec2( floor((fract((uv * vec2 (0.500000))) * vec2 (2))) );\n    (uv = ((fract(uv) * (vec2 (1) - m)) + (m * fract((vec2 (1) - uv)))));\n    (uv = vec2(rad, (uv_orig).y));\n    vec2 uv_echo = vec2( ((((uv - vec2 (0.500000)) * vec2 (1.000000)) * vec2((-1), (-1))) + vec2 (0.500000)) );\n    (ret = ((texture(sampler_main, uv)).xyz * (+clamp((((((texture(sampler_blur2, uv)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))));\n    vec3 ret2 = vec3( ((texture(sampler_main, uv_echo)).xyz * (+clamp((((((texture(sampler_blur2, uv_echo)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    (ret = mix(ret, ret2, vec3 (0.500000)));\n    (ret *= ret);\n    (ret *= vec3(0.900000, 1.600000, 2.300000));\n    (ret *= vec3 (3));\n    (ret = mix((ret3).xyz, (ret).zxy, vec3 (0.250000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, rad, uv_orig);\n    ret = result.rgb;\n }"}}
+{
+	"schema": 1,
+	"id": "eo-s-glowsticks-v2-03-music-shifter-edit-b-stahl-s-reactive-rmx-v2i2-feat-flexi-phat",
+	"name": "glowsticks v2 03 music shifter edit b (Stahl's Reactive RMX V2i2 - feat. flexi + phat)",
+	"author": "Eo.S.",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Eo.S.%20-%20glowsticks%20v2%2003%20music%20shifter%20edit%20b%20(Stahl's%20Reactive%20RMX%20V2i2%20-%20feat.%20flexi%20%2B%20phat).milk",
+	"sourceSha1": "3903223e364b7483dff6ce4e47694d348972bb36",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 2,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 1.7,
+			"decay": 0.96,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_mode": 2,
+			"wave_dots": 1,
+			"wave_brighten": 0,
+			"darken": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.012,
+			"wave_smoothing": 0.9,
+			"warpanimspeed": 0.037,
+			"warpscale": 0.015,
+			"zoomexp": 1.22019,
+			"warp": 0.033,
+			"wave_r": 0.5,
+			"wave_g": 0.4,
+			"wave_b": 0.3,
+			"ob_size": 0,
+			"ob_a": 1,
+			"ib_size": 0.09,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"mv_x": 3,
+			"mv_y": 2,
+			"mv_dx": 0.02,
+			"mv_dy": -0.02,
+			"mv_l": 0.15,
+			"mv_r": 0.49,
+			"mv_g": 0.48,
+			"mv_b": 0.3,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"textured": 1,
+					"rad": 1.38615,
+					"tex_zoom": 1.14605,
+					"g": 1,
+					"b": 1,
+					"a": 0.1,
+					"r2": 1,
+					"b2": 1,
+					"a2": 0.05,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang = .25*time;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 5,
+					"textured": 1,
+					"rad": 1.0677,
+					"ang": 0.7539,
+					"tex_zoom": 0.7797,
+					"g": 1,
+					"b": 1,
+					"a": 0.6,
+					"r2": 1,
+					"b2": 1,
+					"a2": 0.01,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang=sin(q1*0.15);\nx=sin(q1*0.5+3.14) * 0.05 + 0.6;\ny=cos(q1*0.63+3.14)* 0.05 + 0.6"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 5,
+					"textured": 1,
+					"rad": 1.0677,
+					"ang": 0.7539,
+					"tex_zoom": 0.7797,
+					"g": 1,
+					"b": 1,
+					"a": 0.6,
+					"r2": 1,
+					"b2": 1,
+					"a2": 0.01,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang=sin(q1*0.15);\nx=sin(q1*0.5) * 0.05 + 0.4;\ny=cos(q1*0.63)* 0.05 + 0.4;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"r": 0,
+					"g": 0.5,
+					"b": 0.1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "t1=bass_att*(sin(time)*0.5+0.5);\nt2=bass_att*(sin(time+2.1)*0.5+0.5);\nt3=treb_att*(sin(time+4.2)*0.5+0.5);\n\nt4=treb_att*(sin(-time+1.1)*0.5+0.5);\nt5=mid_att*(sin(-time+3.1)*0.5+0.5);\nt6=mid_att*(sin(-time+5.2)*0.5+0.5);",
+				"point_eqs_eel": "n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=(flip+1)*below(flip,1);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nxq=xp;\nsinang=sin(ang);cosang=cos(ang);\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\ng = .5 + .5*sin(cang);\nb = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"r": 0.2,
+					"b": 0.6
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "t1=mid_att*(sin(1.57+time)*0.5+0.5);\nt2=treb_att*(sin(1.57+time+2.1)*0.5+0.5);\nt3=mid_att*(sin(1.57+time+4.2)*0.5+0.5);\n\nt4=bass_att*(sin(-time+1.1)*0.5+0.5);\nt5=bass_att*(sin(-time+3.1)*0.5+0.5);\nt6=treb_att*(sin(-time+5.2)*0.5+0.5);",
+				"point_eqs_eel": "n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=flip+1;\nflip=flip*below(flip,2);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2 +0.1;\nyp=-yp;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\nb = .5 + .5*sin(cang);\ng = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"r": 0,
+					"g": 0.5,
+					"b": 0.1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "t1=treb_att*(sin(time+3.14)*0.5+0.5);\nt2=mid_att*(sin(time+2.1+3.14)*0.5+0.5);\nt3=bass_att*(sin(time+4.2+3.14)*0.5+0.5);\n\nt4=bass_att*(sin(-time+1.1+3.14)*0.5+0.5);\nt5=treb_att*(sin(-time+3.1+3.14)*0.5+0.5);\nt6=mid_att*(sin(-time+5.2+3.14)*0.5+0.5);",
+				"point_eqs_eel": "n=sample*6.283;\nphs=-sample * 0.2;\ntm=q1 + phs;\n\nflip=(flip+1)*below(flip,1);\n\nxp=0;\nyp=flip*0.1 + (sin(tm)*0.5 + 0.5)*0.2;\nzp=0;\n\n//wrist movement;\nang=sin(tm*2)*0.5 +0.5;\n\nxq=xp;\nsinang=sin(ang);cosang=cos(ang);\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\nyq=yp;\nzq=zp;\n\nang=tm*8;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//forearm movement;\nzp=zp-0.3;\nang=3.14 + sin(tm*2 - 0.5)*1.5;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp;\nyq=yp*sinang + zp*cosang;\nzq=yp*cosang - zp*sinang;\n\n//upper arm twist\nang=-1.0 + cos(tm*3.1 + 0.5);\nsinang=sin(ang);cosang=cos(ang);\nxp=xq*sinang + yq*cosang;\nyp=xq*cosang - yq*sinang;\nzp=zq;\n\n//upper arm outward;\nzp=zp-0.35;\nang=cos(tm*2.3)*1.75 - 1.05;\nsinang=sin(ang);cosang=cos(ang);\nxq=xp*sinang + zp*cosang;\nyq=yp;\nzq=xp*cosang - zp*sinang;\n\n//upper arm up down;\nang=cos(tm)*0.5 - 0.5;\nsinang=sin(ang);cosang=cos(ang);\nxp=xq;\nyp=yq*cosang - zq*sinang;\nzp=yq*sinang + zq*cosang;\n\n//xp=xq;yp=yq;zp=zq;\n\n\n//project into screenspace and draw on screen\nzp=zp+2;\nxs=xp/zp;\nys=yp/zp;\n\nx=xs+0.5;\ny=ys*1.3+0.5;\n\n\ndx = if(flip,x,dx-x);\ndy = if(flip,y,dy-y);\ndz = pow(dx*dx+dy*dy,.5);\nang = abs(asin(dx/dz));\ncang = if(flip,cang,if(below(dx,0),if(below(dy,0),-ang,3.141592654 + ang),if(below(dy,0),ang,3.141592654 - ang)));\ng = .5 + .5*sin(cang);\nb = .5 + .5*sin(cang + 1.047197);\nr = .5 + .5*sin(cang + 2.094395);\n\na=(1-sample)*above(sample,0);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "mv_x=64;mv_y=48;\nnut=0;\nstp=0;stq=0;\nrtp=0;rtq=0;\nwvr=0;\ndecay=0;\ndcsp=0",
+		"frame_eqs_eel": "decay=1;\nzoom=0.95+.075*max(treb_att,bass_att);\n\nwarp = 0;\n\nvol=(bass_att+mid_att+treb_att)*0.25;\nvol=vol*vol;\nmtime=mtime+vol*0.1;\n\nq1=mtime*0.4-.05*time;",
+		"pixel_eqs_eel": "",
+		"warp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv) {\n    vec3 ret;\n    (ret = (texture(sampler_main, uv)).xyz);\n    vec2 v = vec2( (normalize((uv - uv_orig)) * (texsize).zw) );\n    vec3 s;\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv + v)) * vec4 (0.970000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv - v)) * vec4 (0.970000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv + (v * vec2 (2)))) * vec4 (0.900000)))));\n    (ret = vec3 (max(vec4 (ret, 0), (texture(sampler_main, (uv - (v * vec2 (2)))) * vec4 (0.900000)))));\n    (ret *= vec3 (0.950000));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv);\n    ret = result.rgb;\n }",
+		"comp": "\nvec2 matrix_row0(mat2 m, int i) { return vec2( m[0][i], m[1][i] ); }\nvec3 matrix_row0(mat3 m, int i) { return vec3( m[0][i], m[1][i], m[2][i] ); }\nvec4 matrix_row0(mat4 m, int i) { return vec4( m[0][i], m[1][i], m[2][i], m[3][i] ); }\nvec2  m_scalar_swizzle20(float x) { return  vec2(x, x); }\nivec2 m_scalar_swizzle20(int   x) { return ivec2(x, x); }\nvec3  m_scalar_swizzle30(float x) { return  vec3(x, x, x); }\nivec3 m_scalar_swizzle30(int   x) { return ivec3(x, x, x); }\nvec4  m_scalar_swizzle40(float x) { return  vec4(x, x, x, x); }\nivec4 m_scalar_swizzle40(int   x) { return ivec4(x, x, x, x); }\nuvec2 m_scalar_swizzle20(uint  x) { return uvec2(x, x); }\nuvec3 m_scalar_swizzle30(uint  x) { return uvec3(x, x, x); }\nuvec4 m_scalar_swizzle40(uint  x) { return uvec4(x, x, x, x); }\nvec2 bvecTernary0(bvec2 cond, vec2 trueExpr, vec2 falseExpr) { vec2 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; return ret; }\nvec3 bvecTernary0(bvec3 cond, vec3 trueExpr, vec3 falseExpr) { vec3 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; return ret; }\nvec4 bvecTernary0(bvec4 cond, vec4 trueExpr, vec4 falseExpr) { vec4 ret; ret.x = cond.x ? trueExpr.x : falseExpr.x; ret.y = cond.y ? trueExpr.y : falseExpr.y; ret.z = cond.z ? trueExpr.z : falseExpr.z; ret.w = cond.w ? trueExpr.w : falseExpr.w; return ret; }\nvec4 main_shader_sentinel(vec2 uv, float rad, vec2 uv_orig) {\n    vec3 ret;\n    vec2 uv_echo2 = vec2( ((((uv - vec2 (0.500000)) * vec2 (1.000000)) * vec2((-1), 1)) + vec2 (0.500000)) );\n    vec3 ret3 = vec3( ((texture(sampler_main, uv)).xyz * (+clamp((((((texture(sampler_blur2, uv)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    vec3 ret4 = vec3( ((texture(sampler_main, uv_echo2)).xyz * (+clamp((((((texture(sampler_blur2, uv_echo2)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    (ret3 = mix(ret3, ret4, vec3 (0.500000)));\n    (ret3 *= ret3);\n    (ret3 *= vec3(0.900000, 1.600000, 2.300000));\n    (ret3 *= vec3 (2));\n    (uv = ((vec2 ((float (6) + (float (2) * sin(q1)))) * uv) - vec2 (sin(q1))));\n    vec2 m = vec2( floor((fract((uv * vec2 (0.500000))) * vec2 (2))) );\n    (uv = ((fract(uv) * (vec2 (1) - m)) + (m * fract((vec2 (1) - uv)))));\n    (uv = vec2(rad, (uv_orig).y));\n    vec2 uv_echo = vec2( ((((uv - vec2 (0.500000)) * vec2 (1.000000)) * vec2((-1), (-1))) + vec2 (0.500000)) );\n    (ret = ((texture(sampler_main, uv)).xyz * (+clamp((((((texture(sampler_blur2, uv)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))));\n    vec3 ret2 = vec3( ((texture(sampler_main, uv_echo)).xyz * (+clamp((((((texture(sampler_blur2, uv_echo)).xyz * vec3 (scale2)) + vec3 (bias2)) * vec3 (2.800000)) - vec3 (0.130000)), 0.0, 1.0))) );\n    (ret = mix(ret, ret2, vec3 (0.500000)));\n    (ret *= ret);\n    (ret *= vec3(0.900000, 1.600000, 2.300000));\n    (ret *= vec3 (3));\n    (ret = mix((ret3).xyz, (ret).zxy, vec3 (0.250000)));\n    return vec4(ret, 1.000000);\n}\n shader_body { \n    vec4 result = main_shader_sentinel(uv, rad, uv_orig);\n    ret = result.rgb;\n }"
+	}
+}

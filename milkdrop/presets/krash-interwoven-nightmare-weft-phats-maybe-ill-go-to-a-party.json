@@ -1,1 +1,116 @@
-{"schema":1,"id":"krash-interwoven-nightmare-weft-phats-maybe-ill-go-to-a-party","name":"interwoven (nightmare weft)_Phats_Maybe_Ill_Go_To_A_Party","author":"Krash","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20-%20interwoven%20(nightmare%20weft)_Phats_Maybe_Ill_Go_To_A_Party.milk","sourceSha1":"54a9a0117ed1e030697ec404a01abde9e8621fbf","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"decay":1,"echo_zoom":1.816695,"echo_alpha":0.4,"echo_orient":1,"wave_mode":5,"additivewave":1,"wave_dots":1,"wave_thick":1,"wave_brighten":0,"brighten":1,"darken":1,"solarize":1,"wave_a":1,"wave_scale":0.498315,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"wave_y":0.95,"ob_size":0.005,"ob_a":1,"ib_size":0.02,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":31.199999,"mv_y":2.280001,"mv_l":2.5,"mv_b":0.8,"mv_a":0.1},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"}],"init_eqs_eel":"","frame_eqs_eel":"warp=0;\n\nframethird = frame%3;\n\nx1 = 0.5 + 0.15*sin(0.416*time) + 0.15*sin(0.832*time) + 0.1*sin(1.324*time);\nx2 = 0.5 + 0.15*sin(0.341*time) + 0.15*sin(0.768*time) + 0.1*sin(1.523*time);\nx3 = 0.5 + 0.15*sin(0.287*time) + 0.15*sin(0.913*time) + 0.1*sin(1.142*time);\nr1 = 0.5 + 0.15*sin(0.512*time) + 0.15*sin(0.943*time) + 0.1*sin(1.024*time);\nr2 = 0.5 + 0.15*sin(0.483*time) + 0.15*sin(0.879*time) + 0.1*sin(1.423*time);\nr3 = 0.5 + 0.15*sin(0.531*time) + 0.15*sin(0.671*time) + 0.1*sin(1.442*time);\ng1 = 0.5 + 0.15*sin(0.248*time) + 0.15*sin(0.829*time) + 0.1*sin(1.623*time);\ng2 = 0.5 + 0.15*sin(0.461*time) + 0.15*sin(0.699*time) + 0.1*sin(1.254*time);\ng3 = 0.5 + 0.15*sin(0.397*time) + 0.15*sin(0.768*time) + 0.1*sin(1.157*time);\nb1 = 0.5 + 0.15*sin(0.211*time) + 0.15*sin(0.652*time) + 0.1*sin(1.865*time);\nb2 = 0.5 + 0.15*sin(0.333*time) + 0.15*sin(0.978*time) + 0.1*sin(1.359*time);\nb3 = 0.5 + 0.15*sin(0.475*time) + 0.15*sin(0.791*time) + 0.1*sin(1.011*time);\nwave_x = if(equal(framethird,0),x1,if(equal(framethird,1),x2,x3));\nwave_r = if(equal(framethird,0),r1,if(equal(framethird,1),r2,r3));\nwave_g = if(equal(framethird,0),g1,if(equal(framethird,1),g2,g3));\nwave_b = if(equal(framethird,0),b1,if(equal(framethird,1),b2,b3));\n\nvolume = 0.3*(bass+mid);\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.99 + (1-above(time - lastbeat, 2*beatrate))*0.998);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\ndx = if(beat,1-2*rand(2),0);\nob_a = if(beat,0,0.65);\nmv_a = if(beat,1,0.05);","pixel_eqs_eel":"dy = 0.004 + 0.0005*sin(10*x+0.459*time) + 0.0005*sin(14*x+0.325*time) + 0.0005*sin(1.231*time);\n//dx = dx + 0.0001*sin(9*y+0.612*time) + 0.0001*sin(13*y+0.429*time) + 0.0001*sin(1.027*time);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "krash-interwoven-nightmare-weft-phats-maybe-ill-go-to-a-party",
+	"name": "interwoven (nightmare weft)_Phats_Maybe_Ill_Go_To_A_Party",
+	"author": "Krash",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20-%20interwoven%20(nightmare%20weft)_Phats_Maybe_Ill_Go_To_A_Party.milk",
+	"sourceSha1": "54a9a0117ed1e030697ec404a01abde9e8621fbf",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"decay": 1,
+			"echo_zoom": 1.816695,
+			"echo_alpha": 0.4,
+			"echo_orient": 1,
+			"wave_mode": 5,
+			"additivewave": 1,
+			"wave_dots": 1,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"brighten": 1,
+			"darken": 1,
+			"solarize": 1,
+			"wave_a": 1,
+			"wave_scale": 0.498315,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"wave_y": 0.95,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0.02,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 31.199999,
+			"mv_y": 2.280001,
+			"mv_l": 2.5,
+			"mv_b": 0.8,
+			"mv_a": 0.1
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp=0;\n\nframethird = frame%3;\n\nx1 = 0.5 + 0.15*sin(0.416*time) + 0.15*sin(0.832*time) + 0.1*sin(1.324*time);\nx2 = 0.5 + 0.15*sin(0.341*time) + 0.15*sin(0.768*time) + 0.1*sin(1.523*time);\nx3 = 0.5 + 0.15*sin(0.287*time) + 0.15*sin(0.913*time) + 0.1*sin(1.142*time);\nr1 = 0.5 + 0.15*sin(0.512*time) + 0.15*sin(0.943*time) + 0.1*sin(1.024*time);\nr2 = 0.5 + 0.15*sin(0.483*time) + 0.15*sin(0.879*time) + 0.1*sin(1.423*time);\nr3 = 0.5 + 0.15*sin(0.531*time) + 0.15*sin(0.671*time) + 0.1*sin(1.442*time);\ng1 = 0.5 + 0.15*sin(0.248*time) + 0.15*sin(0.829*time) + 0.1*sin(1.623*time);\ng2 = 0.5 + 0.15*sin(0.461*time) + 0.15*sin(0.699*time) + 0.1*sin(1.254*time);\ng3 = 0.5 + 0.15*sin(0.397*time) + 0.15*sin(0.768*time) + 0.1*sin(1.157*time);\nb1 = 0.5 + 0.15*sin(0.211*time) + 0.15*sin(0.652*time) + 0.1*sin(1.865*time);\nb2 = 0.5 + 0.15*sin(0.333*time) + 0.15*sin(0.978*time) + 0.1*sin(1.359*time);\nb3 = 0.5 + 0.15*sin(0.475*time) + 0.15*sin(0.791*time) + 0.1*sin(1.011*time);\nwave_x = if(equal(framethird,0),x1,if(equal(framethird,1),x2,x3));\nwave_r = if(equal(framethird,0),r1,if(equal(framethird,1),r2,r3));\nwave_g = if(equal(framethird,0),g1,if(equal(framethird,1),g2,g3));\nwave_b = if(equal(framethird,0),b1,if(equal(framethird,1),b2,b3));\n\nvolume = 0.3*(bass+mid);\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.99 + (1-above(time - lastbeat, 2*beatrate))*0.998);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\ndx = if(beat,1-2*rand(2),0);\nob_a = if(beat,0,0.65);\nmv_a = if(beat,1,0.05);",
+		"pixel_eqs_eel": "dy = 0.004 + 0.0005*sin(10*x+0.459*time) + 0.0005*sin(14*x+0.325*time) + 0.0005*sin(1.231*time);\n//dx = dx + 0.0001*sin(9*y+0.612*time) + 0.0001*sin(13*y+0.429*time) + 0.0001*sin(1.027*time);",
+		"warp": "",
+		"comp": ""
+	}
+}

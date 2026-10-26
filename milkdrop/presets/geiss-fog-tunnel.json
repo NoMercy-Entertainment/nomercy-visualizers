@@ -1,1 +1,95 @@
-{"schema":1,"id":"geiss-fog-tunnel","name":"Fog Tunnel","author":"Geiss","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Geiss%20-%20Fog%20Tunnel.milk","sourceSha1":"8b24833ccdf1fd919c3897c68302c4931a9e83ca","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1.8,"echo_zoom":1.289,"echo_alpha":0.4,"echo_orient":1,"wave_thick":1,"wave_a":0.794075,"wave_scale":0.387,"wave_smoothing":0.4,"zoomexp":3.4,"zoom":1.042,"rot":-0.02,"dy":-0.01,"warp":0.122,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"wave_y":0.44,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 0.350*( 0.60*sin(0.850*time) + 0.40*sin(1.007*time) );\nwave_g = wave_g + 0.350*( 0.60*sin(0.705*time) + 0.40*sin(0.998*time) );\nwave_b = wave_b + 0.350*( 0.60*sin(0.715*time) + 0.40*sin(0.938*time) );\nrot = rot + 0.003*( 0.60*sin(0.381*time) + 0.40*sin(0.579*time) );\ncx = cx + 0.110*( 0.60*sin(0.374*time) + 0.40*sin(0.294*time) );\ncy = cy + 0.110*( 0.60*sin(0.393*time) + 0.40*sin(0.223*time) );\nwarp = warp + 0.231*( 0.60*sin(0.324*time) + 0.40*sin(0.347*time) );","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "geiss-fog-tunnel",
+	"name": "Fog Tunnel",
+	"author": "Geiss",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Geiss%20-%20Fog%20Tunnel.milk",
+	"sourceSha1": "8b24833ccdf1fd919c3897c68302c4931a9e83ca",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1.8,
+			"echo_zoom": 1.289,
+			"echo_alpha": 0.4,
+			"echo_orient": 1,
+			"wave_thick": 1,
+			"wave_a": 0.794075,
+			"wave_scale": 0.387,
+			"wave_smoothing": 0.4,
+			"zoomexp": 3.4,
+			"zoom": 1.042,
+			"rot": -0.02,
+			"dy": -0.01,
+			"warp": 0.122,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"wave_y": 0.44,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 0.350*( 0.60*sin(0.850*time) + 0.40*sin(1.007*time) );\nwave_g = wave_g + 0.350*( 0.60*sin(0.705*time) + 0.40*sin(0.998*time) );\nwave_b = wave_b + 0.350*( 0.60*sin(0.715*time) + 0.40*sin(0.938*time) );\nrot = rot + 0.003*( 0.60*sin(0.381*time) + 0.40*sin(0.579*time) );\ncx = cx + 0.110*( 0.60*sin(0.374*time) + 0.40*sin(0.294*time) );\ncy = cy + 0.110*( 0.60*sin(0.393*time) + 0.40*sin(0.223*time) );\nwarp = warp + 0.231*( 0.60*sin(0.324*time) + 0.40*sin(0.347*time) );",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

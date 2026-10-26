@@ -1,1 +1,131 @@
-{"schema":1,"id":"krash-rovastar-cerebral-demons-phat-eo-s-killer-death-bunny-remix","name":"Cerebral Demons - Phat + Eo.S. Killer Death Bunny Remix","author":"Krash & Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20%26%20Rovastar%20-%20Cerebral%20Demons%20-%20Phat%20%2B%20Eo.S.%20Killer%20Death%20Bunny%20Remix.milk","sourceSha1":"1b5923d2032a68843761c892bd948c4e04b3b308","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":1,"echo_zoom":1,"echo_alpha":0.5,"echo_orient":1,"wrap":0,"brighten":1,"wave_a":0.001,"wave_scale":0.334693,"wave_mystery":-0.2199,"fshader":0.3,"zoom":0.9999,"rot":0.1,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_a":0.8,"ib_size":0.005,"ib_r":0.4,"ib_g":0,"ib_b":0,"mv_x":64,"mv_y":48,"mv_l":0,"mv_r":0,"mv_g":0.7,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":5,"additive":1,"rad":0.110462,"g":1,"b":0.5,"r2":1,"g2":0.5},"init_eqs_eel":"","frame_eqs_eel":"x=q1;\ny=1-q2;\nang=time"},{"baseVals":{"enabled":1,"sides":5,"rad":0.03,"r":0,"g2":0,"a2":1},"init_eqs_eel":"","frame_eqs_eel":"x=q1;\ny=1-q2;\nang=time"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":1,"thick":1,"g":0.7,"b":0.2},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"n=sample*6.283;\nn2=(sample-q8 - time*0.1)*6;\n\nxp=sin(n);\nyp=cos(n);\n\ntm=q8 - sample;\n\ntx= sin(n2*13)*sin(n2*5) * sample * 0.05;\nty= cos(n2*13)*sin(n2*7) * sample * 0.05;\n\nxof=sin(tm) * sin(tm*3) * 0.4 + 0.5 + tx;\nyof=cos(tm*1.3) * sin(tm*5.4) * 0.4 + 0.5 + ty;\n\nxran=(rand(10) - 5) * 0.0005; xran=xran*sample;\nyran=(rand(10) - 5) * 0.0005; yran=yran*sample;\n\nx= xof + xran;\ny= (1-yof) + yran;\n\na=(1-sample);\ng=g*(1-sample);\nb=b*(1-sample)"},{"baseVals":{"enabled":1,"usedots":1,"thick":1,"g":0.78,"b":0.2},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"n=sample*6.283;\nn2=(sample-q8 - time*0.1)*6;\n\nxp=sin(n);\nyp=cos(n);\n\ntm=q8 - sample;\n\ntx= sin(n2*13)*sin(n2*5) * sample * 0.05;\nty= cos(n2*13)*sin(n2*7) * sample * 0.05;\n\nxof=sin(tm) * sin(tm*3) * 0.4 + 0.5 + tx;\nyof=cos(tm*1.3) * sin(tm*5.4) * 0.4 + 0.5 + ty;\n\nxran=(rand(10) - 5) * 0.0005; xran=xran*sample;\nyran=(rand(10) - 5) * 0.0005; yran=yran*sample;\n\nx= xof + xran;\ny= (1-yof) + yran;\n\na=(1-sample);\ng=g*(1-sample);\nb=b*(1-sample)"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp=0;\nwave_r = wave_r + 0.45*(0.5*sin(time*0.701)+ 0.3*cos(time*0.438));\nwave_b = wave_b - 0.4*(0.5*sin(time*4.782)+0.5*cos(time*0.722));\nwave_g = wave_g + 0.4*sin(time*1.931);\nwave_r = 0.2125*wave_r + 0.7154*wave_g + 0.0721*wave_b;\nwave_g = wave_r;\nwave_b = wave_r;\nvol = 0.167*(bass+mid);\nxamptarg = if(equal(frame%15,0),min(0.5*vol*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nwave_x = 1.25*xpos + 0.5;\nyamptarg = if(equal(frame%15,0),min(0.3*vol*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nwave_y = 1.25*ypos + 0.5;\ndx = dx + dx_residual;\ndy = dy + dy_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ndx_residual = equal(bass_thresh,2)*0.003*sin(time*7) + (1-equal(bass_thresh,2))*dx_residual;\ndy_residual = equal(bass_thresh,2)*0.001*sin(time*9) + (1-equal(bass_thresh,2))*dy_residual;\nrot = 0.1;\n\nvol=(bass+mid+treb)*0.25;\nvol=vol*vol;\nmtime=mtime + vol*0.01*(75/fps);\nq8=mtime;\n\n\nq1=sin(mtime) * sin(mtime*3) * 0.4 + 0.5;\nq2=cos(mtime*1.3) * sin(mtime*5.4) * 0.4 + 0.5;\n\n\n\nib_r = tan(time);\nib_r = min(1, max(ib_r,0));\n\nib_g = tan(time+2.1);\nib_g = min(1, max(ib_g,0));\n\nib_b = tan(time+4.2);\nib_b = min(1, max(ib_b,0));\n\nq3 = 10+8*(0.6*sin(0.223*time) + 0.4*sin(0.153*time));\nq4 = 1/q3;\nq5 = 0.5*sign(xpos);\nq6 = 0.5*sign(ypos);\n\nmonitor=q4","pixel_eqs_eel":"cx = ((0&(x*q3-q5))+q5)*q4;\ncy = ((0&(y*q3-q6))+q6)*q4;\nnewx = q1-x;\nnewy = q2-y;\nnewrad = sqrt((newx)*(newx)+0.5625*(newy)*(newy))*2;\nnewzoom = pow(1.05 + 0.03*newrad, pow(0.01+sin(newrad*newrad), newrad*2-1));\ndx = (newx)*newzoom - newx;\ndy = (newy)*newzoom - newy;\ndx =dx*0.1;\ndy=dy*0.1;\nrot = 2*newrad*(0.5*(0.5-rad)+0.1);\nrot=rot*sin(time)*0.2;\n//sx=-1","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "krash-rovastar-cerebral-demons-phat-eo-s-killer-death-bunny-remix",
+	"name": "Cerebral Demons - Phat + Eo.S. Killer Death Bunny Remix",
+	"author": "Krash & Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20%26%20Rovastar%20-%20Cerebral%20Demons%20-%20Phat%20%2B%20Eo.S.%20Killer%20Death%20Bunny%20Remix.milk",
+	"sourceSha1": "1b5923d2032a68843761c892bd948c4e04b3b308",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"echo_orient": 1,
+			"wrap": 0,
+			"brighten": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.334693,
+			"wave_mystery": -0.2199,
+			"fshader": 0.3,
+			"zoom": 0.9999,
+			"rot": 0.1,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_a": 0.8,
+			"ib_size": 0.005,
+			"ib_r": 0.4,
+			"ib_g": 0,
+			"ib_b": 0,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_r": 0,
+			"mv_g": 0.7,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 5,
+					"additive": 1,
+					"rad": 0.110462,
+					"g": 1,
+					"b": 0.5,
+					"r2": 1,
+					"g2": 0.5
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=q1;\ny=1-q2;\nang=time"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 5,
+					"rad": 0.03,
+					"r": 0,
+					"g2": 0,
+					"a2": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=q1;\ny=1-q2;\nang=time"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"g": 0.7,
+					"b": 0.2
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "n=sample*6.283;\nn2=(sample-q8 - time*0.1)*6;\n\nxp=sin(n);\nyp=cos(n);\n\ntm=q8 - sample;\n\ntx= sin(n2*13)*sin(n2*5) * sample * 0.05;\nty= cos(n2*13)*sin(n2*7) * sample * 0.05;\n\nxof=sin(tm) * sin(tm*3) * 0.4 + 0.5 + tx;\nyof=cos(tm*1.3) * sin(tm*5.4) * 0.4 + 0.5 + ty;\n\nxran=(rand(10) - 5) * 0.0005; xran=xran*sample;\nyran=(rand(10) - 5) * 0.0005; yran=yran*sample;\n\nx= xof + xran;\ny= (1-yof) + yran;\n\na=(1-sample);\ng=g*(1-sample);\nb=b*(1-sample)"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"usedots": 1,
+					"thick": 1,
+					"g": 0.78,
+					"b": 0.2
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "n=sample*6.283;\nn2=(sample-q8 - time*0.1)*6;\n\nxp=sin(n);\nyp=cos(n);\n\ntm=q8 - sample;\n\ntx= sin(n2*13)*sin(n2*5) * sample * 0.05;\nty= cos(n2*13)*sin(n2*7) * sample * 0.05;\n\nxof=sin(tm) * sin(tm*3) * 0.4 + 0.5 + tx;\nyof=cos(tm*1.3) * sin(tm*5.4) * 0.4 + 0.5 + ty;\n\nxran=(rand(10) - 5) * 0.0005; xran=xran*sample;\nyran=(rand(10) - 5) * 0.0005; yran=yran*sample;\n\nx= xof + xran;\ny= (1-yof) + yran;\n\na=(1-sample);\ng=g*(1-sample);\nb=b*(1-sample)"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp=0;\nwave_r = wave_r + 0.45*(0.5*sin(time*0.701)+ 0.3*cos(time*0.438));\nwave_b = wave_b - 0.4*(0.5*sin(time*4.782)+0.5*cos(time*0.722));\nwave_g = wave_g + 0.4*sin(time*1.931);\nwave_r = 0.2125*wave_r + 0.7154*wave_g + 0.0721*wave_b;\nwave_g = wave_r;\nwave_b = wave_r;\nvol = 0.167*(bass+mid);\nxamptarg = if(equal(frame%15,0),min(0.5*vol*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nwave_x = 1.25*xpos + 0.5;\nyamptarg = if(equal(frame%15,0),min(0.3*vol*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nwave_y = 1.25*ypos + 0.5;\ndx = dx + dx_residual;\ndy = dy + dy_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ndx_residual = equal(bass_thresh,2)*0.003*sin(time*7) + (1-equal(bass_thresh,2))*dx_residual;\ndy_residual = equal(bass_thresh,2)*0.001*sin(time*9) + (1-equal(bass_thresh,2))*dy_residual;\nrot = 0.1;\n\nvol=(bass+mid+treb)*0.25;\nvol=vol*vol;\nmtime=mtime + vol*0.01*(75/fps);\nq8=mtime;\n\n\nq1=sin(mtime) * sin(mtime*3) * 0.4 + 0.5;\nq2=cos(mtime*1.3) * sin(mtime*5.4) * 0.4 + 0.5;\n\n\n\nib_r = tan(time);\nib_r = min(1, max(ib_r,0));\n\nib_g = tan(time+2.1);\nib_g = min(1, max(ib_g,0));\n\nib_b = tan(time+4.2);\nib_b = min(1, max(ib_b,0));\n\nq3 = 10+8*(0.6*sin(0.223*time) + 0.4*sin(0.153*time));\nq4 = 1/q3;\nq5 = 0.5*sign(xpos);\nq6 = 0.5*sign(ypos);\n\nmonitor=q4",
+		"pixel_eqs_eel": "cx = ((0&(x*q3-q5))+q5)*q4;\ncy = ((0&(y*q3-q6))+q6)*q4;\nnewx = q1-x;\nnewy = q2-y;\nnewrad = sqrt((newx)*(newx)+0.5625*(newy)*(newy))*2;\nnewzoom = pow(1.05 + 0.03*newrad, pow(0.01+sin(newrad*newrad), newrad*2-1));\ndx = (newx)*newzoom - newx;\ndy = (newy)*newzoom - newy;\ndx =dx*0.1;\ndy=dy*0.1;\nrot = 2*newrad*(0.5*(0.5-rad)+0.1);\nrot=rot*sin(time)*0.2;\n//sx=-1",
+		"warp": "",
+		"comp": ""
+	}
+}

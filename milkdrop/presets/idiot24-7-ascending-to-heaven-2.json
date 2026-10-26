@@ -1,1 +1,98 @@
-{"schema":1,"id":"idiot24-7-ascending-to-heaven-2","name":"Ascending to heaven 2","author":"Idiot24-7","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Idiot24-7%20-%20Ascending%20to%20heaven%202.milk","sourceSha1":"12ffa64fd6d053630c49fc2202abb40919322370","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"wave_brighten":0,"darken_center":1,"wave_a":33.469135,"wave_scale":0.931008,"wave_smoothing":0.5,"modwavealphastart":0,"warpscale":5.725291,"zoomexp":4.778017,"zoom":1.093507,"rot":null,"warp":0.0662,"sx":0.905286,"sy":1.01,"wave_y":0.47,"ob_a":0.5,"mv_x":19.199995,"mv_y":14.4,"mv_l":3,"mv_r":0.6,"mv_g":0,"mv_a":0.1},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 1*( 0.60*sin(0.933*time) + 0.40*sin(1.045*time) );\nwave_b = wave_b + 1*( 1.60*sin(1.900*time) + 0.40*sin(0.956*time) );\nwave_g = wave_g +1*(1.50*sin(1.900*time)+.40*sin(1*time) );\nrot=.140*sin(time);","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "idiot24-7-ascending-to-heaven-2",
+	"name": "Ascending to heaven 2",
+	"author": "Idiot24-7",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Idiot24-7%20-%20Ascending%20to%20heaven%202.milk",
+	"sourceSha1": "12ffa64fd6d053630c49fc2202abb40919322370",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"wave_brighten": 0,
+			"darken_center": 1,
+			"wave_a": 33.469135,
+			"wave_scale": 0.931008,
+			"wave_smoothing": 0.5,
+			"modwavealphastart": 0,
+			"warpscale": 5.725291,
+			"zoomexp": 4.778017,
+			"zoom": 1.093507,
+			"rot": null,
+			"warp": 0.0662,
+			"sx": 0.905286,
+			"sy": 1.01,
+			"wave_y": 0.47,
+			"ob_a": 0.5,
+			"mv_x": 19.199995,
+			"mv_y": 14.4,
+			"mv_l": 3,
+			"mv_r": 0.6,
+			"mv_g": 0,
+			"mv_a": 0.1
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 1*( 0.60*sin(0.933*time) + 0.40*sin(1.045*time) );\nwave_b = wave_b + 1*( 1.60*sin(1.900*time) + 0.40*sin(0.956*time) );\nwave_g = wave_g +1*(1.50*sin(1.900*time)+.40*sin(1*time) );\nrot=.140*sin(time);",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

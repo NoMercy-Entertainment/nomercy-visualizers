@@ -1,1 +1,109 @@
-{"schema":1,"id":"unchained-housed-in-a-childish-mind","name":"Housed In A Childish Mind","author":"Unchained","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Unchained%20-%20Housed%20In%20A%20Childish%20Mind.milk","sourceSha1":"4db3602f758676e738649ca1991f949fe1e65c4e","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1.560001,"decay":1,"echo_zoom":0.9997,"wave_thick":1,"wave_brighten":0,"darken":1,"wave_a":25.5732,"wave_scale":1.135639,"wave_smoothing":0,"zoomexp":0.99817,"zoom":0.998137,"rot":1,"cx":2,"warp":0.01,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_size":0.005,"ob_r":1,"ob_a":0.2,"ib_size":0.005,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":0.6,"mv_x":24.959999,"mv_y":19.199999,"mv_l":0.85,"mv_r":0.4999,"mv_g":0.4999,"mv_b":0.4999,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp=0;\nle=1+.5+2*sin(bass_att);\nbpulse=band(above(le,bth),above(le-bth,bblock));\nbblock=le-bth;\nbth=if(above(le,bth),le+114/(le+10)-7.407,\nbth+bth*.07/(bth-12)+below(bth,2.7)*.1*(2.7-bth));\nbth=if(above(bth,6),6,bth);\nbres=bpulse*sin(pulse+le*.5) + bnot(bpulse)*bres;\n\nle=1+.5+2*sin(treb_att);\ntpulse=band(above(le,tth),above(le-tth,tblock));\ntblock=le-tth;\ntth=if(above(le,tth),le+114/(le+10)-7.407,\ntth+tth*.07/(tth-12)+below(tth,2.7)*.1*(2.7-tth));\ntth=if(above(tth,6),6,tth);\ntres=tpulse*sin(pulse+le*.5) + bnot(tpulse)*tres;\n\nle=1+.5+2*sin(mid_att);\nmpulse=band(above(le,mth),above(le-mth,mblock));\nmblock=le-mth;\nmth=if(above(le,mth),le+114/(le+10)-7.407,\nmth+mth*.07/(mth-12)+below(mth,2.7)*.1*(2.7-mth));\nmth=if(above(mth,6),6,mth);\nmres=mpulse*sin(pulse+le*.5) + bnot(mpulse)*mres;\n\n\n\npulse=if(above(abs(pulse),3.14),-3.14,pulse+(bth+mth+tth)*.003);\nq1=bres;\nq2=tres;\nq3=mres;\nq4=sin(pulse);\n\nmod_state=(above(q1,0)+above(q2,0)+above(q3,0))*(1+above(q4,0));\nccl=ccl+tpulse+mpulse-bpulse;\nq5=cos(pulse*(.5+.1*mod_state));\nq6=sin(pulse*(.5+pow(.25,mod_state)));\nq7=mod_state;\nq8=ccl;\nob_r=.5+.5*cos(q1+q7);\nob_g=.5+.5*cos(q2*3.14+q7);\nob_b=.5+.5*cos(q3*2+sin(time*.0816));\nib_size=.025+.02*q2;\nob_size=.03+.02*q3-.002*q7;\nwave_r=.5+.5*sin(q1*q7+time*2.183);\nwave_g=.5+.5*sin(q2*3+time*1.211);\nwave_b=.5+.5*sin(q3+time*1.541);\nwave_mystery=wave_mystery+sin(time*2.18+q6);\nwave_x=wave_x+.25*sin(time*.811+q1)+.1*(frame%3)*sign(q3);\nwave_y=wave_y+.25*sin(time*.788+q2)+.1*(frame%2)*sign(q3);\n\ncy=.5+.5*q4+sin(time*.086);\n\ndecay=.995+.0025*q3+.0025*q1;\nmv_a=above(q2,0)*(.1+.1*q5);\nmv_r=1-ob_g;\nmv_b=1-ob_r;\nmv_g=1-ob_b;","pixel_eqs_eel":"snee=bnot(above(sin(ang)-x,.5)*above(q2,0)+above(y-cos(ang),.5)*above(q1,0));\nsnur=bnot(below(x,.5+.5*y*q6)*above(q3,0)+below(y,.5+.5*sin(x*6.28*q1))*below(q7,4));\ngrid=sin((rad*q1+x*q2+y*q3+ang*q4)*(10+q7));\nrot=snee*if(above(grid,0),snur,bnot(snur));\nzoom=(1+.01*sin(rad*q7+q5)*bnot(snee)*if(snur,-1,1))*(1+.03*q1*atan(ang*q4-rot*q2));\nsx=sx+.1*bor(bnot(snee),bnot(snur))*cos(y*3.14*q4);\nsy=sy+.1*bor(bnot(snee),snur)*cos(x*3.14*q6);\ncheckx=bor(above(abs(q1),x)*below(abs(q2),x),above(abs(q2),x)*below(abs(q1),x));\nchecky=bor(above(abs(q1),y)*below(abs(q2),y),above(abs(q2),y)*below(abs(q1),y));\ndx=checkx*sin(x*q3*6.29)*rot;\ndy=checky*sin(y*q3*6.29)*rot;\nrot=if(above(y,.5+.5*x*q3),rot*.01,rot*zoom*.005);\ndx=dx*atan2(pow(ang*q4,1+q7),ang*sin(rad*3.14*q2));\ndy=dy*atan2(pow(ang*q5,1+(q8%6)),ang*sin(y*3.14*q1));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "unchained-housed-in-a-childish-mind",
+	"name": "Housed In A Childish Mind",
+	"author": "Unchained",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Unchained%20-%20Housed%20In%20A%20Childish%20Mind.milk",
+	"sourceSha1": "4db3602f758676e738649ca1991f949fe1e65c4e",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1.560001,
+			"decay": 1,
+			"echo_zoom": 0.9997,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"darken": 1,
+			"wave_a": 25.5732,
+			"wave_scale": 1.135639,
+			"wave_smoothing": 0,
+			"zoomexp": 0.99817,
+			"zoom": 0.998137,
+			"rot": 1,
+			"cx": 2,
+			"warp": 0.01,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_size": 0.005,
+			"ob_r": 1,
+			"ob_a": 0.2,
+			"ib_size": 0.005,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 0.6,
+			"mv_x": 24.959999,
+			"mv_y": 19.199999,
+			"mv_l": 0.85,
+			"mv_r": 0.4999,
+			"mv_g": 0.4999,
+			"mv_b": 0.4999,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp=0;\nle=1+.5+2*sin(bass_att);\nbpulse=band(above(le,bth),above(le-bth,bblock));\nbblock=le-bth;\nbth=if(above(le,bth),le+114/(le+10)-7.407,\nbth+bth*.07/(bth-12)+below(bth,2.7)*.1*(2.7-bth));\nbth=if(above(bth,6),6,bth);\nbres=bpulse*sin(pulse+le*.5) + bnot(bpulse)*bres;\n\nle=1+.5+2*sin(treb_att);\ntpulse=band(above(le,tth),above(le-tth,tblock));\ntblock=le-tth;\ntth=if(above(le,tth),le+114/(le+10)-7.407,\ntth+tth*.07/(tth-12)+below(tth,2.7)*.1*(2.7-tth));\ntth=if(above(tth,6),6,tth);\ntres=tpulse*sin(pulse+le*.5) + bnot(tpulse)*tres;\n\nle=1+.5+2*sin(mid_att);\nmpulse=band(above(le,mth),above(le-mth,mblock));\nmblock=le-mth;\nmth=if(above(le,mth),le+114/(le+10)-7.407,\nmth+mth*.07/(mth-12)+below(mth,2.7)*.1*(2.7-mth));\nmth=if(above(mth,6),6,mth);\nmres=mpulse*sin(pulse+le*.5) + bnot(mpulse)*mres;\n\n\n\npulse=if(above(abs(pulse),3.14),-3.14,pulse+(bth+mth+tth)*.003);\nq1=bres;\nq2=tres;\nq3=mres;\nq4=sin(pulse);\n\nmod_state=(above(q1,0)+above(q2,0)+above(q3,0))*(1+above(q4,0));\nccl=ccl+tpulse+mpulse-bpulse;\nq5=cos(pulse*(.5+.1*mod_state));\nq6=sin(pulse*(.5+pow(.25,mod_state)));\nq7=mod_state;\nq8=ccl;\nob_r=.5+.5*cos(q1+q7);\nob_g=.5+.5*cos(q2*3.14+q7);\nob_b=.5+.5*cos(q3*2+sin(time*.0816));\nib_size=.025+.02*q2;\nob_size=.03+.02*q3-.002*q7;\nwave_r=.5+.5*sin(q1*q7+time*2.183);\nwave_g=.5+.5*sin(q2*3+time*1.211);\nwave_b=.5+.5*sin(q3+time*1.541);\nwave_mystery=wave_mystery+sin(time*2.18+q6);\nwave_x=wave_x+.25*sin(time*.811+q1)+.1*(frame%3)*sign(q3);\nwave_y=wave_y+.25*sin(time*.788+q2)+.1*(frame%2)*sign(q3);\n\ncy=.5+.5*q4+sin(time*.086);\n\ndecay=.995+.0025*q3+.0025*q1;\nmv_a=above(q2,0)*(.1+.1*q5);\nmv_r=1-ob_g;\nmv_b=1-ob_r;\nmv_g=1-ob_b;",
+		"pixel_eqs_eel": "snee=bnot(above(sin(ang)-x,.5)*above(q2,0)+above(y-cos(ang),.5)*above(q1,0));\nsnur=bnot(below(x,.5+.5*y*q6)*above(q3,0)+below(y,.5+.5*sin(x*6.28*q1))*below(q7,4));\ngrid=sin((rad*q1+x*q2+y*q3+ang*q4)*(10+q7));\nrot=snee*if(above(grid,0),snur,bnot(snur));\nzoom=(1+.01*sin(rad*q7+q5)*bnot(snee)*if(snur,-1,1))*(1+.03*q1*atan(ang*q4-rot*q2));\nsx=sx+.1*bor(bnot(snee),bnot(snur))*cos(y*3.14*q4);\nsy=sy+.1*bor(bnot(snee),snur)*cos(x*3.14*q6);\ncheckx=bor(above(abs(q1),x)*below(abs(q2),x),above(abs(q2),x)*below(abs(q1),x));\nchecky=bor(above(abs(q1),y)*below(abs(q2),y),above(abs(q2),y)*below(abs(q1),y));\ndx=checkx*sin(x*q3*6.29)*rot;\ndy=checky*sin(y*q3*6.29)*rot;\nrot=if(above(y,.5+.5*x*q3),rot*.01,rot*zoom*.005);\ndx=dx*atan2(pow(ang*q4,1+q7),ang*sin(rad*3.14*q2));\ndy=dy*atan2(pow(ang*q5,1+(q8%6)),ang*sin(y*3.14*q1));",
+		"warp": "",
+		"comp": ""
+	}
+}

@@ -1,1 +1,115 @@
-{"schema":1,"id":"rozzor-neuro-starover-semicolon-mix","name":"Starover (Semicolon Mix)","author":"Rozzor & Neuro","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Neuro%20-%20Starover%20(Semicolon%20Mix).milk","sourceSha1":"7f6036bf3ff3da401175f7095d7648a47c90d548","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1.7,"decay":0.97,"echo_zoom":3.503422,"echo_alpha":0.46,"additivewave":1,"wave_brighten":0,"darken":1,"wave_a":4.099998,"wave_scale":0.01,"wave_smoothing":0.63,"wave_mystery":-1,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpanimspeed":4.583206,"warpscale":3.194907,"fshader":0.01,"zoom":32.544483,"dx":-0.28,"dy":-0.32,"warp":0.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0.02,"ob_r":0.01,"ob_a":1,"ib_size":0.02,"ib_r":0.95,"ib_g":0.85,"ib_b":0.65,"ib_a":1,"mv_x":24.959995,"mv_y":15.239994,"mv_dx":-0.66,"mv_dy":0.26,"mv_l":1.2,"mv_r":0.67,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 0.3*sin(time*1.254);\nwave_g = wave_g +0.3*sin(time*0.952);\nwave_b = wave_b + 0.3*sin(time*0.824);\nob_r = 0.5 + 0.4*sin(time*1.324);\nob_g = 0.5 + 0.4*cos(time*1.371);\nob_b = 0.5+0.4*sin(2.332*time);\nib_r = 0.5 + 0.25*sin(time*1.424);\nib_g = 0.25 + 0.25*cos(time*1.871);\nib_b = 0.5+0.5*sin(2.273*time);\nvolume = 0.15*(bass+bass_att+treb+treb_att+mid+mid_att);\nxamptarg = if(equal(frame%15,0),min(0.5*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxaccel = xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\ndx = xpos;\nyamptarg = if(equal(frame%15,0),min(0.3*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyaccel = ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nyspeed = yspeed - cy\nyspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\ndy = ypos;\nzoom = cx;","pixel_eqs_eel":"myzoom = log(sqrt(2)-rad) -0.25;\n\nzoom = if(above(rad,0.4),myzoom,(0.5*sqrt(2)-rad));\nmyzoom = myzoom - rot;\ncx =  cos(myzoom);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rozzor-neuro-starover-semicolon-mix",
+	"name": "Starover (Semicolon Mix)",
+	"author": "Rozzor & Neuro",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Neuro%20-%20Starover%20(Semicolon%20Mix).milk",
+	"sourceSha1": "7f6036bf3ff3da401175f7095d7648a47c90d548",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1.7,
+			"decay": 0.97,
+			"echo_zoom": 3.503422,
+			"echo_alpha": 0.46,
+			"additivewave": 1,
+			"wave_brighten": 0,
+			"darken": 1,
+			"wave_a": 4.099998,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.63,
+			"wave_mystery": -1,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpanimspeed": 4.583206,
+			"warpscale": 3.194907,
+			"fshader": 0.01,
+			"zoom": 32.544483,
+			"dx": -0.28,
+			"dy": -0.32,
+			"warp": 0.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0.02,
+			"ob_r": 0.01,
+			"ob_a": 1,
+			"ib_size": 0.02,
+			"ib_r": 0.95,
+			"ib_g": 0.85,
+			"ib_b": 0.65,
+			"ib_a": 1,
+			"mv_x": 24.959995,
+			"mv_y": 15.239994,
+			"mv_dx": -0.66,
+			"mv_dy": 0.26,
+			"mv_l": 1.2,
+			"mv_r": 0.67,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 0.3*sin(time*1.254);\nwave_g = wave_g +0.3*sin(time*0.952);\nwave_b = wave_b + 0.3*sin(time*0.824);\nob_r = 0.5 + 0.4*sin(time*1.324);\nob_g = 0.5 + 0.4*cos(time*1.371);\nob_b = 0.5+0.4*sin(2.332*time);\nib_r = 0.5 + 0.25*sin(time*1.424);\nib_g = 0.25 + 0.25*cos(time*1.871);\nib_b = 0.5+0.5*sin(2.273*time);\nvolume = 0.15*(bass+bass_att+treb+treb_att+mid+mid_att);\nxamptarg = if(equal(frame%15,0),min(0.5*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxaccel = xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\ndx = xpos;\nyamptarg = if(equal(frame%15,0),min(0.3*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyaccel = ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nyspeed = yspeed - cy\nyspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\ndy = ypos;\nzoom = cx;",
+		"pixel_eqs_eel": "myzoom = log(sqrt(2)-rad) -0.25;\n\nzoom = if(above(rad,0.4),myzoom,(0.5*sqrt(2)-rad));\nmyzoom = myzoom - rot;\ncx =  cos(myzoom);",
+		"warp": "",
+		"comp": ""
+	}
+}

@@ -1,1 +1,140 @@
-{"schema":1,"id":"rovastar-fractopia-upspoken-mix-phat-speak-when-spoken-2","name":"Fractopia (Upspoken Mix)_Phat_Speak_When_Spoken_2","author":"Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Fractopia%20(Upspoken%20Mix)_Phat_Speak_When_Spoken_2.milk","sourceSha1":"d9eb27aae43a3c64e9d00c1333c05353fe94d56e","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":4,"decay":1,"echo_zoom":1,"echo_orient":1,"wave_brighten":0,"wrap":0,"wave_a":0.001273,"wave_scale":0.180933,"wave_mystery":-0.2,"warpanimspeed":9.8608,"warpscale":16.2174,"zoomexp":1.503744,"warp":0.999999,"wave_r":0.9,"wave_g":0.2,"wave_b":0.4,"ob_size":0,"ob_r":1,"ob_g":0.1,"ob_a":1,"ib_size":0.075,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":0,"mv_g":0,"mv_b":0},"shapes":[{"baseVals":{"enabled":1,"sides":6,"additive":1,"rad":0.247309,"tex_ang":6.283185,"tex_zoom":33.803761,"r":0,"b":0.01,"r2":1,"g2":0.5,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"x=xs+q4;\ny=ys+q5;\ntex_ang=sin(time)*6.28;\n//rad=.166+(treb/100);"},{"baseVals":{"enabled":1,"textured":1,"rad":1.75612,"tex_zoom":0.567128,"g":1,"b":1,"a":0,"r2":1,"b2":1,"a2":1},"init_eqs_eel":"","frame_eqs_eel":"tex_ang=0.001"},{"baseVals":{"enabled":1,"sides":6,"rad":0.153398,"r":0,"g2":0,"a2":1},"init_eqs_eel":"","frame_eqs_eel":"x=xs+q4;\ny=ys+q5;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"basstime=basstime+(bass*bass);\nt1=basstime*0.03;","point_eqs_eel":"//plot x,y,z to point on circle\nsmp=sample*6.283;\nxp=sin(smp )*0.10;\nyp=cos(smp )*0.10;\nzp=0;\n\n\n//alter shape;\nangy=sin(sample*6.28*4 +t1 )*6.28;\nxq=xp*cos(angy) - zp*sin(angy);\nzq=xp*sin(angy) + zp*cos(angy);\nxp=xq;\nzp=zq;\n\n\n//rotate on y axis;\nangy=t1*0.1;\nxq=xp*cos(angy) - zp*sin(angy);\nzq=xp*sin(angy) + zp*cos(angy);\nxp=xq;\nzp=zq;\n\n//rotate on x axis\n//axs1 = sin(t1*0.15) + 1.6;\n//yq= yp*cos(axs1) - zp*sin(axs1);\n//zq= yp*sin(axs1) + zp*cos(axs1);\n//yp=yq;\n//zp=zq;\n\n//rotate on y axis again\naxs2 = sin(t1*0.1)*3.3;\nxq=xp*cos(axs2) - zp*sin(axs2);\nzq=xp*sin(axs2) + zp*cos(axs2);\nxp=xq;\nzp=zq;\n\n//stretch y axis to compensate for aspect ratio\nyp=yp*1.2;\n\n//push forward into viewpace\nzp=zp+2.1;\n\n//project x,y,z into screenspace\nxs=xp/zp;\nys=yp/zp;\n\n//center 0,0 in middle of screen\n//x=xs+0.5+q4;\n//y=ys+0.5+q5;\nx=xs+q4;\ny=ys+q5;\n\n//r=1-q1;\n//g=1-q2;\n//b=1-q3;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs-0.02;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"},{"baseVals":{"enabled":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"}],"init_eqs_eel":"","frame_eqs_eel":"warp = 0;\nvolume = 0.3*(bass+mid+att);\nxamptarg = if(equal(frame%15,0),min(0.25*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nyamptarg = if(equal(frame%15,0),min(0.15*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nwave_x = xpos + 0.5;\nwave_y = 1-(ypos + 0.5);\n//wave_r = 0.5 + 0.499*( 0.60*sin(0.980*time) + 0.40*sin(1.047*time) );\n//wave_g = 0.5 + 0.499*( 0.60*sin(0.835*time) + 0.40*sin(1.081*time) );\n//wave_b = 0.5 + 0.499*( 0.60*sin(0.814*time) + 0.40*sin(1.011*time) );\nwave_mystery = -0.17 + 0.03*(0.6*sin(0.637*time) + 0.4*sin(0.949*time));\nmv_r = if(beat, 1, ib_r);\nmv_b = if(beat, wave_b, ib_b);\n//mv_a = if(beat, 0.1, ib_a);\n//ib_a = 0.015;\nq3 = wave_mystery;\nq1 = wave_x;\nq2 = 1-wave_y;\nq2 = ypos+0.5;\nwarp=0;\nq4=xpos +0.5;\nq5=1-(ypos + 0.5);\n\nwave_a=0;\n//q2 = 1-(ypos + 0.5);\n//q1 = 0.5;\n//q2=0.5;\nob_r = 1-wave_g;\nob_b = 1-wave_r;\nob_g = 1-wave_b;\n\nmonitor = wave_y;\nmovement =movement + 0.4*(((bass+bass_att + 0.1*pow((bass+0.6*bass_att+0.2*treb_att),3)))/fps);\nmovement = if(above(movement,10000), 0, movement);\nrot =1*sin(movement);\ncx = wave_x;\ncy = y_pos+0.5;\n\nq8 = movement;\nwrap=above(sin(time*200),0);","pixel_eqs_eel":"myy = x-q1;\nmyx = y-q2+0.1;\ndx = 3*sin(q8*0.675)*(2*myx*myy);\ndy = 3*sin(q8*0.675)*((myx*myx) - (myy*myy));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-fractopia-upspoken-mix-phat-speak-when-spoken-2",
+	"name": "Fractopia (Upspoken Mix)_Phat_Speak_When_Spoken_2",
+	"author": "Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Fractopia%20(Upspoken%20Mix)_Phat_Speak_When_Spoken_2.milk",
+	"sourceSha1": "d9eb27aae43a3c64e9d00c1333c05353fe94d56e",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 4,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_orient": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.001273,
+			"wave_scale": 0.180933,
+			"wave_mystery": -0.2,
+			"warpanimspeed": 9.8608,
+			"warpscale": 16.2174,
+			"zoomexp": 1.503744,
+			"warp": 0.999999,
+			"wave_r": 0.9,
+			"wave_g": 0.2,
+			"wave_b": 0.4,
+			"ob_size": 0,
+			"ob_r": 1,
+			"ob_g": 0.1,
+			"ob_a": 1,
+			"ib_size": 0.075,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_g": 0,
+			"mv_b": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 6,
+					"additive": 1,
+					"rad": 0.247309,
+					"tex_ang": 6.283185,
+					"tex_zoom": 33.803761,
+					"r": 0,
+					"b": 0.01,
+					"r2": 1,
+					"g2": 0.5,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=xs+q4;\ny=ys+q5;\ntex_ang=sin(time)*6.28;\n//rad=.166+(treb/100);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"rad": 1.75612,
+					"tex_zoom": 0.567128,
+					"g": 1,
+					"b": 1,
+					"a": 0,
+					"r2": 1,
+					"b2": 1,
+					"a2": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "tex_ang=0.001"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 6,
+					"rad": 0.153398,
+					"r": 0,
+					"g2": 0,
+					"a2": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=xs+q4;\ny=ys+q5;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "basstime=basstime+(bass*bass);\nt1=basstime*0.03;",
+				"point_eqs_eel": "//plot x,y,z to point on circle\nsmp=sample*6.283;\nxp=sin(smp )*0.10;\nyp=cos(smp )*0.10;\nzp=0;\n\n\n//alter shape;\nangy=sin(sample*6.28*4 +t1 )*6.28;\nxq=xp*cos(angy) - zp*sin(angy);\nzq=xp*sin(angy) + zp*cos(angy);\nxp=xq;\nzp=zq;\n\n\n//rotate on y axis;\nangy=t1*0.1;\nxq=xp*cos(angy) - zp*sin(angy);\nzq=xp*sin(angy) + zp*cos(angy);\nxp=xq;\nzp=zq;\n\n//rotate on x axis\n//axs1 = sin(t1*0.15) + 1.6;\n//yq= yp*cos(axs1) - zp*sin(axs1);\n//zq= yp*sin(axs1) + zp*cos(axs1);\n//yp=yq;\n//zp=zq;\n\n//rotate on y axis again\naxs2 = sin(t1*0.1)*3.3;\nxq=xp*cos(axs2) - zp*sin(axs2);\nzq=xp*sin(axs2) + zp*cos(axs2);\nxp=xq;\nzp=zq;\n\n//stretch y axis to compensate for aspect ratio\nyp=yp*1.2;\n\n//push forward into viewpace\nzp=zp+2.1;\n\n//project x,y,z into screenspace\nxs=xp/zp;\nys=yp/zp;\n\n//center 0,0 in middle of screen\n//x=xs+0.5+q4;\n//y=ys+0.5+q5;\nx=xs+q4;\ny=ys+q5;\n\n//r=1-q1;\n//g=1-q2;\n//b=1-q3;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs-0.02;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "xs=sin(sample*6.28);\nys=cos(sample*6.28);\nxs=xs*0.7 + 0.5;\nys=ys*0.7 + 0.5;\nxs=min(xs,0.958);\nxs=max(xs,0.042);\nys=min(ys,0.988);\nys=max(ys,0.012);\nx=xs;y=ys;\n\nn2=abs((sample*6.283)-3.1415);\n\nr=sin(n2+time)*0.5+0.5;\ng=sin(n2+2.1+time)*0.5+0.5;\nb=sin(n2+4.2+time)*0.5+0.5;"
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp = 0;\nvolume = 0.3*(bass+mid+att);\nxamptarg = if(equal(frame%15,0),min(0.25*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nyamptarg = if(equal(frame%15,0),min(0.15*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nwave_x = xpos + 0.5;\nwave_y = 1-(ypos + 0.5);\n//wave_r = 0.5 + 0.499*( 0.60*sin(0.980*time) + 0.40*sin(1.047*time) );\n//wave_g = 0.5 + 0.499*( 0.60*sin(0.835*time) + 0.40*sin(1.081*time) );\n//wave_b = 0.5 + 0.499*( 0.60*sin(0.814*time) + 0.40*sin(1.011*time) );\nwave_mystery = -0.17 + 0.03*(0.6*sin(0.637*time) + 0.4*sin(0.949*time));\nmv_r = if(beat, 1, ib_r);\nmv_b = if(beat, wave_b, ib_b);\n//mv_a = if(beat, 0.1, ib_a);\n//ib_a = 0.015;\nq3 = wave_mystery;\nq1 = wave_x;\nq2 = 1-wave_y;\nq2 = ypos+0.5;\nwarp=0;\nq4=xpos +0.5;\nq5=1-(ypos + 0.5);\n\nwave_a=0;\n//q2 = 1-(ypos + 0.5);\n//q1 = 0.5;\n//q2=0.5;\nob_r = 1-wave_g;\nob_b = 1-wave_r;\nob_g = 1-wave_b;\n\nmonitor = wave_y;\nmovement =movement + 0.4*(((bass+bass_att + 0.1*pow((bass+0.6*bass_att+0.2*treb_att),3)))/fps);\nmovement = if(above(movement,10000), 0, movement);\nrot =1*sin(movement);\ncx = wave_x;\ncy = y_pos+0.5;\n\nq8 = movement;\nwrap=above(sin(time*200),0);",
+		"pixel_eqs_eel": "myy = x-q1;\nmyx = y-q2+0.1;\ndx = 3*sin(q8*0.675)*(2*myx*myy);\ndy = 3*sin(q8*0.675)*((myx*myx) - (myy*myy));",
+		"warp": "",
+		"comp": ""
+	}
+}

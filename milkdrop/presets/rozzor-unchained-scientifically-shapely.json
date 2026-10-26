@@ -1,1 +1,140 @@
-{"schema":1,"id":"rozzor-unchained-scientifically-shapely","name":"Scientifically Shapely","author":"Rozzor & Unchained","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Unchained%20-%20Scientifically%20Shapely.milk","sourceSha1":"0a06fd17c5a657594c359c5145f008e740d4a17a","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1.560001,"decay":1,"echo_zoom":0.9998,"echo_alpha":0.5,"echo_orient":3,"wave_mode":5,"additivewave":1,"wave_dots":1,"wave_thick":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":0.868,"wave_scale":0.424194,"wave_smoothing":0,"zoomexp":0.99817,"zoom":0.809868,"warp":0.01,"wave_r":0,"wave_g":0,"wave_b":0,"ob_size":0.005,"ob_a":0.2,"ib_size":0.005,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":0.6,"mv_x":31.999994,"mv_y":28.799999,"mv_l":0.85,"mv_r":0,"mv_g":0,"mv_b":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"a2":0.5,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"},{"baseVals":{"enabled":1,"a2":0.5,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"},{"baseVals":{"enabled":1,"a2":0.5,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"x=x+.3*q4;\ny=y+.3*q3;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"},{"baseVals":{"enabled":1,"a2":0.5,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp=0;\nle=1+.5+2*sin(bass_att);\nbpulse=band(above(le,bth),above(le-bth,bblock));\nbblock=le-bth;\nbth=if(above(le,bth),le+114/(le+10)-7.407,\nbth+bth*.07/(bth-12)+below(bth,2.7)*.1*(2.7-bth));\nbth=if(above(bth,6),6,bth);\nbres=bpulse*sin(pulse+le*.5) + bnot(bpulse)*bres;\n\nle=1+.5+2*sin(treb_att);\ntpulse=band(above(le,tth),above(le-tth,tblock));\ntblock=le-tth;\ntth=if(above(le,tth),le+114/(le+10)-7.407,\ntth+tth*.07/(tth-12)+below(tth,2.7)*.1*(2.7-tth));\ntth=if(above(tth,6),6,tth);\ntres=tpulse*sin(pulse+le*.5) + bnot(tpulse)*tres;\n\nle=1+.5+2*sin(mid_att);\nmpulse=band(above(le,mth),above(le-mth,mblock));\nmblock=le-mth;\nmth=if(above(le,mth),le+114/(le+10)-7.407,\nmth+mth*.07/(mth-12)+below(mth,2.7)*.1*(2.7-mth));\nmth=if(above(mth,6),6,mth);\nmres=mpulse*sin(pulse+le*.5) + bnot(mpulse)*mres;\n\npulse=if(above(abs(pulse),3.14),-3.14,pulse+(bth+mth+tth)*.003);\nq1=bres;\nq2=tres;\nq3=mres;\nq4=sin(pulse);\n\nmod_state=(above(q1,0)+above(q2,0)+above(q3,0))*(1+above(q4,0));\nccl=ccl+tpulse+mpulse-bpulse;\nq5=cos(pulse*(.5+.1*mod_state));\nq6=sin(pulse*(.5+pow(.25,mod_state)));\nq7=mod_state;\nq8=ccl;\nib_size=.025+.02*q2;\nob_size=.03+.02*q3-.002*q7;\nwave_mystery=wave_mystery+sin(time*2.18+q6);\nwave_x=wave_x+.15*sin(time*.811+q1)+.02*(frame%12+q7)*sign(q5);\nwave_y=wave_y+.15*sin(time*.788+q2)+.02*(frame%11+q7)*sign(q3);\n\ncy=.5+.5*q4+sin(time*.086);\n\ndecay=.997+.0015*q3+.0015*q1;\n\nslowtime = slowtime + mpulse*time;\n\ntemp_b = cos(slowtime)  + abs(cos(slowtime));\ntemp_g = abs(sin(slowtime)) ;\ntemp_r =  (-1 * cos(slowtime))  + abs(-1 * cos(slowtime)) + 0.2 * (cos(sin(slowtime))+(abs(cos(sin(slowtime)))+cos(sin(slowtime))));\nob_r = if(above(temp_r,1),1,if(above(temp_r,0), abs(temp_r),0));\nob_g = if(above(temp_g,.5),.5,if(above(temp_g,0), abs(temp_g),0));\nob_b = if(above(temp_b,1),1,if(above(temp_b,0), abs(temp_b),0));\nib_r =  1- if(above(temp_r,1),1,if(above(temp_r,0), abs(temp_r),0));\nib_g =  1- if(above(temp_g,1),1,if(above(temp_g,0), abs(temp_g),0));\nib_b =  1- if(above(temp_b,1),1,if(above(temp_b,0), abs(temp_b),0));\nwave_b = temp_b;\nwave_g = 1-temp_g;\nwave_r = 1-equal(ob_b,1)*temp_r;\nob_a=.8+.2*q2;","pixel_eqs_eel":"snee=bnot(above(sin(ang)-x,.5)*above(q2,0)+above(y-cos(ang),.5)*above(q1,0));\nsnur=bnot(below(x,.5)*above(q3,0)+below(y,.5)*below(q7,4));\ngrid=sin(sigmoid(sin(y*6.28*q2),sin(x*6.28*q6))*(10+q7));\nrot=bnot(above(x,.5)+((y*q8)%q7))\n*cos(rad+3.14*if(above(grid,0),snur,bnot(snur))*(.5+.5*sin(rad*3.14*q1)))*q4;\nzoom=zoom+.1*sin(rad*.0314*meshx*q2+q5)*sign(snee);\nrot=if(rot,rot*sign(snur),q6);\ncx=if(below(x,.5)*below(y,.5),.5+.001*meshx*q1,.5);\ncy=if(below(x,.5)*below(y,.5),.5+.001*meshy*q3,.5);\nsx=sx+.01*sin(time*2.13*meshx*x);\nsy=sy+.01*sin(time*2.33*meshy*x);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rozzor-unchained-scientifically-shapely",
+	"name": "Scientifically Shapely",
+	"author": "Rozzor & Unchained",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rozzor%20%26%20Unchained%20-%20Scientifically%20Shapely.milk",
+	"sourceSha1": "0a06fd17c5a657594c359c5145f008e740d4a17a",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1.560001,
+			"decay": 1,
+			"echo_zoom": 0.9998,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_mode": 5,
+			"additivewave": 1,
+			"wave_dots": 1,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.868,
+			"wave_scale": 0.424194,
+			"wave_smoothing": 0,
+			"zoomexp": 0.99817,
+			"zoom": 0.809868,
+			"warp": 0.01,
+			"wave_r": 0,
+			"wave_g": 0,
+			"wave_b": 0,
+			"ob_size": 0.005,
+			"ob_a": 0.2,
+			"ib_size": 0.005,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 0.6,
+			"mv_x": 31.999994,
+			"mv_y": 28.799999,
+			"mv_l": 0.85,
+			"mv_r": 0,
+			"mv_g": 0,
+			"mv_b": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"a2": 0.5,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"a2": 0.5,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"a2": 0.5,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=x+.3*q4;\ny=y+.3*q3;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"a2": 0.5,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x=x+.3*q3;\ny=y+.3*q4;\nrad=.3+.3*q5;\nsides=3+(q8%3);\ntextured=bnot(sides%2);\nr2=q1;\ng2=q2;\nb2=q3;"
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp=0;\nle=1+.5+2*sin(bass_att);\nbpulse=band(above(le,bth),above(le-bth,bblock));\nbblock=le-bth;\nbth=if(above(le,bth),le+114/(le+10)-7.407,\nbth+bth*.07/(bth-12)+below(bth,2.7)*.1*(2.7-bth));\nbth=if(above(bth,6),6,bth);\nbres=bpulse*sin(pulse+le*.5) + bnot(bpulse)*bres;\n\nle=1+.5+2*sin(treb_att);\ntpulse=band(above(le,tth),above(le-tth,tblock));\ntblock=le-tth;\ntth=if(above(le,tth),le+114/(le+10)-7.407,\ntth+tth*.07/(tth-12)+below(tth,2.7)*.1*(2.7-tth));\ntth=if(above(tth,6),6,tth);\ntres=tpulse*sin(pulse+le*.5) + bnot(tpulse)*tres;\n\nle=1+.5+2*sin(mid_att);\nmpulse=band(above(le,mth),above(le-mth,mblock));\nmblock=le-mth;\nmth=if(above(le,mth),le+114/(le+10)-7.407,\nmth+mth*.07/(mth-12)+below(mth,2.7)*.1*(2.7-mth));\nmth=if(above(mth,6),6,mth);\nmres=mpulse*sin(pulse+le*.5) + bnot(mpulse)*mres;\n\npulse=if(above(abs(pulse),3.14),-3.14,pulse+(bth+mth+tth)*.003);\nq1=bres;\nq2=tres;\nq3=mres;\nq4=sin(pulse);\n\nmod_state=(above(q1,0)+above(q2,0)+above(q3,0))*(1+above(q4,0));\nccl=ccl+tpulse+mpulse-bpulse;\nq5=cos(pulse*(.5+.1*mod_state));\nq6=sin(pulse*(.5+pow(.25,mod_state)));\nq7=mod_state;\nq8=ccl;\nib_size=.025+.02*q2;\nob_size=.03+.02*q3-.002*q7;\nwave_mystery=wave_mystery+sin(time*2.18+q6);\nwave_x=wave_x+.15*sin(time*.811+q1)+.02*(frame%12+q7)*sign(q5);\nwave_y=wave_y+.15*sin(time*.788+q2)+.02*(frame%11+q7)*sign(q3);\n\ncy=.5+.5*q4+sin(time*.086);\n\ndecay=.997+.0015*q3+.0015*q1;\n\nslowtime = slowtime + mpulse*time;\n\ntemp_b = cos(slowtime)  + abs(cos(slowtime));\ntemp_g = abs(sin(slowtime)) ;\ntemp_r =  (-1 * cos(slowtime))  + abs(-1 * cos(slowtime)) + 0.2 * (cos(sin(slowtime))+(abs(cos(sin(slowtime)))+cos(sin(slowtime))));\nob_r = if(above(temp_r,1),1,if(above(temp_r,0), abs(temp_r),0));\nob_g = if(above(temp_g,.5),.5,if(above(temp_g,0), abs(temp_g),0));\nob_b = if(above(temp_b,1),1,if(above(temp_b,0), abs(temp_b),0));\nib_r =  1- if(above(temp_r,1),1,if(above(temp_r,0), abs(temp_r),0));\nib_g =  1- if(above(temp_g,1),1,if(above(temp_g,0), abs(temp_g),0));\nib_b =  1- if(above(temp_b,1),1,if(above(temp_b,0), abs(temp_b),0));\nwave_b = temp_b;\nwave_g = 1-temp_g;\nwave_r = 1-equal(ob_b,1)*temp_r;\nob_a=.8+.2*q2;",
+		"pixel_eqs_eel": "snee=bnot(above(sin(ang)-x,.5)*above(q2,0)+above(y-cos(ang),.5)*above(q1,0));\nsnur=bnot(below(x,.5)*above(q3,0)+below(y,.5)*below(q7,4));\ngrid=sin(sigmoid(sin(y*6.28*q2),sin(x*6.28*q6))*(10+q7));\nrot=bnot(above(x,.5)+((y*q8)%q7))\n*cos(rad+3.14*if(above(grid,0),snur,bnot(snur))*(.5+.5*sin(rad*3.14*q1)))*q4;\nzoom=zoom+.1*sin(rad*.0314*meshx*q2+q5)*sign(snee);\nrot=if(rot,rot*sign(snur),q6);\ncx=if(below(x,.5)*below(y,.5),.5+.001*meshx*q1,.5);\ncy=if(below(x,.5)*below(y,.5),.5+.001*meshy*q3,.5);\nsx=sx+.01*sin(time*2.13*meshx*x);\nsy=sy+.01*sin(time*2.33*meshy*x);",
+		"warp": "",
+		"comp": ""
+	}
+}

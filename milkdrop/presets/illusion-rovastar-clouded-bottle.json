@@ -1,1 +1,117 @@
-{"schema":1,"id":"illusion-rovastar-clouded-bottle","name":"Clouded Bottle","author":"Illusion & Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Illusion%20%26%20Rovastar%20-%20Clouded%20Bottle.milk","sourceSha1":"fdc8e31f3c6042a201b04fd8762ea7ba02957e04","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1.000001,"decay":0.999,"echo_zoom":0.999609,"echo_alpha":0.5,"echo_orient":2,"wave_mode":5,"additivewave":1,"modwavealphabyvolume":1,"wave_brighten":0,"darken_center":1,"wave_a":4.099998,"wave_scale":1.254857,"wave_smoothing":0.63,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpanimspeed":2.448629,"warpscale":67.165291,"zoomexp":0.132909,"fshader":1,"zoom":0.97059,"cx":2,"dx":0.02,"warp":0.0298,"sy":1.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"wave_x":1,"ob_size":0.3,"ob_r":0.01,"ib_size":0.26,"ib_r":1,"ib_g":0,"ib_b":1,"mv_x":8,"mv_y":1.92,"mv_l":5,"mv_r":0,"mv_b":0,"mv_a":0.5},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"dx =dx -0.0005;\ndy = dy-0.0035;\nmv_l = 3000;\nmv_r = 0.5 + 0.499*sin(time*1.12);\nmv_g = 0.5 + 0.123*cos(time*1.83);\nmv_b = 0.4 + 0.79*cos(time*0.45);\nbass_effect = max(max(bass,bass_att)-1.3,0);\ndecay = if(above(bass_effect,0),0.96,0.996);\nwave_x = 0.6+0.3*sin(time*0.724);\nwarp = warp + (2*sin(0.75*time));\nwrap_s = wrap_s +0.5*sin(0.1*time);\nwave_r  = 0.5 + (sin(time/2) - cos(time*0.22))/2;\nwave_g = 0.5 - sin(time*0.877)/2;\nwave_b = 0.5 - cos(time)/2;\ndx = dx + dx_residual;\ndy = dy + dy_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ndx_residual = equal(bass_thresh,2)*0.016*sin(time*7) + (1-equal(bass_thresh,2))*dx_residual;\ndy_residual = equal(bass_thresh,2)*0.012*sin(time*9) + (1-equal(bass_thresh,2))*dy_residual;","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "illusion-rovastar-clouded-bottle",
+	"name": "Clouded Bottle",
+	"author": "Illusion & Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Illusion%20%26%20Rovastar%20-%20Clouded%20Bottle.milk",
+	"sourceSha1": "fdc8e31f3c6042a201b04fd8762ea7ba02957e04",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1.000001,
+			"decay": 0.999,
+			"echo_zoom": 0.999609,
+			"echo_alpha": 0.5,
+			"echo_orient": 2,
+			"wave_mode": 5,
+			"additivewave": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"darken_center": 1,
+			"wave_a": 4.099998,
+			"wave_scale": 1.254857,
+			"wave_smoothing": 0.63,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpanimspeed": 2.448629,
+			"warpscale": 67.165291,
+			"zoomexp": 0.132909,
+			"fshader": 1,
+			"zoom": 0.97059,
+			"cx": 2,
+			"dx": 0.02,
+			"warp": 0.0298,
+			"sy": 1.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"wave_x": 1,
+			"ob_size": 0.3,
+			"ob_r": 0.01,
+			"ib_size": 0.26,
+			"ib_r": 1,
+			"ib_g": 0,
+			"ib_b": 1,
+			"mv_x": 8,
+			"mv_y": 1.92,
+			"mv_l": 5,
+			"mv_r": 0,
+			"mv_b": 0,
+			"mv_a": 0.5
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "dx =dx -0.0005;\ndy = dy-0.0035;\nmv_l = 3000;\nmv_r = 0.5 + 0.499*sin(time*1.12);\nmv_g = 0.5 + 0.123*cos(time*1.83);\nmv_b = 0.4 + 0.79*cos(time*0.45);\nbass_effect = max(max(bass,bass_att)-1.3,0);\ndecay = if(above(bass_effect,0),0.96,0.996);\nwave_x = 0.6+0.3*sin(time*0.724);\nwarp = warp + (2*sin(0.75*time));\nwrap_s = wrap_s +0.5*sin(0.1*time);\nwave_r  = 0.5 + (sin(time/2) - cos(time*0.22))/2;\nwave_g = 0.5 - sin(time*0.877)/2;\nwave_b = 0.5 - cos(time)/2;\ndx = dx + dx_residual;\ndy = dy + dy_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\ndx_residual = equal(bass_thresh,2)*0.016*sin(time*7) + (1-equal(bass_thresh,2))*dx_residual;\ndy_residual = equal(bass_thresh,2)*0.012*sin(time*9) + (1-equal(bass_thresh,2))*dy_residual;",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

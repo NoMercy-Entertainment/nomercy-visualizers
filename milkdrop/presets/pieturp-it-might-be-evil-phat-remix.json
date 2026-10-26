@@ -1,1 +1,134 @@
-{"schema":1,"id":"pieturp-it-might-be-evil-phat-remix","name":"IT_MIGHT_BE_EVIL_phat_remix","author":"PieturP","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/PieturP%20-%20IT_MIGHT_BE_EVIL_phat_remix.milk","sourceSha1":"aa1738efd290a19c4cc3e17d4928327b6b8c2684","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1,"decay":0.51,"echo_zoom":1.00815,"echo_alpha":0.5,"echo_orient":2,"wave_mode":6,"additivewave":1,"wave_thick":1,"wave_brighten":0,"wave_a":4.099998,"wave_scale":0.01,"wave_smoothing":0.63,"wave_mystery":-1,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpscale":1.331,"zoom":0.999514,"dx":0.005,"warp":0.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"wave_x":0.01,"ob_size":0.015,"ob_a":1,"ib_size":0,"ib_r":1,"ib_g":1,"ib_b":1,"ib_a":0.05,"mv_x":64,"mv_y":48,"mv_l":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"sides":100,"thickoutline":1,"x":0.14,"rad":0.123235,"ang":3.141593,"tex_zoom":3.241264,"g":1,"b":1,"r2":1,"b2":1,"a2":1,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"p=p+.314;\nslowp=slowp+.000628;\np=below(p,6.283)*p;\nslowp=below(slowp,6.283)*slowp;\nmy=my+(mid*mid*mid)*.02;\nturn=below(sin(my)*.5+.5,.5);\ny=if(equal(turn,1),sin(p)*.3+.5,sin(628-p)*.3+.5);\nx=if(equal(turn,1),cos(p)*.3+.5,cos(628-p)*.3+.5);\nh=sin(slowp)*.5+.5;\ns=min(abs(bass*.6),1);\nl=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr=rr;\ng=gg;\nb=bb;\n\nh=sin(slowp)*.5+.5;\nl=min(abs(bass*.6),1);\ns=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr2=rr;\ng2=gg;\nb2=bb;\nborder_r=rr;\nborder_g=gg;\nborder_b=bb;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_a=0;\ndecay=1;\nwarp=0;\n\ndx=0;\ndy=0;\nsx=1;\nsy=1;\n//mm=mm+pow(mid,3);\nmm=5/mid;\nmt=mt+pow(treb,3);\n//q1=sin(mm*.1)*.002+1;\nq1=mm;\nq2=mm*.0001;\nq3=mt*.03;","pixel_eqs_eel":"//rot=sin(x)*sin(y);\nv=v+1;\nv=v%2;\nd=equal(v,0);\n\nrot=(sin(q3))*0.05;\ncx=sin(x*255*q2)*.5+.5;\ncy=cos(y*255*q2)*.5+.5;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "pieturp-it-might-be-evil-phat-remix",
+	"name": "IT_MIGHT_BE_EVIL_phat_remix",
+	"author": "PieturP",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/PieturP%20-%20IT_MIGHT_BE_EVIL_phat_remix.milk",
+	"sourceSha1": "aa1738efd290a19c4cc3e17d4928327b6b8c2684",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1,
+			"decay": 0.51,
+			"echo_zoom": 1.00815,
+			"echo_alpha": 0.5,
+			"echo_orient": 2,
+			"wave_mode": 6,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wave_a": 4.099998,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.63,
+			"wave_mystery": -1,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpscale": 1.331,
+			"zoom": 0.999514,
+			"dx": 0.005,
+			"warp": 0.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"wave_x": 0.01,
+			"ob_size": 0.015,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 1,
+			"ib_g": 1,
+			"ib_b": 1,
+			"ib_a": 0.05,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"thickoutline": 1,
+					"x": 0.14,
+					"rad": 0.123235,
+					"ang": 3.141593,
+					"tex_zoom": 3.241264,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"a2": 1,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "p=p+.314;\nslowp=slowp+.000628;\np=below(p,6.283)*p;\nslowp=below(slowp,6.283)*slowp;\nmy=my+(mid*mid*mid)*.02;\nturn=below(sin(my)*.5+.5,.5);\ny=if(equal(turn,1),sin(p)*.3+.5,sin(628-p)*.3+.5);\nx=if(equal(turn,1),cos(p)*.3+.5,cos(628-p)*.3+.5);\nh=sin(slowp)*.5+.5;\ns=min(abs(bass*.6),1);\nl=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr=rr;\ng=gg;\nb=bb;\n\nh=sin(slowp)*.5+.5;\nl=min(abs(bass*.6),1);\ns=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr2=rr;\ng2=gg;\nb2=bb;\nborder_r=rr;\nborder_g=gg;\nborder_b=bb;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_a=0;\ndecay=1;\nwarp=0;\n\ndx=0;\ndy=0;\nsx=1;\nsy=1;\n//mm=mm+pow(mid,3);\nmm=5/mid;\nmt=mt+pow(treb,3);\n//q1=sin(mm*.1)*.002+1;\nq1=mm;\nq2=mm*.0001;\nq3=mt*.03;",
+		"pixel_eqs_eel": "//rot=sin(x)*sin(y);\nv=v+1;\nv=v%2;\nd=equal(v,0);\n\nrot=(sin(q3))*0.05;\ncx=sin(x*255*q2)*.5+.5;\ncy=cos(y*255*q2)*.5+.5;",
+		"warp": "",
+		"comp": ""
+	}
+}

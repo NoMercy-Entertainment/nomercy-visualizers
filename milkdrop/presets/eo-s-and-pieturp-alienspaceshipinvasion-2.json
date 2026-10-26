@@ -1,1 +1,148 @@
-{"schema":1,"id":"eo-s-and-pieturp-alienspaceshipinvasion-2","name":"AlienSpaceshipInvasion 2","author":"Eo.s and PieturP","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Eo.s%20and%20PieturP%20-%20AlienSpaceshipInvasion%202.milk","sourceSha1":"30f6f54d16eddf0ba19fab22a487fc5d6807221b","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.5,"echo_zoom":3.012146,"wave_mode":6,"additivewave":1,"wave_thick":1,"wave_brighten":0,"wrap":0,"wave_a":4.099998,"wave_scale":0.01,"wave_smoothing":0.63,"wave_mystery":-1,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpscale":1.331,"zoom":0.999514,"dx":0.005,"warp":0.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"wave_x":0.01,"ob_size":0.005,"ob_a":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":12.799999,"mv_y":48,"mv_l":5,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"additive":1,"textured":1,"rad":1.621745,"tex_zoom":0.451118,"g":1,"b":1,"a":0.2,"r2":1,"b2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"sides":100,"thickoutline":1,"x":0.14,"rad":0.123235,"ang":3.141593,"tex_zoom":3.241264,"g":1,"b":1,"r2":1,"b2":1,"a2":1,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"p=p+.314;\nslowp=slowp+.00628;\np=below(p,6.283)*p;\nslowp=below(slowp,6.283)*slowp;\nmy=my+(mid*mid*mid)*.02;\nturn=below(sin(my)*.5+.5,.5);\nx=if(equal(turn,1),sin(p)*.3+.5,sin(628-p)*.3+.5);\ny=if(equal(turn,1),cos(p)*.3+.5,cos(628-p)*.3+.5);\nh=sin(slowp)*.5+.5;\ns=min(abs(bass*.6),1);\nl=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr=rr;\ng=gg;\nb=bb;\n\nh=sin(slowp)*.5+.5;\nl=min(abs(bass*.6),1);\ns=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr2=rr;\ng2=gg;\nb2=bb;\nborder_r=rr;\nborder_g=gg;\nborder_b=bb;"}],"waves":[{"baseVals":{"enabled":1,"usedots":1,"thick":1,"additive":1,"scaling":13.668633,"smoothing":0},"init_eqs_eel":"","frame_eqs_eel":"advance=advance+ (abs(bass+treb+mid)*.01);\nadvance=if( above(advance,2) , 0, advance);\nt1=advance;","point_eqs_eel":"s=sample*6.28;\n//plot random x position via function of sample pos;\nxp=sin(s)+sin(s*0.34)+sin(s*24.3)+sin(s*13.8);\nxp=xp*.20;\n//plot random y position via function of sample pos;\nyp=cos(s)+sin(s*0.24)+cos(s*17.4)+sin(s*37.7);\nyp=yp*.20;\n//plot random z position via function of sample pos;\nzp=cos(s)+cos(s*5.24)+cos(s*47.4)+cos(s*27.7);\nzp=zp*0.25;\n\n//pull stars toward screen\nzp=zp + 1 - t1;\n\n//correct when below 0\nzp=if( below(zp,0) , zp+2 , zp );\n\n//darken far stars\n//a=(1 - zp*0.5);\n\nzp=zp*0.7;\n\nx=xp/zp + 0.5;\ny=yp/zp + 0.5;\n\nh=sin(sample*6.28)*.5+.5;\n//s=sin(zp)*.5+.5;\ns=min(abs(zp*.9),1);\nl=min(abs(bass_att*.7),1);\n//l=1;\n//////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 1 )                            rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n//////////////////////////////////////////////////////////////////////////////\n\nr=rr;\ng=gg;\nb=bb;"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_a=0;\ndecay=1;\nwarp=0;\n\ndx=0;\ndy=0;\nsx=1;\nsy=1;\n\nwhen=0;\n\nmm=mm+(mid*mid*mid)*.02;\nmm=below(mm,628)*mm;\nmt=mt+(bass*bass*bass)*.02;\nmt=below(mt,628)*mt;\n\nrot=if(equal(when,0),sin(mt*.1)*2+2,0)-2;\n\n//q1=.5;sin(time)*2+2;\n//q2=cos(time+(bs*.8))*12.56+12.56;\n\nzoom=if(equal(when,0),1-(sin(mm)*.2+.2),1);\nmonitor=mt;\ncx=sin(time)*.035+.5;\ncy=cos(time)*.035+.5;","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "eo-s-and-pieturp-alienspaceshipinvasion-2",
+	"name": "AlienSpaceshipInvasion 2",
+	"author": "Eo.s and PieturP",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Eo.s%20and%20PieturP%20-%20AlienSpaceshipInvasion%202.milk",
+	"sourceSha1": "30f6f54d16eddf0ba19fab22a487fc5d6807221b",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.5,
+			"echo_zoom": 3.012146,
+			"wave_mode": 6,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 4.099998,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.63,
+			"wave_mystery": -1,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpscale": 1.331,
+			"zoom": 0.999514,
+			"dx": 0.005,
+			"warp": 0.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"wave_x": 0.01,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 12.799999,
+			"mv_y": 48,
+			"mv_l": 5,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"additive": 1,
+					"textured": 1,
+					"rad": 1.621745,
+					"tex_zoom": 0.451118,
+					"g": 1,
+					"b": 1,
+					"a": 0.2,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"thickoutline": 1,
+					"x": 0.14,
+					"rad": 0.123235,
+					"ang": 3.141593,
+					"tex_zoom": 3.241264,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"a2": 1,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "p=p+.314;\nslowp=slowp+.00628;\np=below(p,6.283)*p;\nslowp=below(slowp,6.283)*slowp;\nmy=my+(mid*mid*mid)*.02;\nturn=below(sin(my)*.5+.5,.5);\nx=if(equal(turn,1),sin(p)*.3+.5,sin(628-p)*.3+.5);\ny=if(equal(turn,1),cos(p)*.3+.5,cos(628-p)*.3+.5);\nh=sin(slowp)*.5+.5;\ns=min(abs(bass*.6),1);\nl=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr=rr;\ng=gg;\nb=bb;\n\nh=sin(slowp)*.5+.5;\nl=min(abs(bass*.6),1);\ns=1;\n///////////////////////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 0.9 )                          rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nmonitor=zq;\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n///////////////////////////////////////////////////////////////////////////////////////////////\nr2=rr;\ng2=gg;\nb2=bb;\nborder_r=rr;\nborder_g=gg;\nborder_b=bb;"
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"usedots": 1,
+					"thick": 1,
+					"additive": 1,
+					"scaling": 13.668633,
+					"smoothing": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "advance=advance+ (abs(bass+treb+mid)*.01);\nadvance=if( above(advance,2) , 0, advance);\nt1=advance;",
+				"point_eqs_eel": "s=sample*6.28;\n//plot random x position via function of sample pos;\nxp=sin(s)+sin(s*0.34)+sin(s*24.3)+sin(s*13.8);\nxp=xp*.20;\n//plot random y position via function of sample pos;\nyp=cos(s)+sin(s*0.24)+cos(s*17.4)+sin(s*37.7);\nyp=yp*.20;\n//plot random z position via function of sample pos;\nzp=cos(s)+cos(s*5.24)+cos(s*47.4)+cos(s*27.7);\nzp=zp*0.25;\n\n//pull stars toward screen\nzp=zp + 1 - t1;\n\n//correct when below 0\nzp=if( below(zp,0) , zp+2 , zp );\n\n//darken far stars\n//a=(1 - zp*0.5);\n\nzp=zp*0.7;\n\nx=xp/zp + 0.5;\ny=yp/zp + 0.5;\n\nh=sin(sample*6.28)*.5+.5;\n//s=sin(zp)*.5+.5;\ns=min(abs(zp*.9),1);\nl=min(abs(bass_att*.7),1);\n//l=1;\n//////////////////////////////////////////////////////////////////////////////\n//\n//                            HSL to RGB by PieturP\n//\n// hue         h ( 0 - 1 )                            rr ( 0 - 1 )\n// saturation  s ( 0 - 1 )            - >             gg ( 0 - 1 )\n// luminance   l ( 0 - 1 )                            bb ( 0 - 1 )\n//\ncc=(6*h);\ncc=if(below(cc,1),0,if(below(cc,2),1,if(below(cc,3),2,if(below(cc,4),3,if(below(cc,5),4,5)))));\nzf=(6*h)-cc;\nzm=l;\nzp=l*(1-s);\nzq=l*(1-s*zf);\nzt=l*(1-s*(1-zf));\nrr=if(equal(cc,0),zm,if(equal(cc,1),zq,if(equal(cc,2),zp,if(equal(cc,3),zp,if(equal(cc,4),zt,zm)))));\ngg=if(equal(cc,0),zt,if(equal(cc,1),zm,if(equal(cc,2),zm,if(equal(cc,3),zq,if(equal(cc,4),zp,zp)))));\nbb=if(equal(cc,0),zp,if(equal(cc,1),zp,if(equal(cc,2),zt,if(equal(cc,3),zm,if(equal(cc,4),zm,zq)))));\nrr=if(equal(s,0),l,rr);\ngg=if(equal(s,0),l,gg);\nbb=if(equal(s,0),l,bb);\n\n//////////////////////////////////////////////////////////////////////////////\n\nr=rr;\ng=gg;\nb=bb;"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_a=0;\ndecay=1;\nwarp=0;\n\ndx=0;\ndy=0;\nsx=1;\nsy=1;\n\nwhen=0;\n\nmm=mm+(mid*mid*mid)*.02;\nmm=below(mm,628)*mm;\nmt=mt+(bass*bass*bass)*.02;\nmt=below(mt,628)*mt;\n\nrot=if(equal(when,0),sin(mt*.1)*2+2,0)-2;\n\n//q1=.5;sin(time)*2+2;\n//q2=cos(time+(bs*.8))*12.56+12.56;\n\nzoom=if(equal(when,0),1-(sin(mm)*.2+.2),1);\nmonitor=mt;\ncx=sin(time)*.035+.5;\ncy=cos(time)*.035+.5;",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

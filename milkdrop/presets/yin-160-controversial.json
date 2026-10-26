@@ -1,1 +1,109 @@
-{"schema":1,"id":"yin-160-controversial","name":"160 - Controversial","author":"yin","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/yin%20-%20160%20-%20Controversial.milk","sourceSha1":"73aeae67ea435a2a153b05e011b7932493a577ed","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1.700001,"decay":1,"echo_zoom":0.999991,"additivewave":1,"wave_thick":1,"wrap":0,"darken":1,"wave_a":0.997938,"wave_scale":0.01,"wave_smoothing":0.9,"wave_mystery":0.4,"modwavealphastart":0.5,"modwavealphaend":1,"warpanimspeed":10.572172,"warpscale":4.108018,"zoomexp":1.196128,"fshader":1,"zoom":0.9999,"dx":0.00001,"dy":0.00001,"warp":1.011847,"ob_size":0.005,"ob_r":0.07,"ob_g":1,"ob_b":0.07,"ib_r":0.07,"ib_g":0.07,"ib_b":1,"ib_a":1,"mv_x":1.92,"mv_y":1.44,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"time=0;","frame_eqs_eel":"// -------------------------------- Beat Detective 007 ----------------------------------\nsure=if(equal(sure,0),.6,sure);\ninterval=if(equal(interval,0),40,interval);\nlastbeat=if(equal(lastbeat,0),frame-FPS,lastbeat);\ndbass=(bass-pbass)/FPS;\nbeat=above(dbass,.6*maxdbass)*above(frame-lastbeat,FPS/3);\nsure=if(beat*below(abs(frame-(interval+lastbeat)),FPS/5),\nmin(.095+sure,1),beat*(sure-.095)+(1-beat)*sure*.9996);\nsure=max(.5,sure);\ncheat=if(above(frame,lastbeat+interval+ int(FPS/10))*above(sure,.91),1,cheat);\nbeat=if(cheat,1,beat);\nsure=if(cheat,.95*sure,sure);\nmaxdbass=max(maxdbass*.999,dbass);\nmaxdbass=max(.012,maxdbass);\nmaxdbass=min(.02,maxdbass);\ninterval=if(beat, frame-lastbeat,interval);\nlastbeat=if(beat,frame-cheat*int(FPS/10),lastbeat);\ncheat=0;\npbass=bass;\n// ----------------------------------------------------------------------------------------------\nq1=beat;\nwarp=0;q8=55/FPS;\nq7=min((frame-lastBeat)/interval,1);\naa=aa+beat;\nwave_g=q7;wave_b=q7;\ncurang=.97*curang- (q1*(.4+max(bass,1.5)*rand(20)/100)*(-1+2*(aa%2)))*q8;\ncursc=1+.97*curscale+q8*.3*beat;\nsx=cursc;\nsy=1-(cursc-1);\ndecay=1-.2*beat;\nob_a=.2*beat;\nib_a=.3*beat;\nq6=below(aa%4,2)*if(equal(aa%2,0),1,-1);\nq5=above(aa%4,1)*if(equal(aa%2,0),-1,1);\nwave_x=.5+.03*q7*q6;\nwave_y=.5+.03*q7*q5;\nrot = curang;","pixel_eqs_eel":"x=x-.5;\ny=1-(y+.5);\nzoom=zoom-.1*q8*(below(rad,.7))*(1+.5*(1-q7));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "yin-160-controversial",
+	"name": "160 - Controversial",
+	"author": "yin",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/yin%20-%20160%20-%20Controversial.milk",
+	"sourceSha1": "73aeae67ea435a2a153b05e011b7932493a577ed",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1.700001,
+			"decay": 1,
+			"echo_zoom": 0.999991,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"wrap": 0,
+			"darken": 1,
+			"wave_a": 0.997938,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.9,
+			"wave_mystery": 0.4,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"warpanimspeed": 10.572172,
+			"warpscale": 4.108018,
+			"zoomexp": 1.196128,
+			"fshader": 1,
+			"zoom": 0.9999,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 1.011847,
+			"ob_size": 0.005,
+			"ob_r": 0.07,
+			"ob_g": 1,
+			"ob_b": 0.07,
+			"ib_r": 0.07,
+			"ib_g": 0.07,
+			"ib_b": 1,
+			"ib_a": 1,
+			"mv_x": 1.92,
+			"mv_y": 1.44,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "time=0;",
+		"frame_eqs_eel": "// -------------------------------- Beat Detective 007 ----------------------------------\nsure=if(equal(sure,0),.6,sure);\ninterval=if(equal(interval,0),40,interval);\nlastbeat=if(equal(lastbeat,0),frame-FPS,lastbeat);\ndbass=(bass-pbass)/FPS;\nbeat=above(dbass,.6*maxdbass)*above(frame-lastbeat,FPS/3);\nsure=if(beat*below(abs(frame-(interval+lastbeat)),FPS/5),\nmin(.095+sure,1),beat*(sure-.095)+(1-beat)*sure*.9996);\nsure=max(.5,sure);\ncheat=if(above(frame,lastbeat+interval+ int(FPS/10))*above(sure,.91),1,cheat);\nbeat=if(cheat,1,beat);\nsure=if(cheat,.95*sure,sure);\nmaxdbass=max(maxdbass*.999,dbass);\nmaxdbass=max(.012,maxdbass);\nmaxdbass=min(.02,maxdbass);\ninterval=if(beat, frame-lastbeat,interval);\nlastbeat=if(beat,frame-cheat*int(FPS/10),lastbeat);\ncheat=0;\npbass=bass;\n// ----------------------------------------------------------------------------------------------\nq1=beat;\nwarp=0;q8=55/FPS;\nq7=min((frame-lastBeat)/interval,1);\naa=aa+beat;\nwave_g=q7;wave_b=q7;\ncurang=.97*curang- (q1*(.4+max(bass,1.5)*rand(20)/100)*(-1+2*(aa%2)))*q8;\ncursc=1+.97*curscale+q8*.3*beat;\nsx=cursc;\nsy=1-(cursc-1);\ndecay=1-.2*beat;\nob_a=.2*beat;\nib_a=.3*beat;\nq6=below(aa%4,2)*if(equal(aa%2,0),1,-1);\nq5=above(aa%4,1)*if(equal(aa%2,0),-1,1);\nwave_x=.5+.03*q7*q6;\nwave_y=.5+.03*q7*q5;\nrot = curang;",
+		"pixel_eqs_eel": "x=x-.5;\ny=1-(y+.5);\nzoom=zoom-.1*q8*(below(rad,.7))*(1+.5*(1-q7));",
+		"warp": "",
+		"comp": ""
+	}
+}

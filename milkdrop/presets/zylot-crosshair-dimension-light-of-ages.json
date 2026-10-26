@@ -1,1 +1,133 @@
-{"schema":1,"id":"zylot-crosshair-dimension-light-of-ages","name":"Crosshair Dimension (Light of Ages)","author":"Zylot","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20-%20Crosshair%20Dimension%20(Light%20of%20Ages).milk","sourceSha1":"e47e7dfbe83e4ee2da7910d5e7afe4b16de70f48","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"wave_mode":7,"wave_a":0.001,"wave_scale":0.7419,"wave_smoothing":0,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_size":0.005,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"rad":3.971051,"tex_zoom":0.291705,"r":0,"a":0.3,"g2":0,"a2":1,"border_r":0,"border_g":0,"border_b":0,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"additive":1,"textured":1,"rad":1.527755,"tex_zoom":0.408389,"g":1,"b":1,"g2":0,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang = angc;\nangc = angc+treb*.01;"},{"baseVals":{"enabled":1,"additive":1,"textured":1,"rad":3.319852,"tex_zoom":0.149491,"g":1,"b":1,"g2":0,"border_r":0,"border_g":0,"border_b":0,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"ang = ang + angc;\nangc = angc + bass*.01;\nx = .45;\ny = .55;\n\nr2 = (rand100)*.01"},{"baseVals":{"enabled":1,"additive":1,"textured":1,"x":0.18,"y":0.3,"rad":1.558463,"tex_zoom":0.197884,"g":1,"b":1,"g2":0,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"x = .5+.1*sin(angc);\ny = .5+.1*cos(angc);\n\nr = .5+sin(time);\nb = .5+sin(time*.556677);\ng = .5+sin(time*.353);"}],"waves":[{"baseVals":{"enabled":1},"init_eqs_eel":"bassc = 0;\nbcount = 0;","frame_eqs_eel":"r=bass*.5;\ng=treb*.5;\nb=mid*.5;","point_eqs_eel":"x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.001);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.01);\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.3,0),0));\ny = y - bcount;"},{"baseVals":{"enabled":1},"init_eqs_eel":"","frame_eqs_eel":"r=bass*.5;\ng=treb*.5;\nb=mid*.5;","point_eqs_eel":"x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.008);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.001);\n\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.2,0),0));\nx = x - bcount;"},{"baseVals":{"enabled":1},"init_eqs_eel":"","frame_eqs_eel":"r=bass*.5;\ng=treb*.5;\nb=mid*.5;","point_eqs_eel":"x = .5+.2*sin(time*.7454);\nx = x+(.0005+rand(10)*.008);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.001);\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.2,0),0));\nx = x + bcount;"},{"baseVals":{"enabled":1},"init_eqs_eel":"","frame_eqs_eel":"r=bass*.5;\ng=treb*.5;\nb=mid*.5;","point_eqs_eel":"x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.001);\ny = .5+.2*cos(time*.455);\ny = y-(.0005-rand(10)*.01);\n\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.3,0),0));\ny = y + bcount;"}],"init_eqs_eel":"bassc=0;\nmidc=0;\nmcount=0;\nbcount=0;","frame_eqs_eel":"decay = .9;\nwarp = 0;\n\nbassc = if(above(bass,bassc),bassc + bass*.07,bassc-.03);\nmidc = if(above(mid,midc),midc + mid*.07,midc-.03);\n\nq1 = bassc;\nq2 = midc;","pixel_eqs_eel":"zoom = pow(rad,2);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "zylot-crosshair-dimension-light-of-ages",
+	"name": "Crosshair Dimension (Light of Ages)",
+	"author": "Zylot",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Zylot%20-%20Crosshair%20Dimension%20(Light%20of%20Ages).milk",
+	"sourceSha1": "e47e7dfbe83e4ee2da7910d5e7afe4b16de70f48",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"wave_mode": 7,
+			"wave_a": 0.001,
+			"wave_scale": 0.7419,
+			"wave_smoothing": 0,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_size": 0.005,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"rad": 3.971051,
+					"tex_zoom": 0.291705,
+					"r": 0,
+					"a": 0.3,
+					"g2": 0,
+					"a2": 1,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"additive": 1,
+					"textured": 1,
+					"rad": 1.527755,
+					"tex_zoom": 0.408389,
+					"g": 1,
+					"b": 1,
+					"g2": 0,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang = angc;\nangc = angc+treb*.01;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"additive": 1,
+					"textured": 1,
+					"rad": 3.319852,
+					"tex_zoom": 0.149491,
+					"g": 1,
+					"b": 1,
+					"g2": 0,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang = ang + angc;\nangc = angc + bass*.01;\nx = .45;\ny = .55;\n\nr2 = (rand100)*.01"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"additive": 1,
+					"textured": 1,
+					"x": 0.18,
+					"y": 0.3,
+					"rad": 1.558463,
+					"tex_zoom": 0.197884,
+					"g": 1,
+					"b": 1,
+					"g2": 0,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "x = .5+.1*sin(angc);\ny = .5+.1*cos(angc);\n\nr = .5+sin(time);\nb = .5+sin(time*.556677);\ng = .5+sin(time*.353);"
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1
+				},
+				"init_eqs_eel": "bassc = 0;\nbcount = 0;",
+				"frame_eqs_eel": "r=bass*.5;\ng=treb*.5;\nb=mid*.5;",
+				"point_eqs_eel": "x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.001);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.01);\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.3,0),0));\ny = y - bcount;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "r=bass*.5;\ng=treb*.5;\nb=mid*.5;",
+				"point_eqs_eel": "x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.008);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.001);\n\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.2,0),0));\nx = x - bcount;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "r=bass*.5;\ng=treb*.5;\nb=mid*.5;",
+				"point_eqs_eel": "x = .5+.2*sin(time*.7454);\nx = x+(.0005+rand(10)*.008);\ny = .5+.2*cos(time*.455);\ny = y+(.0005-rand(10)*.001);\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.2,0),0));\nx = x + bcount;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "r=bass*.5;\ng=treb*.5;\nb=mid*.5;",
+				"point_eqs_eel": "x = .5+.2*sin(time*.7454);\nx = x+(.0005-rand(10)*.001);\ny = .5+.2*cos(time*.455);\ny = y-(.0005-rand(10)*.01);\n\n\nbassc = if(above(bcount,0),1,0);\nbcount = if(above(bcount,0),bcount - .00005,if(below(bassc,1),if(above(bass,1.5),.3,0),0));\ny = y + bcount;"
+			}
+		],
+		"init_eqs_eel": "bassc=0;\nmidc=0;\nmcount=0;\nbcount=0;",
+		"frame_eqs_eel": "decay = .9;\nwarp = 0;\n\nbassc = if(above(bass,bassc),bassc + bass*.07,bassc-.03);\nmidc = if(above(mid,midc),midc + mid*.07,midc-.03);\n\nq1 = bassc;\nq2 = midc;",
+		"pixel_eqs_eel": "zoom = pow(rad,2);",
+		"warp": "",
+		"comp": ""
+	}
+}

@@ -1,1 +1,148 @@
-{"schema":1,"id":"goody-lsd-zoomtunnel","name":"LSD Zoomtunnel","author":"Goody","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Goody%20-%20LSD%20Zoomtunnel.milk","sourceSha1":"383f350bda9f26ee928932480be222db1adc0837","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":4,"gammaadj":2.75,"decay":1,"echo_zoom":0.997,"echo_alpha":0.5,"echo_orient":3,"additivewave":1,"wave_thick":1,"modwavealphabyvolume":1,"wave_brighten":0,"darken":1,"wave_a":0.001,"wave_scale":0.28,"wave_smoothing":0.9,"wave_mystery":0.06,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpanimspeed":2.599,"warpscale":0.01,"zoomexp":0.9998,"zoom":1.0096,"warp":0.32545,"sy":1.0017,"wave_r":0,"wave_g":0,"ob_size":0,"ob_r":1,"ob_g":1,"ob_b":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0,"mv_x":64,"mv_y":48,"mv_l":0.5,"mv_r":0.35,"mv_g":0.35,"mv_b":0.35,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":40,"textured":1,"rad":1.97883,"tex_zoom":0.49981,"g":1,"b":1,"a":0.15,"r2":0.3,"g2":0.3,"b2":0.3,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":1,"sides":40,"thickoutline":1,"textured":1,"num_inst":14,"x":0.51,"rad":0.4404,"tex_zoom":1.34784,"g":1,"b":1,"a":0.4,"r2":1,"b2":1,"border_a":0.33},"init_eqs_eel":"","frame_eqs_eel":"tex_ang=if(above(treb,1.2),tex_ang+abs(6.28*sin(time)),ptex_ang);\nptex_ang=tex_ang;\n\ny=if(above(treb,1.2),y+abs(.02*sin(time)),py);\npy=y;\n\nx=if(above(treb,1.2),x+abs(.008*sin(time*.8)),py);\npx=x;\n\nvol=(bass+mid+treb_att)*.3333;\n\nredsine=.5+.15*bass*sin(time*3);\ngreensine=.5+.15*mid*sin(time*2);\nbluesine=.5+.15*treb*sin(time);\n\nredif=if(above(bass,1.2),redsine,if(above(redif,.95),0,redif*.85));\ngreenif=if(above(mid,1.2),greensine,if(above(greenif,.95),0,greenif*.85));\nblueif=if(above(treb,1.2),bluesine,if(above(blueif,.95),0,blueif*.85));\n\nborder_r=redif;\nborder_g=greenif;\nborder_b=blueif;\n\nborder_a=above(bass,1);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"decay=0.1;","frame_eqs_eel":"sx=1;\nsy=1;\n\n//rot=-.03-above(bass,1)*.03*sin(time);","pixel_eqs_eel":"pi=3.14159;\nvolsine=(bass+mid+treb)*.05*sin(time*(.1*bass+.1*mid+.1*treb));\n\nzoom=zoom+above(rad,.38)*atan(rad*rad);\n\nrot=atan(rot*4*ang*(.1*sin(16*ang)*above(rad,.5)));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "goody-lsd-zoomtunnel",
+	"name": "LSD Zoomtunnel",
+	"author": "Goody",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Goody%20-%20LSD%20Zoomtunnel.milk",
+	"sourceSha1": "383f350bda9f26ee928932480be222db1adc0837",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 4,
+			"gammaadj": 2.75,
+			"decay": 1,
+			"echo_zoom": 0.997,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"darken": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.28,
+			"wave_smoothing": 0.9,
+			"wave_mystery": 0.06,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpanimspeed": 2.599,
+			"warpscale": 0.01,
+			"zoomexp": 0.9998,
+			"zoom": 1.0096,
+			"warp": 0.32545,
+			"sy": 1.0017,
+			"wave_r": 0,
+			"wave_g": 0,
+			"ob_size": 0,
+			"ob_r": 1,
+			"ob_g": 1,
+			"ob_b": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0.5,
+			"mv_r": 0.35,
+			"mv_g": 0.35,
+			"mv_b": 0.35,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 40,
+					"textured": 1,
+					"rad": 1.97883,
+					"tex_zoom": 0.49981,
+					"g": 1,
+					"b": 1,
+					"a": 0.15,
+					"r2": 0.3,
+					"g2": 0.3,
+					"b2": 0.3,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 40,
+					"thickoutline": 1,
+					"textured": 1,
+					"num_inst": 14,
+					"x": 0.51,
+					"rad": 0.4404,
+					"tex_zoom": 1.34784,
+					"g": 1,
+					"b": 1,
+					"a": 0.4,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0.33
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "tex_ang=if(above(treb,1.2),tex_ang+abs(6.28*sin(time)),ptex_ang);\nptex_ang=tex_ang;\n\ny=if(above(treb,1.2),y+abs(.02*sin(time)),py);\npy=y;\n\nx=if(above(treb,1.2),x+abs(.008*sin(time*.8)),py);\npx=x;\n\nvol=(bass+mid+treb_att)*.3333;\n\nredsine=.5+.15*bass*sin(time*3);\ngreensine=.5+.15*mid*sin(time*2);\nbluesine=.5+.15*treb*sin(time);\n\nredif=if(above(bass,1.2),redsine,if(above(redif,.95),0,redif*.85));\ngreenif=if(above(mid,1.2),greensine,if(above(greenif,.95),0,greenif*.85));\nblueif=if(above(treb,1.2),bluesine,if(above(blueif,.95),0,blueif*.85));\n\nborder_r=redif;\nborder_g=greenif;\nborder_b=blueif;\n\nborder_a=above(bass,1);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "decay=0.1;",
+		"frame_eqs_eel": "sx=1;\nsy=1;\n\n//rot=-.03-above(bass,1)*.03*sin(time);",
+		"pixel_eqs_eel": "pi=3.14159;\nvolsine=(bass+mid+treb)*.05*sin(time*(.1*bass+.1*mid+.1*treb));\n\nzoom=zoom+above(rad,.38)*atan(rad*rad);\n\nrot=atan(rot*4*ang*(.1*sin(16*ang)*above(rad,.5)));",
+		"warp": "",
+		"comp": ""
+	}
+}

@@ -1,1 +1,98 @@
-{"schema":1,"id":"krash-snowflake-halo","name":"Snowflake Halo","author":"Krash","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20-%20Snowflake%20Halo.milk","sourceSha1":"ad059e99d8d35c5bbe647999d40ab059236f367a","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3.5,"decay":0.925,"echo_zoom":1.006596,"echo_orient":3,"wave_mode":3,"additivewave":1,"modwavealphabyvolume":1,"darken_center":1,"bmotionvectorson":0,"wave_a":4.099998,"wave_scale":0.01,"wave_smoothing":0.36,"wave_mystery":-0.5,"modwavealphastart":0.7098,"modwavealphaend":1.7,"warpscale":1.331,"zoom":0.959487,"rot":0.02,"warp":0.198054,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"ff = frame/100; \nwave_r = sin(5*ff/2)/2+0.5; \nwave_g = cos(ff/3)/2+0.5; \nwave_b = cos(3*ff/2)/2+0.5; \nzoom = zoom - if(below(zoom,0.96),0,0.008); \nzoom = zoom + 0.15*bass_att;","pixel_eqs_eel":"angval = ang + abs(3.14*sin(time*0.345) + 3.14*sin(time*.234)); \nrot=(2*abs((sin(time)-0.5))-angval)/1;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "krash-snowflake-halo",
+	"name": "Snowflake Halo",
+	"author": "Krash",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Krash%20-%20Snowflake%20Halo.milk",
+	"sourceSha1": "ad059e99d8d35c5bbe647999d40ab059236f367a",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3.5,
+			"decay": 0.925,
+			"echo_zoom": 1.006596,
+			"echo_orient": 3,
+			"wave_mode": 3,
+			"additivewave": 1,
+			"modwavealphabyvolume": 1,
+			"darken_center": 1,
+			"bmotionvectorson": 0,
+			"wave_a": 4.099998,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0.36,
+			"wave_mystery": -0.5,
+			"modwavealphastart": 0.7098,
+			"modwavealphaend": 1.7,
+			"warpscale": 1.331,
+			"zoom": 0.959487,
+			"rot": 0.02,
+			"warp": 0.198054,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "ff = frame/100; \nwave_r = sin(5*ff/2)/2+0.5; \nwave_g = cos(ff/3)/2+0.5; \nwave_b = cos(3*ff/2)/2+0.5; \nzoom = zoom - if(below(zoom,0.96),0,0.008); \nzoom = zoom + 0.15*bass_att;",
+		"pixel_eqs_eel": "angval = ang + abs(3.14*sin(time*0.345) + 3.14*sin(time*.234)); \nrot=(2*abs((sin(time)-0.5))-angval)/1;",
+		"warp": "",
+		"comp": ""
+	}
+}

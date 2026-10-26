@@ -1,1 +1,140 @@
-{"schema":1,"id":"rovastar-tripmaker-space-trip-mix","name":"Tripmaker (Space Trip Mix)","author":"Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Tripmaker%20(Space%20Trip%20Mix).milk","sourceSha1":"fb964b7ad04eead2295db22dd4dd69a61b5910cf","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"wave_mode":2,"wrap":0,"wave_a":3.221673,"wave_scale":0.685151,"zoomexp":100,"fshader":1,"zoom":0.999998,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_size":0,"ob_r":0.2,"ob_g":0.4,"ob_b":0.22,"ob_a":1,"ib_size":0.005,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":0},"shapes":[{"baseVals":{"enabled":1,"sides":100,"additive":1,"textured":1,"rad":1.791418,"tex_ang":0.062832,"g":1,"b":1,"a":0.08,"r2":1,"b2":1,"a2":0.08,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"additive = q1;\na = if(q1,1,a);\na2 = a;\nr = q1;\nr2 =q1;\ntex_zoom = 3 - 3*bass;"},{"baseVals":{"enabled":1,"sides":100,"additive":1,"textured":1,"rad":1.791418,"tex_ang":0.062832,"b":1,"a":0.08,"r2":1,"a2":0.08,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"additive = q1;\na = if(q1,1,a);\na2 = a;\nr = q1;\nr2 =q1;\ntex_zoom = 3 - 2*bass;"},{"baseVals":{"enabled":1,"sides":100,"textured":1,"rad":0.919739,"tex_ang":1.69646,"tex_zoom":1.030299,"g":1,"b":1,"r2":1,"b2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"tex_zoom = q1+tex_zoom - 0.01*q2;\na2 = 1;\ntex_ang = 0.2*q2 + sin(0.4*time);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"beatcounter =0;","frame_eqs_eel":"warp = 0;\nwave_r = wave_r + .15*sin(time*.222);\nwave_g = wave_g + .15*sin(time*.333);\nwave_b = wave_b + .15*sin(time*.444);\nzoom = zoom+.01 - bass_att*.01;\nvolume = 0.3*(bass+mid);\nbeatrate = if(equal(beatrate,0),1,if(below(volume,0.01),1,beatrate));\nlastbeat = if(equal(lastbeat,0),time,lastbeat);\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = if(above(bass_att,peakbass_att),bass_att,peakbass_att);\nbeat = if(above(volume,0.8),if(below(peakbass_att - bass_att, 0.05*peakbass_att),if(above(time - lastbeat,0.1+0.5*(beatrate-0.1)),1,0),0),0);\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = if(equal(beat,0),if(above(time - lastbeat,2*beatrate),peakbass_att*0.95,peakbass_att*0.995),bass_att);\nlastbeat = if(beat,time,lastbeat);\npeakbass_att = max(if(beat,bass_att,peakbass_att),1.1*meanbass_att);\nbeatcounter = if(above(beat,0),beatcounter +1, beatcounter);\nbeatcounter = if(above(beatcounter,5), 0, beatcounter);\nbeateven = beatcounter%2;\nmycounter = if(beateven,if(beat,if(above(mycounter,4),0,mycounter+1),mycounter),mycounter);\nq2 = if(beat,if(beateven,2,mycounter+3),oldq2);\noldq2 = q2;\n//ib_r = ib_r + 0.25*sin(time*0.965);\n//ib_g = ib_g +0.25*sin(time*1.123);\n//ib_b = ib_b + 0.25*sin(time*1.046);\nob_r = ob_r + 0.15*sin(time*0.865);\nob_g = ob_g +0.15*sin(time*1.103);\nob_b = ob_b + 0.15*sin(time*1.086);\nwave_a =0;\nob_size =0.05*beat;\nq1 = beat;\nmonitor = q2;","pixel_eqs_eel":"rot = .3*tan(.1*sin(pow(rad,4)*20+time)+sin(time*.222)*.1);\nzoom = zoom + .1*sin((ang)*q2+time);\nzoomexp = 100*(sqrt(2)-rad);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-tripmaker-space-trip-mix",
+	"name": "Tripmaker (Space Trip Mix)",
+	"author": "Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Tripmaker%20(Space%20Trip%20Mix).milk",
+	"sourceSha1": "fb964b7ad04eead2295db22dd4dd69a61b5910cf",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"wave_mode": 2,
+			"wrap": 0,
+			"wave_a": 3.221673,
+			"wave_scale": 0.685151,
+			"zoomexp": 100,
+			"fshader": 1,
+			"zoom": 0.999998,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_size": 0,
+			"ob_r": 0.2,
+			"ob_g": 0.4,
+			"ob_b": 0.22,
+			"ob_a": 1,
+			"ib_size": 0.005,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"additive": 1,
+					"textured": 1,
+					"rad": 1.791418,
+					"tex_ang": 0.062832,
+					"g": 1,
+					"b": 1,
+					"a": 0.08,
+					"r2": 1,
+					"b2": 1,
+					"a2": 0.08,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "additive = q1;\na = if(q1,1,a);\na2 = a;\nr = q1;\nr2 =q1;\ntex_zoom = 3 - 3*bass;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"additive": 1,
+					"textured": 1,
+					"rad": 1.791418,
+					"tex_ang": 0.062832,
+					"b": 1,
+					"a": 0.08,
+					"r2": 1,
+					"a2": 0.08,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "additive = q1;\na = if(q1,1,a);\na2 = a;\nr = q1;\nr2 =q1;\ntex_zoom = 3 - 2*bass;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"textured": 1,
+					"rad": 0.919739,
+					"tex_ang": 1.69646,
+					"tex_zoom": 1.030299,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "tex_zoom = q1+tex_zoom - 0.01*q2;\na2 = 1;\ntex_ang = 0.2*q2 + sin(0.4*time);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "beatcounter =0;",
+		"frame_eqs_eel": "warp = 0;\nwave_r = wave_r + .15*sin(time*.222);\nwave_g = wave_g + .15*sin(time*.333);\nwave_b = wave_b + .15*sin(time*.444);\nzoom = zoom+.01 - bass_att*.01;\nvolume = 0.3*(bass+mid);\nbeatrate = if(equal(beatrate,0),1,if(below(volume,0.01),1,beatrate));\nlastbeat = if(equal(lastbeat,0),time,lastbeat);\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = if(above(bass_att,peakbass_att),bass_att,peakbass_att);\nbeat = if(above(volume,0.8),if(below(peakbass_att - bass_att, 0.05*peakbass_att),if(above(time - lastbeat,0.1+0.5*(beatrate-0.1)),1,0),0),0);\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = if(equal(beat,0),if(above(time - lastbeat,2*beatrate),peakbass_att*0.95,peakbass_att*0.995),bass_att);\nlastbeat = if(beat,time,lastbeat);\npeakbass_att = max(if(beat,bass_att,peakbass_att),1.1*meanbass_att);\nbeatcounter = if(above(beat,0),beatcounter +1, beatcounter);\nbeatcounter = if(above(beatcounter,5), 0, beatcounter);\nbeateven = beatcounter%2;\nmycounter = if(beateven,if(beat,if(above(mycounter,4),0,mycounter+1),mycounter),mycounter);\nq2 = if(beat,if(beateven,2,mycounter+3),oldq2);\noldq2 = q2;\n//ib_r = ib_r + 0.25*sin(time*0.965);\n//ib_g = ib_g +0.25*sin(time*1.123);\n//ib_b = ib_b + 0.25*sin(time*1.046);\nob_r = ob_r + 0.15*sin(time*0.865);\nob_g = ob_g +0.15*sin(time*1.103);\nob_b = ob_b + 0.15*sin(time*1.086);\nwave_a =0;\nob_size =0.05*beat;\nq1 = beat;\nmonitor = q2;",
+		"pixel_eqs_eel": "rot = .3*tan(.1*sin(pow(rad,4)*20+time)+sin(time*.222)*.1);\nzoom = zoom + .1*sin((ang)*q2+time);\nzoomexp = 100*(sqrt(2)-rad);",
+		"warp": "",
+		"comp": ""
+	}
+}

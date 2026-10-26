@@ -1,1 +1,115 @@
-{"schema":1,"id":"orb-mega-spectrum","name":"Mega Spectrum","author":"ORB","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/ORB%20-%20Mega%20Spectrum.milk","sourceSha1":"f24fe9c3586fed401de656127b7a6bf060090048","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"decay":1,"echo_orient":3,"wave_mode":1,"wrap":0,"wave_a":0.001,"zoom":0.96,"warp":0.00052,"wave_r":0,"wave_g":0,"wave_b":0,"ob_r":1,"ob_g":1,"ob_b":1,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":100,"textured":1,"rad":2.66717,"a":0.4,"a2":0.4,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"r = sin(q1);\ng = sin(q1*1.1);\nb = sin(q1*1.4);\nr2 = sin(q1*1.25);\ng2 = sin(q1*1.45);\nb2 = sin(q1*1.12);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"thick":1,"additive":1,"scaling":0.88026,"smoothing":1,"a":0.2},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"u = abs(cos(q1*0.1))*3.14159;\nv = abs(cos(q1*0.015))*3.14159*2;\ns = sample*3.14*100;\nss = sample*6.28*1000;\n\n//draw\nxs = 0.5*sin(s)*cos(ss)*equal(q5,0) +\n(0.6 + 0.1*cos(s))*cos(ss)*equal(q5,1) +\n0.5*sin(s)*cos(ss)*equal(q5,2);\nys = 0.5*sin(s)*sin(ss)*equal(q5,0) +\n(0.6 + 0.1*cos(s))*sin(ss)*equal(q5,1) +\n0.5*sin(s)*sin(ss)*equal(q5,2);\nzs = 0.5*cos(s)*equal(q5,0) +\n0.1*sin(s)*equal(q5,1) +\n0.5*sin(s)*equal(q5,2);\n\n\n\nxtor = (0.6 + 0.1*cos(s))*cos(ss);\nytor = (0.6 + 0.1*cos(s))*sin(ss);\nztor = 0.1*sin(s);\n\n\n//rotate x axis\nangle = q1*0.3;\nyx = ys*cos(angle) - zs*sin(angle);\nzx = ys*sin(angle) + zs*cos(angle);\nxx = xs;\n\n//rotate y axis\nangle2 = q1*0.5;\nxd = xx*cos(angle2) - zx*sin(angle2);\nzd = xx*sin(angle2) + zx*cos(angle2);\nyd = yx;\n\n//rotaye z axis\nangle3 = q1*0.41;\nxn = xd*cos(angle3) - yd*sin(angle3);\nyn = xd*sin(angle3) + yd*cos(angle3);\n\nzd = zd + 2;\n\n//do that falloff effect\npeek1 = (value1 + value2)*10;\n\n//if sample louder set that to level else decrement level\nlevel = if(above(peek1,level),peek1,level - 0.00025);\nlevel = if(below(level,0),0,level);\n\n//add to z\nzd = zd + 2  + level;\n\n\nx = xn*zd*0.05 + 0.5;\ny = yn*zd*0.05*1.2 + 0.5;\n\n\nr = 0.5 + 0.5*sin(q1*1.2 + x + x);\ng = 0.5 + 0.5*sin(q1*1.5 + x + y);\nb = 0.5 + 0.5*sin(q1*1.36 + y + y);"},{"baseVals":{"enabled":1,"thick":1,"additive":1,"scaling":0.88026,"smoothing":1,"a":0.2},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"u = abs(cos(q1*0.1))*3.14159;\nv = abs(cos(q1*0.015))*3.14159*2;\ns = sample*3.14*100;\nss = sample*6.28*1000;\n\n//draw\nxs = 0.5*sin(s)*cos(ss)*equal(q5,2) +\n(0.6 + 0.1*cos(s))*cos(ss)*equal(q5,0) +\n0.5*sin(s)*cos(ss)*equal(q5,1);\nys = 0.5*sin(s)*sin(ss)*equal(q5,2) +\n(0.6 + 0.1*cos(s))*sin(ss)*equal(q5,0) +\n0.5*sin(s)*sin(ss)*equal(q5,1);\nzs = 0.5*cos(s)*equal(q5,2) +\n0.1*sin(s)*equal(q5,0) +\n0.5*sin(s)*equal(q5,1);\n\n\nxtor = (0.6 + 0.1*cos(s))*cos(ss);\nytor = (0.6 + 0.1*cos(s))*sin(ss);\nztor = 0.1*sin(s);\n\n\n//rotate x axis\nangle = q1*0.3;\nyx = ys*cos(angle) - zs*sin(angle);\nzx = ys*sin(angle) + zs*cos(angle);\nxx = xs;\n\n//rotate y axis\nangle2 = q1*0.5;\nxd = xx*cos(angle2) - zx*sin(angle2);\nzd = xx*sin(angle2) + zx*cos(angle2);\nyd = yx;\n\n//rotaye z axis\nangle3 = q1*0.41;\nxn = xd*cos(angle3) - yd*sin(angle3);\nyn = xd*sin(angle3) + yd*cos(angle3);\n\nzd = zd + 2;\n\n//do that falloff effect\npeek1 = (value1 + value2)*10;\n\n//if sample louder set that to level else decrement level\nlevel = if(above(peek1,level),peek1,level - 0.00025);\nlevel = if(below(level,0),0,level);\n\n//add to z\nzd = zd + 2  + level;\n\n\nx = xn*zd*0.05 + 0.5;\ny = yn*zd*0.05*1.2 + 0.5;\n\n\nr = 0.5 + 0.5*sin(q1*1.2 + x + x);\ng = 0.5 + 0.5*sin(q1*1.5 + x + y);\nb = 0.5 + 0.5*sin(q1*1.16 + y + y);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"basstime = basstime + bass*0.03;\nq1 = basstime;\n\nbasstime = basstime + bass_att*0.03;\nvol = pow(bass+mid+treb,2);\nbasssum = vol;\n\nstickybit = time%2;\n\n//avg vol\n//buffer 1\nvolAvg = volAvg + vol*equal(stickybit,1);\n//number of samples 1 or framerate\nsample1 = sample1 + equal(stickybit,1);\n//buffer 2\nvolAvg2 = volAvg2 + vol*equal(stickybit,0);\n//number of samples 2\nsample2 = sample2 + equal(stickybit,0);\n\n//transision\nedge = bnot(equal(bit2,stickybit));\n\nvolAvg = volAvg - volAvg*edge*stickybit;\nvolAvg2 = volAvg2 - volAvg2*edge*equal(stickybit,0);\n\nsample1 = sample1  - sample1*edge*stickybit;\nsample2 = sample2  - sample2*edge*equal(stickybit,0);\n\n//test vol against avg buffer lvl\ndiff = if(equal(stickybit,1), (basssum/(volAvg2/sample2)) , 0);\ndiff = if(equal(stickybit,0), (basssum/(volAvg/sample1)), diff);\n\nq3 = diff;\n\nbit2 = time%2;\n\ndifftime = difftime + diff*0.03;\nq2 = difftime;\n\nstate = state +  above(diff,5);\nstate = if(above(state,2),0,state);\nmonitor = state;\n\nq5 = state;\n\n//fix a strange error\ndifftime = if(above(difftime,2000),0, difftime);\n\nrarr = rand(100)*0.01;\n\ndecay_r = 0.6 + 0.2*(abs(sin(diff+rarr)));\ndecay_g = 0.6 + 0.25*(abs(cos(diff+rarr)));\ndecay_b = 0.6 + 0.30*(abs(atan(diff+rarr)));\n\n//shape fill","pixel_eqs_eel":"zoom = 1 + 0.05*q3;\nzoom = 1;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "orb-mega-spectrum",
+	"name": "Mega Spectrum",
+	"author": "ORB",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/ORB%20-%20Mega%20Spectrum.milk",
+	"sourceSha1": "f24fe9c3586fed401de656127b7a6bf060090048",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"decay": 1,
+			"echo_orient": 3,
+			"wave_mode": 1,
+			"wrap": 0,
+			"wave_a": 0.001,
+			"zoom": 0.96,
+			"warp": 0.00052,
+			"wave_r": 0,
+			"wave_g": 0,
+			"wave_b": 0,
+			"ob_r": 1,
+			"ob_g": 1,
+			"ob_b": 1,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 100,
+					"textured": 1,
+					"rad": 2.66717,
+					"a": 0.4,
+					"a2": 0.4,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "r = sin(q1);\ng = sin(q1*1.1);\nb = sin(q1*1.4);\nr2 = sin(q1*1.25);\ng2 = sin(q1*1.45);\nb2 = sin(q1*1.12);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"additive": 1,
+					"scaling": 0.88026,
+					"smoothing": 1,
+					"a": 0.2
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "u = abs(cos(q1*0.1))*3.14159;\nv = abs(cos(q1*0.015))*3.14159*2;\ns = sample*3.14*100;\nss = sample*6.28*1000;\n\n//draw\nxs = 0.5*sin(s)*cos(ss)*equal(q5,0) +\n(0.6 + 0.1*cos(s))*cos(ss)*equal(q5,1) +\n0.5*sin(s)*cos(ss)*equal(q5,2);\nys = 0.5*sin(s)*sin(ss)*equal(q5,0) +\n(0.6 + 0.1*cos(s))*sin(ss)*equal(q5,1) +\n0.5*sin(s)*sin(ss)*equal(q5,2);\nzs = 0.5*cos(s)*equal(q5,0) +\n0.1*sin(s)*equal(q5,1) +\n0.5*sin(s)*equal(q5,2);\n\n\n\nxtor = (0.6 + 0.1*cos(s))*cos(ss);\nytor = (0.6 + 0.1*cos(s))*sin(ss);\nztor = 0.1*sin(s);\n\n\n//rotate x axis\nangle = q1*0.3;\nyx = ys*cos(angle) - zs*sin(angle);\nzx = ys*sin(angle) + zs*cos(angle);\nxx = xs;\n\n//rotate y axis\nangle2 = q1*0.5;\nxd = xx*cos(angle2) - zx*sin(angle2);\nzd = xx*sin(angle2) + zx*cos(angle2);\nyd = yx;\n\n//rotaye z axis\nangle3 = q1*0.41;\nxn = xd*cos(angle3) - yd*sin(angle3);\nyn = xd*sin(angle3) + yd*cos(angle3);\n\nzd = zd + 2;\n\n//do that falloff effect\npeek1 = (value1 + value2)*10;\n\n//if sample louder set that to level else decrement level\nlevel = if(above(peek1,level),peek1,level - 0.00025);\nlevel = if(below(level,0),0,level);\n\n//add to z\nzd = zd + 2  + level;\n\n\nx = xn*zd*0.05 + 0.5;\ny = yn*zd*0.05*1.2 + 0.5;\n\n\nr = 0.5 + 0.5*sin(q1*1.2 + x + x);\ng = 0.5 + 0.5*sin(q1*1.5 + x + y);\nb = 0.5 + 0.5*sin(q1*1.36 + y + y);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thick": 1,
+					"additive": 1,
+					"scaling": 0.88026,
+					"smoothing": 1,
+					"a": 0.2
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "u = abs(cos(q1*0.1))*3.14159;\nv = abs(cos(q1*0.015))*3.14159*2;\ns = sample*3.14*100;\nss = sample*6.28*1000;\n\n//draw\nxs = 0.5*sin(s)*cos(ss)*equal(q5,2) +\n(0.6 + 0.1*cos(s))*cos(ss)*equal(q5,0) +\n0.5*sin(s)*cos(ss)*equal(q5,1);\nys = 0.5*sin(s)*sin(ss)*equal(q5,2) +\n(0.6 + 0.1*cos(s))*sin(ss)*equal(q5,0) +\n0.5*sin(s)*sin(ss)*equal(q5,1);\nzs = 0.5*cos(s)*equal(q5,2) +\n0.1*sin(s)*equal(q5,0) +\n0.5*sin(s)*equal(q5,1);\n\n\nxtor = (0.6 + 0.1*cos(s))*cos(ss);\nytor = (0.6 + 0.1*cos(s))*sin(ss);\nztor = 0.1*sin(s);\n\n\n//rotate x axis\nangle = q1*0.3;\nyx = ys*cos(angle) - zs*sin(angle);\nzx = ys*sin(angle) + zs*cos(angle);\nxx = xs;\n\n//rotate y axis\nangle2 = q1*0.5;\nxd = xx*cos(angle2) - zx*sin(angle2);\nzd = xx*sin(angle2) + zx*cos(angle2);\nyd = yx;\n\n//rotaye z axis\nangle3 = q1*0.41;\nxn = xd*cos(angle3) - yd*sin(angle3);\nyn = xd*sin(angle3) + yd*cos(angle3);\n\nzd = zd + 2;\n\n//do that falloff effect\npeek1 = (value1 + value2)*10;\n\n//if sample louder set that to level else decrement level\nlevel = if(above(peek1,level),peek1,level - 0.00025);\nlevel = if(below(level,0),0,level);\n\n//add to z\nzd = zd + 2  + level;\n\n\nx = xn*zd*0.05 + 0.5;\ny = yn*zd*0.05*1.2 + 0.5;\n\n\nr = 0.5 + 0.5*sin(q1*1.2 + x + x);\ng = 0.5 + 0.5*sin(q1*1.5 + x + y);\nb = 0.5 + 0.5*sin(q1*1.16 + y + y);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "basstime = basstime + bass*0.03;\nq1 = basstime;\n\nbasstime = basstime + bass_att*0.03;\nvol = pow(bass+mid+treb,2);\nbasssum = vol;\n\nstickybit = time%2;\n\n//avg vol\n//buffer 1\nvolAvg = volAvg + vol*equal(stickybit,1);\n//number of samples 1 or framerate\nsample1 = sample1 + equal(stickybit,1);\n//buffer 2\nvolAvg2 = volAvg2 + vol*equal(stickybit,0);\n//number of samples 2\nsample2 = sample2 + equal(stickybit,0);\n\n//transision\nedge = bnot(equal(bit2,stickybit));\n\nvolAvg = volAvg - volAvg*edge*stickybit;\nvolAvg2 = volAvg2 - volAvg2*edge*equal(stickybit,0);\n\nsample1 = sample1  - sample1*edge*stickybit;\nsample2 = sample2  - sample2*edge*equal(stickybit,0);\n\n//test vol against avg buffer lvl\ndiff = if(equal(stickybit,1), (basssum/(volAvg2/sample2)) , 0);\ndiff = if(equal(stickybit,0), (basssum/(volAvg/sample1)), diff);\n\nq3 = diff;\n\nbit2 = time%2;\n\ndifftime = difftime + diff*0.03;\nq2 = difftime;\n\nstate = state +  above(diff,5);\nstate = if(above(state,2),0,state);\nmonitor = state;\n\nq5 = state;\n\n//fix a strange error\ndifftime = if(above(difftime,2000),0, difftime);\n\nrarr = rand(100)*0.01;\n\ndecay_r = 0.6 + 0.2*(abs(sin(diff+rarr)));\ndecay_g = 0.6 + 0.25*(abs(cos(diff+rarr)));\ndecay_b = 0.6 + 0.30*(abs(atan(diff+rarr)));\n\n//shape fill",
+		"pixel_eqs_eel": "zoom = 1 + 0.05*q3;\nzoom = 1;",
+		"warp": "",
+		"comp": ""
+	}
+}

@@ -1,1 +1,114 @@
-{"schema":1,"id":"rovastar-fractopia-upspoken-mix","name":"Fractopia (Upspoken Mix)","author":"Rovastar","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Fractopia%20(Upspoken%20Mix).milk","sourceSha1":"5a65790277a546980b54ae1f0a53808d758b01f1","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":4,"decay":1,"echo_zoom":1,"echo_alpha":0.5,"wave_mode":3,"wave_brighten":0,"wrap":0,"wave_a":1,"wave_scale":0.180933,"wave_mystery":-0.2,"warpanimspeed":9.8608,"warpscale":16.2174,"zoomexp":1.503744,"warp":0.999999,"wave_r":0.9,"wave_g":0.2,"wave_b":0.4,"ob_r":1,"ob_g":0.1,"ob_a":1,"ib_size":0.05,"ib_r":0,"ib_g":0,"ib_b":0,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":0,"mv_g":0,"mv_b":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp = 0;\nvolume = 0.3*(bass+mid+att);\nxamptarg = if(equal(frame%15,0),min(0.25*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nyamptarg = if(equal(frame%15,0),min(0.15*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nwave_x = xpos + 0.5;\nwave_y = 1-(ypos + 0.5);\nwave_r = 0.5 + 0.499*( 0.60*sin(0.980*time) + 0.40*sin(1.047*time) );\nwave_g = 0.5 + 0.499*( 0.60*sin(0.835*time) + 0.40*sin(1.081*time) );\nwave_b = 0.5 + 0.499*( 0.60*sin(0.814*time) + 0.40*sin(1.011*time) );\nwave_mystery = -0.17 + 0.03*(0.6*sin(0.637*time) + 0.4*sin(0.949*time));\nmv_r = if(beat, 1, ib_r);\nmv_b = if(beat, wave_b, ib_b);\n//mv_a = if(beat, 0.1, ib_a);\n//ib_a = 0.015;\nq3 = wave_mystery;\nq1 = wave_x;\nq2 = 1-wave_y;\nq2 = ypos+0.5;\nwarp=0;\n\n//q2 = 1-(ypos + 0.5);\n//q1 = 0.5;\n//q2=0.5;\nob_r = 1-wave_g;\nob_b = 1-wave_r;\nob_g = 1-wave_b;\n\nmonitor = wave_y;\nmovement =movement + 0.4*(((bass+bass_att + 0.1*pow((bass+0.6*bass_att+0.2*treb_att),3)))/fps);\nmovement = if(above(movement,10000), 0, movement);\nrot =1*sin(movement);\ncx = wave_x;\ncy = y_pos+0.5;\n\nq8 = movement;","pixel_eqs_eel":"myy = x-q1;\nmyx = y-q2+0.1;\ndx = 3*sin(q8*0.675)*(2*myx*myy);\ndy = 3*sin(q8*0.675)*((myx*myx) - (myy*myy));","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-fractopia-upspoken-mix",
+	"name": "Fractopia (Upspoken Mix)",
+	"author": "Rovastar",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20-%20Fractopia%20(Upspoken%20Mix).milk",
+	"sourceSha1": "5a65790277a546980b54ae1f0a53808d758b01f1",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 4,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"wave_mode": 3,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 1,
+			"wave_scale": 0.180933,
+			"wave_mystery": -0.2,
+			"warpanimspeed": 9.8608,
+			"warpscale": 16.2174,
+			"zoomexp": 1.503744,
+			"warp": 0.999999,
+			"wave_r": 0.9,
+			"wave_g": 0.2,
+			"wave_b": 0.4,
+			"ob_r": 1,
+			"ob_g": 0.1,
+			"ob_a": 1,
+			"ib_size": 0.05,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_g": 0,
+			"mv_b": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp = 0;\nvolume = 0.3*(bass+mid+att);\nxamptarg = if(equal(frame%15,0),min(0.25*volume*bass_att,0.5),xamptarg);\nxamp = xamp + 0.5*(xamptarg-xamp);\nxdir = if(above(abs(xpos),xamp),-sign(xpos),if(below(abs(xspeed),0.1),2*above(xpos,0)-1,xdir));\nxspeed = xspeed + xdir*xamp - xpos - xspeed*0.055*below(abs(xpos),xamp);\nxpos = xpos + 0.001*xspeed;\nyamptarg = if(equal(frame%15,0),min(0.15*volume*treb_att,0.5),yamptarg);\nyamp = yamp + 0.5*(yamptarg-yamp);\nydir = if(above(abs(ypos),yamp),-sign(ypos),if(below(abs(yspeed),0.1),2*above(ypos,0)-1,ydir));\nyspeed = yspeed + ydir*yamp - ypos - yspeed*0.055*below(abs(ypos),yamp);\nypos = ypos + 0.001*yspeed;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nwave_x = xpos + 0.5;\nwave_y = 1-(ypos + 0.5);\nwave_r = 0.5 + 0.499*( 0.60*sin(0.980*time) + 0.40*sin(1.047*time) );\nwave_g = 0.5 + 0.499*( 0.60*sin(0.835*time) + 0.40*sin(1.081*time) );\nwave_b = 0.5 + 0.499*( 0.60*sin(0.814*time) + 0.40*sin(1.011*time) );\nwave_mystery = -0.17 + 0.03*(0.6*sin(0.637*time) + 0.4*sin(0.949*time));\nmv_r = if(beat, 1, ib_r);\nmv_b = if(beat, wave_b, ib_b);\n//mv_a = if(beat, 0.1, ib_a);\n//ib_a = 0.015;\nq3 = wave_mystery;\nq1 = wave_x;\nq2 = 1-wave_y;\nq2 = ypos+0.5;\nwarp=0;\n\n//q2 = 1-(ypos + 0.5);\n//q1 = 0.5;\n//q2=0.5;\nob_r = 1-wave_g;\nob_b = 1-wave_r;\nob_g = 1-wave_b;\n\nmonitor = wave_y;\nmovement =movement + 0.4*(((bass+bass_att + 0.1*pow((bass+0.6*bass_att+0.2*treb_att),3)))/fps);\nmovement = if(above(movement,10000), 0, movement);\nrot =1*sin(movement);\ncx = wave_x;\ncy = y_pos+0.5;\n\nq8 = movement;",
+		"pixel_eqs_eel": "myy = x-q1;\nmyx = y-q2+0.1;\ndx = 3*sin(q8*0.675)*(2*myx*myy);\ndy = 3*sin(q8*0.675)*((myx*myx) - (myy*myy));",
+		"warp": "",
+		"comp": ""
+	}
+}

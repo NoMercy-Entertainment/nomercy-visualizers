@@ -1,1 +1,100 @@
-{"schema":1,"id":"rovastar-krash-rainbow-deflection","name":"Rainbow Deflection","author":"Rovastar & Krash","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20%26%20Krash%20-%20Rainbow%20Deflection.milk","sourceSha1":"ac21a1131d9742fa73bdd9f8a6b8d25d104fed5f","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"decay":0.975,"echo_zoom":1,"echo_alpha":0.5,"echo_orient":2,"wave_mode":3,"wave_brighten":0,"wrap":0,"bmotionvectorson":0,"wave_a":1,"wave_scale":0.054279,"modwavealphastart":0.85,"modwavealphaend":1.95,"cx":-0.19,"cy":-0.1,"wave_r":0.4,"wave_g":0.4,"wave_b":0.4,"ob_size":0.005,"ob_a":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"warp=0;\ndx=-0.0005;\ndy=-0.0005;\nwave_x = rand(100)/100;\nwave_r = 1 + sin(-wave_x*3.1415);\nwave_g = abs(sin(2*wave_x*3.1415));\nwave_b = sin(wave_x*3.1415);\ntreb_effect = if(above(treb_att,1.4),pow(0.99,treb_att),1);\nnet_effect = if(above(bass_att,0.8*treb_att),1,treb_effect);\nzoom = net_effect;\nrot = rot + rot_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\nshift = (tan(time*7)) -0.05;\nshift = if(above(shift,0),0,if(below(shift,-0.1),-0.1,shift));\nrot_residual = if(equal(bass_thresh,2),shift,rot_residual);","pixel_eqs_eel":"rot = rot + if(equal(sin(ang), 0), -rot, 0.05);","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "rovastar-krash-rainbow-deflection",
+	"name": "Rainbow Deflection",
+	"author": "Rovastar & Krash",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Rovastar%20%26%20Krash%20-%20Rainbow%20Deflection.milk",
+	"sourceSha1": "ac21a1131d9742fa73bdd9f8a6b8d25d104fed5f",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"decay": 0.975,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"echo_orient": 2,
+			"wave_mode": 3,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"bmotionvectorson": 0,
+			"wave_a": 1,
+			"wave_scale": 0.054279,
+			"modwavealphastart": 0.85,
+			"modwavealphaend": 1.95,
+			"cx": -0.19,
+			"cy": -0.1,
+			"wave_r": 0.4,
+			"wave_g": 0.4,
+			"wave_b": 0.4,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "warp=0;\ndx=-0.0005;\ndy=-0.0005;\nwave_x = rand(100)/100;\nwave_r = 1 + sin(-wave_x*3.1415);\nwave_g = abs(sin(2*wave_x*3.1415));\nwave_b = sin(wave_x*3.1415);\ntreb_effect = if(above(treb_att,1.4),pow(0.99,treb_att),1);\nnet_effect = if(above(bass_att,0.8*treb_att),1,treb_effect);\nzoom = net_effect;\nrot = rot + rot_residual;\nbass_thresh = above(bass_att,bass_thresh)*2 + (1-above(bass_att,bass_thresh))*((bass_thresh-1.3)*0.96+1.3);\nshift = (tan(time*7)) -0.05;\nshift = if(above(shift,0),0,if(below(shift,-0.1),-0.1,shift));\nrot_residual = if(equal(bass_thresh,2),shift,rot_residual);",
+		"pixel_eqs_eel": "rot = rot + if(equal(sin(ang), 0), -rot, 0.05);",
+		"warp": "",
+		"comp": ""
+	}
+}

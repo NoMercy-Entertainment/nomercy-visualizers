@@ -1,1 +1,159 @@
-{"schema":1,"id":"phat-eo-s-peoplewhoeatacid-phatcoloursv2","name":"PeopleWhoEatAcid_phatColoursV2","author":"phat + Eo.S.","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/phat%20%2B%20Eo.S.%20-%20PeopleWhoEatAcid_phatColoursV2.milk","sourceSha1":"5a0c1bbbfa0bfff79e35a5bb9fd42cc16edcc47b","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1.28,"decay":0.5,"echo_zoom":1.001821,"echo_alpha":0.5,"wave_mode":3,"additivewave":1,"wave_thick":1,"darken":1,"solarize":1,"wave_a":0.001,"wave_scale":0.625316,"wave_smoothing":0.9,"modwavealphastart":0.88,"modwavealphaend":1.98,"warpanimspeed":0.010284,"warpscale":0.01,"fshader":1,"dx":0.005,"warp":0.01,"sx":1.001829,"sy":1.0018,"wave_r":0,"wave_g":0,"wave_b":0,"ob_size":0,"ob_g":0.8,"ob_b":0.7,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0.3,"mv_x":64,"mv_y":48,"mv_l":0.85,"mv_r":0.4999,"mv_g":0.4999,"mv_b":0.4999,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":16,"thickoutline":1,"rad":0.325446,"ang":6.283185,"tex_zoom":1.038696,"r":0.1,"g":1,"g2":0.1,"b2":0.6,"a2":0.3,"border_r":0,"border_g":0,"border_b":0,"border_a":1},"init_eqs_eel":"","frame_eqs_eel":"ang=sin(time)*6;\nadvb=advb+(treb*treb)*0.06;\n\nx=sin(advb)*0.5+0.5;\ny=cos(advb)*0.5+0.5;\n\ntm=time*0.3;\nr=sin(tm)/2 + 0.4999;\ng=sin(tm+0.2)/2 + 0.4999;\nb=sin(tm+0.41)/2 + 0.4999;\nr2=sin(tm)/2 + 0.4999;\ng2=sin(tm+0.2)/2 + 0.4999;\nb2=sin(tm+0.41)/2 + 0.4999"},{"baseVals":{"enabled":1,"thickoutline":1,"rad":0.458306,"tex_ang":3.141593,"tex_zoom":1.028414,"r":0.36,"g2":0.2,"b2":0.6,"a2":0.3,"border_r":0,"border_g":0,"border_b":0,"border_a":0.8},"init_eqs_eel":"","frame_eqs_eel":"ang=cos(time/2)*6;\nsides=20-((bass+mid+treb)/3)*15;\nadv=adv+(bass*bass)/15;\nx=cos(adv)*0.3+0.5;\ny=sin(adv)*0.3+0.5;\n\ntm=time*0.3;\nr=sin(tm+0.2)*0.5 + 0.4999;\ng=sin(tm+0.4)*0.5 + 0.4999;\nb=sin(tm+0.61)*0.5 + 0.4999;\nr2=r;\ng2=g;\nb2=b;"},{"baseVals":{"enabled":1,"sides":3,"textured":1,"rad":1.089242,"tex_ang":2.513274,"tex_zoom":0.451117,"g":1,"b":1,"r2":1,"b2":1,"border_a":1},"init_eqs_eel":"mork=0","frame_eqs_eel":"ang=sin(time/3);\n\nmork=mork+0.003;\nmork=mork* below(mork, 3) - above(mork, 3);\nvar=max( min(mork,1) , 0 );\n\na=var;\na2=var;\nborder_a=var;\n\nsides=(sin(time/2)*0.5 + 0.5)*2.5 + 3;\n\nrad=1+((sin(time/2)*0.5+0.5)*0.5)"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"mv_x=64;mv_y=48;\nnut=0;\nstp=0;stq=0;\nrtp=0;rtq=0;\nwvr=0;\ndecay=0;\ndcsp=0;\nea=0","frame_eqs_eel":"decay=0.999;\nzoom=1.004;\ndx=0;dy=0;sx=1;sy=1;\nrot=0.01;\necho_zoom= (sin(time)*0.5 + 0.5)*2 + 1;\nea=ea+1;\nea=ea * below(ea , 1.1);\nalphaflux= sin(time*0.3)*0.5 + 0.5;\necho_alpha=(ea*(1-alphaflux)) + (0.5*alphaflux);\n\nzflux=above( cos(time*0.4)*10 , 9) * cos(time*1.6);\nzoom=zoom+ (zflux*0.5);\ninvert=above(cos(time/2)*0.5+0.5,0.5)","pixel_eqs_eel":"adv=min( (bass*bass*bass), 1);\nwarp=-1*((( sin(time*3) *0.5+0.5)*3)* (x-0.5)*2 )+((( cos(time*3) *0.5+0.5)*3)* (y-0.5)*2 );\nwarp=warp*adv;\n\nbax=above( sin(time*1)*10 , 9) * sin(time*2)*0.3;\nbar=above( sin(x*26 + time*4) , 0.6 );\n\nbay=above( cos(time*1)*10 , 9) * sin(time*2)*0.6;\nbat=above( sin(ang*3 + time*4) , 0.6 );\n\nzoom=zoom + bar*bax;\nrot=rot + bay*bat","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "phat-eo-s-peoplewhoeatacid-phatcoloursv2",
+	"name": "PeopleWhoEatAcid_phatColoursV2",
+	"author": "phat + Eo.S.",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/phat%20%2B%20Eo.S.%20-%20PeopleWhoEatAcid_phatColoursV2.milk",
+	"sourceSha1": "5a0c1bbbfa0bfff79e35a5bb9fd42cc16edcc47b",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1.28,
+			"decay": 0.5,
+			"echo_zoom": 1.001821,
+			"echo_alpha": 0.5,
+			"wave_mode": 3,
+			"additivewave": 1,
+			"wave_thick": 1,
+			"darken": 1,
+			"solarize": 1,
+			"wave_a": 0.001,
+			"wave_scale": 0.625316,
+			"wave_smoothing": 0.9,
+			"modwavealphastart": 0.88,
+			"modwavealphaend": 1.98,
+			"warpanimspeed": 0.010284,
+			"warpscale": 0.01,
+			"fshader": 1,
+			"dx": 0.005,
+			"warp": 0.01,
+			"sx": 1.001829,
+			"sy": 1.0018,
+			"wave_r": 0,
+			"wave_g": 0,
+			"wave_b": 0,
+			"ob_size": 0,
+			"ob_g": 0.8,
+			"ob_b": 0.7,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0.3,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0.85,
+			"mv_r": 0.4999,
+			"mv_g": 0.4999,
+			"mv_b": 0.4999,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 16,
+					"thickoutline": 1,
+					"rad": 0.325446,
+					"ang": 6.283185,
+					"tex_zoom": 1.038696,
+					"r": 0.1,
+					"g": 1,
+					"g2": 0.1,
+					"b2": 0.6,
+					"a2": 0.3,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang=sin(time)*6;\nadvb=advb+(treb*treb)*0.06;\n\nx=sin(advb)*0.5+0.5;\ny=cos(advb)*0.5+0.5;\n\ntm=time*0.3;\nr=sin(tm)/2 + 0.4999;\ng=sin(tm+0.2)/2 + 0.4999;\nb=sin(tm+0.41)/2 + 0.4999;\nr2=sin(tm)/2 + 0.4999;\ng2=sin(tm+0.2)/2 + 0.4999;\nb2=sin(tm+0.41)/2 + 0.4999"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"thickoutline": 1,
+					"rad": 0.458306,
+					"tex_ang": 3.141593,
+					"tex_zoom": 1.028414,
+					"r": 0.36,
+					"g2": 0.2,
+					"b2": 0.6,
+					"a2": 0.3,
+					"border_r": 0,
+					"border_g": 0,
+					"border_b": 0,
+					"border_a": 0.8
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "ang=cos(time/2)*6;\nsides=20-((bass+mid+treb)/3)*15;\nadv=adv+(bass*bass)/15;\nx=cos(adv)*0.3+0.5;\ny=sin(adv)*0.3+0.5;\n\ntm=time*0.3;\nr=sin(tm+0.2)*0.5 + 0.4999;\ng=sin(tm+0.4)*0.5 + 0.4999;\nb=sin(tm+0.61)*0.5 + 0.4999;\nr2=r;\ng2=g;\nb2=b;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 3,
+					"textured": 1,
+					"rad": 1.089242,
+					"tex_ang": 2.513274,
+					"tex_zoom": 0.451117,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"border_a": 1
+				},
+				"init_eqs_eel": "mork=0",
+				"frame_eqs_eel": "ang=sin(time/3);\n\nmork=mork+0.003;\nmork=mork* below(mork, 3) - above(mork, 3);\nvar=max( min(mork,1) , 0 );\n\na=var;\na2=var;\nborder_a=var;\n\nsides=(sin(time/2)*0.5 + 0.5)*2.5 + 3;\n\nrad=1+((sin(time/2)*0.5+0.5)*0.5)"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "mv_x=64;mv_y=48;\nnut=0;\nstp=0;stq=0;\nrtp=0;rtq=0;\nwvr=0;\ndecay=0;\ndcsp=0;\nea=0",
+		"frame_eqs_eel": "decay=0.999;\nzoom=1.004;\ndx=0;dy=0;sx=1;sy=1;\nrot=0.01;\necho_zoom= (sin(time)*0.5 + 0.5)*2 + 1;\nea=ea+1;\nea=ea * below(ea , 1.1);\nalphaflux= sin(time*0.3)*0.5 + 0.5;\necho_alpha=(ea*(1-alphaflux)) + (0.5*alphaflux);\n\nzflux=above( cos(time*0.4)*10 , 9) * cos(time*1.6);\nzoom=zoom+ (zflux*0.5);\ninvert=above(cos(time/2)*0.5+0.5,0.5)",
+		"pixel_eqs_eel": "adv=min( (bass*bass*bass), 1);\nwarp=-1*((( sin(time*3) *0.5+0.5)*3)* (x-0.5)*2 )+((( cos(time*3) *0.5+0.5)*3)* (y-0.5)*2 );\nwarp=warp*adv;\n\nbax=above( sin(time*1)*10 , 9) * sin(time*2)*0.3;\nbar=above( sin(x*26 + time*4) , 0.6 );\n\nbay=above( cos(time*1)*10 , 9) * sin(time*2)*0.6;\nbat=above( sin(ang*3 + time*4) , 0.6 );\n\nzoom=zoom + bar*bax;\nrot=rot + bay*bat",
+		"warp": "",
+		"comp": ""
+	}
+}

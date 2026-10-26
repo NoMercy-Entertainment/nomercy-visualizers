@@ -1,1 +1,119 @@
-{"schema":1,"id":"shreyas-carnival","name":"Carnival","author":"Shreyas","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Shreyas%20-%20Carnival.milk","sourceSha1":"8a1db4cf13930f85109eadda73f9bede636fd276","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.925,"echo_zoom":1.006596,"echo_orient":3,"wave_mode":3,"wave_dots":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":0.001,"wave_scale":0.01,"wave_smoothing":0,"modwavealphastart":0.71,"modwavealphaend":0,"warpscale":1.331,"zoom":0.999514,"warp":0.01,"wave_r":0,"wave_g":0,"wave_b":0,"wave_x":1,"wave_y":1,"ob_size":0.5,"ob_r":0.01,"ib_size":0.26,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"samples":302,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);","point_eqs_eel":"sample=sample*q1*.5;value1=(value1+1)*.3;\nx1=sin(sample)*sin(sample*40)*value1;\ny1=cos(sample)*value1;\nz1=sin(sample)*cos(sample*40)*value1;\nx1=x1+q2;\ny1=y1+q3;\nz1=z1+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+sin(time);\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"},{"baseVals":{"enabled":1,"samples":302,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);","point_eqs_eel":"cp=bnot(cp);\nr=sample*q1*10;\ni1=(sample*6)%2;\nrt=if(cp,1,.5);\nsample=sample*q1*.5;\n\nx1=sin(r)*rt;\nz1=cos(r)*rt;\ny1=-sin(i1)+.5;\nx1=x1+q2;\ny1=y1+q3;\nz1=z1+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+sin(time/q1)*q1;\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"},{"baseVals":{"enabled":1,"usedots":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);","point_eqs_eel":"sample=sample*q1*134;\nx1=sin(sample*543)*2+q2;\ny1=cos(sample*4232)*2+q3;\nz1=sin(sample*90)*2+q4;\n\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\na=z3*.8;"},{"baseVals":{"enabled":1,"samples":142,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\nry1=ry1+bass_att*.2;\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);\nt7=sin(ry1);t8=cos(ry1);","point_eqs_eel":"cp=bnot(cp);\nr=sample*q1*10;\ni1=(sample*6)%2;\nrt=if(cp,.7,.2);\nsample=sample*q1*.5;\n\nx1=sin(r)*rt;\nz1=cos(r)*rt;\ny1=-.5;\nx2=x1*t8-z1*t7;z2=x1*t7+z1*t8;\nx1=x2+q2;\ny1=y1+q3;\nz1=z2+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+cos(time/q1)*q1;\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"}],"init_eqs_eel":"q1=acos(-1)*2;","frame_eqs_eel":"decay=.67;\ntime=time*.1;\nti=if(above(bass,1.3),.3,ti*.9);\nt1=t1+.01+ti*.1;\nq2=sin(time)*cos(t1);\nq3=sin(t1)*cos(t)+1;\nq4=cos(time+1)*sin(time-6);\nmonitor=ti;","pixel_eqs_eel":"zoom=zoom+cos(zoom)*.1;\nrot=rot+sin(zoom+time)*.1;\nsx=sx+treb*.01;\nsy=sy+mid*.01;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "shreyas-carnival",
+	"name": "Carnival",
+	"author": "Shreyas",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Shreyas%20-%20Carnival.milk",
+	"sourceSha1": "8a1db4cf13930f85109eadda73f9bede636fd276",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.925,
+			"echo_zoom": 1.006596,
+			"echo_orient": 3,
+			"wave_mode": 3,
+			"wave_dots": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.001,
+			"wave_scale": 0.01,
+			"wave_smoothing": 0,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 0,
+			"warpscale": 1.331,
+			"zoom": 0.999514,
+			"warp": 0.01,
+			"wave_r": 0,
+			"wave_g": 0,
+			"wave_b": 0,
+			"wave_x": 1,
+			"wave_y": 1,
+			"ob_size": 0.5,
+			"ob_r": 0.01,
+			"ib_size": 0.26,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"samples": 302,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);",
+				"point_eqs_eel": "sample=sample*q1*.5;value1=(value1+1)*.3;\nx1=sin(sample)*sin(sample*40)*value1;\ny1=cos(sample)*value1;\nz1=sin(sample)*cos(sample*40)*value1;\nx1=x1+q2;\ny1=y1+q3;\nz1=z1+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+sin(time);\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"samples": 302,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);",
+				"point_eqs_eel": "cp=bnot(cp);\nr=sample*q1*10;\ni1=(sample*6)%2;\nrt=if(cp,1,.5);\nsample=sample*q1*.5;\n\nx1=sin(r)*rt;\nz1=cos(r)*rt;\ny1=-sin(i1)+.5;\nx1=x1+q2;\ny1=y1+q3;\nz1=z1+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+sin(time/q1)*q1;\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"usedots": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\n\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);",
+				"point_eqs_eel": "sample=sample*q1*134;\nx1=sin(sample*543)*2+q2;\ny1=cos(sample*4232)*2+q3;\nz1=sin(sample*90)*2+q4;\n\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\na=z3*.8;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"samples": 142,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "rx=atan2(q2,sqr(q3)+sqr(q4))/4+q3/2;\nry=atan2(q2,q4);\nrz=0;\nry1=ry1+bass_att*.2;\nt1=sin(rx);t2=cos(rx);\nt3=sin(ry);t4=cos(ry);\nt5=sin(rz);t6=cos(rz);\nt7=sin(ry1);t8=cos(ry1);",
+				"point_eqs_eel": "cp=bnot(cp);\nr=sample*q1*10;\ni1=(sample*6)%2;\nrt=if(cp,.7,.2);\nsample=sample*q1*.5;\n\nx1=sin(r)*rt;\nz1=cos(r)*rt;\ny1=-.5;\nx2=x1*t8-z1*t7;z2=x1*t7+z1*t8;\nx1=x2+q2;\ny1=y1+q3;\nz1=z2+q4;\nx2=x1*t4-z1*t3;z2=x1*t3+z1*t4;\ny2=y1*t2-z2*t1;z3=y1*t1+z2*t2+1.4;\nx3=x2*t6-y2*t5;y3=x2*t5+y2*t6;\nz3=if(above(z3,.1),.5/z3,0);\nx=if(z3,x3*z3,x)+.5;\ny=if(z3,-y3*z3,y)+.5;\nhu=sample+cos(time/q1)*q1;\nr=sin(hu)*.5+.5;\ng=sin(hu+q1*.33)*.5+.5;\nb=sin(hu+q1*.66)*.5+.5;\na=z3*.8;"
+			}
+		],
+		"init_eqs_eel": "q1=acos(-1)*2;",
+		"frame_eqs_eel": "decay=.67;\ntime=time*.1;\nti=if(above(bass,1.3),.3,ti*.9);\nt1=t1+.01+ti*.1;\nq2=sin(time)*cos(t1);\nq3=sin(t1)*cos(t)+1;\nq4=cos(time+1)*sin(time-6);\nmonitor=ti;",
+		"pixel_eqs_eel": "zoom=zoom+cos(zoom)*.1;\nrot=rot+sin(zoom+time)*.1;\nsx=sx+treb*.01;\nsy=sy+mid*.01;",
+		"warp": "",
+		"comp": ""
+	}
+}

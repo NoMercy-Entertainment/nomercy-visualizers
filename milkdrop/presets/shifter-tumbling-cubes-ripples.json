@@ -1,1 +1,116 @@
-{"schema":1,"id":"shifter-tumbling-cubes-ripples","name":"tumbling cubes (ripples)","author":"shifter","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/shifter%20-%20tumbling%20cubes%20(ripples).milk","sourceSha1":"9cb4ead4e59509de121a304bd05f3fef890a8f61","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.95,"echo_zoom":1.006596,"echo_orient":3,"wave_mode":7,"additivewave":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":4.099998,"wave_scale":1.285751,"wave_smoothing":0.63,"modwavealphastart":0.71,"modwavealphaend":1.3,"warpscale":1.331,"zoomexp":0.108925,"zoom":1.104085,"warp":0.01,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0.5,"ob_r":0.01,"ib_size":0.26,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{"enabled":1,"spectrum":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\nox = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\noy = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\noz = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\naa = 0 + (oz-1)*.5;\na = .05;\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"},{"baseVals":{"enabled":1,"spectrum":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\noy = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\noz = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\nox = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\na = .5 + (oz+2)*.5;\na = .05;\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"},{"baseVals":{"enabled":1,"spectrum":1,"thick":1},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":"sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\noz = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\nox = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\noy = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\na = .5 + (oz+2)*.1;\na = .05;\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_a = 0;\nvol = .1*(vol*9 + (bass_att+mid_att+treb_att)*.333333);\nq1 = vol*.7;\nq1 = min(q1,2);\n\ntic = time-tin;\ntin = time;\ntm = tm + tic*(bass_att+mid_att+treb_att)*.333333;\nq2 = tm;","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "shifter-tumbling-cubes-ripples",
+	"name": "tumbling cubes (ripples)",
+	"author": "shifter",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/shifter%20-%20tumbling%20cubes%20(ripples).milk",
+	"sourceSha1": "9cb4ead4e59509de121a304bd05f3fef890a8f61",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.95,
+			"echo_zoom": 1.006596,
+			"echo_orient": 3,
+			"wave_mode": 7,
+			"additivewave": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 4.099998,
+			"wave_scale": 1.285751,
+			"wave_smoothing": 0.63,
+			"modwavealphastart": 0.71,
+			"modwavealphaend": 1.3,
+			"warpscale": 1.331,
+			"zoomexp": 0.108925,
+			"zoom": 1.104085,
+			"warp": 0.01,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0.5,
+			"ob_r": 0.01,
+			"ib_size": 0.26,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"spectrum": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\nox = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\noy = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\noz = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\naa = 0 + (oz-1)*.5;\na = .05;\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"spectrum": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\noy = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\noz = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\nox = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\na = .5 + (oz+2)*.5;\na = .05;\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"spectrum": 1,
+					"thick": 1
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": "sp = sample*6.28*8*8*4;\nit = it+1;\nit = it*above(sample,0);\nsz = q1;\nss = sample*2;\noz = sz*.5*pow(-1,it)*below(ss,1) + .5*pow(-1,it)*above(ss,1)*sz;\nox = (ss-.5)*sz*below(ss,1) + sz*.5*above(ss,1);\noy = -sz*.5*below(ss,1) + ((ss-1)-.5)*sz*above(ss,1);\n\nxang = q2*0.132;\naxang = 0;\nyang = q2*0.153;\nayang = 0;\nzang = q2*2.10;\nazang = 0;\nfov = 0.6 + 0.2*sin(time);\nfov = .3;\n\nmx = ox*cos(zang) - oy*sin(zang);\nmy = ox*sin(zang) + oy*cos(zang);\nox = mx;\noy = my;\nmx = ox*cos(yang) + oz*sin(yang);\nmz = - ox*sin(yang) + oz*cos(yang);\nox = mx;\noz = mz;\nmy = oy*cos(xang) - oz*sin(xang);\nmz = oy*sin(xang) + oz*cos(xang);\noy = my;\noz = mz;\n\noz = oz - 2;\nx = ox*fov/oz + 0.5;\nx = (x-.5)*0.75 + 0.5;\ny = oy*fov/oz + 0.5;\n\na = .5 + (oz+2)*.1;\na = .05;\ng = 1 + sin(sp);\nb = 0.5 + 0.5*sin(sample*1.57);\nr = 0.5 + 0.5*cos(sample*1.57);"
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_a = 0;\nvol = .1*(vol*9 + (bass_att+mid_att+treb_att)*.333333);\nq1 = vol*.7;\nq1 = min(q1,2);\n\ntic = time-tin;\ntin = time;\ntm = tm + tic*(bass_att+mid_att+treb_att)*.333333;\nq2 = tm;",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}

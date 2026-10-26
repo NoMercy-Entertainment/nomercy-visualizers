@@ -1,1 +1,106 @@
-{"schema":1,"id":"aderrasi-ghast-entity","name":"Ghast Entity","author":"Aderrasi","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20Ghast%20Entity.milk","sourceSha1":"2d2e265275f2d8f0a38a12d71558c7c4a396326c","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":2,"gammaadj":1,"decay":1,"echo_zoom":1,"echo_alpha":0.5,"echo_orient":3,"wave_mode":5,"wave_thick":1,"wrap":0,"wave_a":100,"wave_scale":0.397106,"wave_smoothing":0,"modwavealphastart":0.5,"modwavealphaend":1,"dx":0.00001,"dy":0.00001,"warp":0.01,"wave_r":0.5,"wave_g":0.5,"wave_b":0.5,"ob_size":0.005,"ob_a":1,"ib_size":0,"ib_r":0,"ib_g":0,"ib_b":0,"mv_x":0,"mv_y":0,"mv_l":1,"mv_a":0},"shapes":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":""}],"waves":[{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"","frame_eqs_eel":"wave_r = wave_r + 0.25*sin(1.4*time) + 0.25*sin(2.25*time);\nwave_g = wave_g + 0.25*sin(1.7*time) + 0.25*sin(2.11*time);\nwave_b = wave_b + 0.25*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;","pixel_eqs_eel":"thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\nzoom = zoom + 0.08;\nzoom = zoom - (0.5-y*rad*0.2*abs(cos(rad*bass-0.7*sin(ang*12))))*0.1;\ndy = dy + dy_r;\ndx = dx + dx_r;\nsx = sx + sin(time)*(0.4*rad)-sin(3*bass*cos(ang*16)*0.3-rad)*0.05;\nsy = sy + cos(1.25*time)*(0.4*rad)-cos(3*treb*sin(ang*16)*0.3-rad)*0.05;\nrot = rot - tan(time)*(0.3*rad)-sin(mid*sin(ang*6)*0.3-rad)*0.1;","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "aderrasi-ghast-entity",
+	"name": "Ghast Entity",
+	"author": "Aderrasi",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Aderrasi%20-%20Ghast%20Entity.milk",
+	"sourceSha1": "2d2e265275f2d8f0a38a12d71558c7c4a396326c",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 2,
+			"gammaadj": 1,
+			"decay": 1,
+			"echo_zoom": 1,
+			"echo_alpha": 0.5,
+			"echo_orient": 3,
+			"wave_mode": 5,
+			"wave_thick": 1,
+			"wrap": 0,
+			"wave_a": 100,
+			"wave_scale": 0.397106,
+			"wave_smoothing": 0,
+			"modwavealphastart": 0.5,
+			"modwavealphaend": 1,
+			"dx": 0.00001,
+			"dy": 0.00001,
+			"warp": 0.01,
+			"wave_r": 0.5,
+			"wave_g": 0.5,
+			"wave_b": 0.5,
+			"ob_size": 0.005,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0,
+			"ib_g": 0,
+			"ib_b": 0,
+			"mv_x": 0,
+			"mv_y": 0,
+			"mv_l": 1,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": ""
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "",
+		"frame_eqs_eel": "wave_r = wave_r + 0.25*sin(1.4*time) + 0.25*sin(2.25*time);\nwave_g = wave_g + 0.25*sin(1.7*time) + 0.25*sin(2.11*time);\nwave_b = wave_b + 0.25*sin(1.84*time) + 0.25*sin(2.3*time);\nwarp = 0;",
+		"pixel_eqs_eel": "thresh = above(bass_att,thresh)*2+(1-above(bass_att,thresh))*((thresh-1.3)*0.96+1.3);\ndx_r = equal(thresh,2)*0.015*sin(5*time)+(1-equal(thresh,2))*dx_r;\ndy_r = equal(thresh,2)*0.015*sin(6*time)+(1-equal(thresh,2))*dy_r;\n\nzoom = zoom + 0.08;\nzoom = zoom - (0.5-y*rad*0.2*abs(cos(rad*bass-0.7*sin(ang*12))))*0.1;\ndy = dy + dy_r;\ndx = dx + dx_r;\nsx = sx + sin(time)*(0.4*rad)-sin(3*bass*cos(ang*16)*0.3-rad)*0.05;\nsy = sy + cos(1.25*time)*(0.4*rad)-cos(3*treb*sin(ang*16)*0.3-rad)*0.05;\nrot = rot - tan(time)*(0.3*rad)-sin(mid*sin(ang*6)*0.3-rad)*0.1;",
+		"warp": "",
+		"comp": ""
+	}
+}

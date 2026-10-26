@@ -1,1 +1,158 @@
-{"schema":1,"id":"mstress-acoustic-nerve-impulses","name":"Acoustic Nerve Impulses","author":"Mstress","sourceUrl":"https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Mstress%20-%20Acoustic%20Nerve%20Impulses.milk","sourceSha1":"eb8f195c89b6d24958e154496e58f1a29fede9bf","rights":"projectm-presets","textures":[],"preset":{"version":1,"baseVals":{"rating":3,"gammaadj":1,"decay":0.988999,"echo_zoom":1.168096,"additivewave":1,"modwavealphabyvolume":1,"wave_brighten":0,"wrap":0,"wave_a":0.0033,"wave_scale":0.572643,"wave_smoothing":0,"modwavealphastart":0.24,"modwavealphaend":1.300001,"warpscale":1.331,"zoomexp":0.999998,"zoom":1.000509,"warp":0.000022,"wave_r":0.65,"wave_g":0.65,"wave_b":0.65,"ob_size":0,"ob_r":0.34,"ob_g":0.34,"ob_b":0.34,"ob_a":1,"ib_size":0,"ib_r":0.34,"ib_g":0.34,"ib_b":0.34,"ib_a":1,"mv_x":64,"mv_y":48,"mv_l":0,"mv_a":0},"shapes":[{"baseVals":{"enabled":1,"sides":73,"textured":1,"rad":0.832629,"ang":6.031858,"tex_ang":5.78053,"tex_zoom":0.999998,"g":1,"b":1,"r2":1,"b2":1,"a2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"flag1=int(abs(flag1-q1));\nflag=int(abs(flag-q1*flag1));\nang =ang +if(flag,0,-.4)+abs(sin(bass))*.4*if(flag,1,-1);\n\nx=x+sin(time*.7)*.06;\ny=y+sin(time*.5)*.06;"},{"baseVals":{"enabled":1,"textured":1,"x":0.81,"y":0.22,"rad":0.506271,"g":1,"b":1,"a":0.89,"b2":1,"a2":0.31,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"flag = abs(flag-q1);\ny = if(flag,.8,.2);"},{"baseVals":{"enabled":1,"textured":1,"x":0.181,"y":0.8,"rad":0.599578,"g":1,"b":1,"r2":1,"border_a":0},"init_eqs_eel":"","frame_eqs_eel":"flag = abs(flag-q1);\ny = if(flag,.2,.8);"},{"baseVals":{"enabled":1,"x":0.56,"y":0.15,"rad":0.230671,"ang":5.403541,"tex_zoom":0.01,"g":1,"b":1,"r2":1,"b2":1,"a2":0.4},"init_eqs_eel":"","frame_eqs_eel":"meanbass = 0.01*(meanbass*99+bass);\nmeantreb = 0.01*(meantreb*99+treb);\nmeanmid = 0.01*(meanmid*99+mid);\nbassdiff = (bass - meanbass)*15;\ntrebdiff = (treb - meantreb)*15;\nmiddiff = (mid - meanmid)*15;\nbassdiff = above(bassdiff,0)*bassdiff;\ntrebdiff = above(trebdiff,0)*trebdiff;\nmiddiff = above(middiff,0)*middiff;\n\ng = min(1,max(0,0.2*trebdiff));\nr = min(1,max(0,0.2*middiff));\nb = min(1,max(0,0.2*bassdiff));\ng2 = min(1,max(0,0.2*trebdiff));\nr2 = min(1,max(0,0.2*middiff));\nb2 = min(1,max(0,0.2*bassdiff));"}],"waves":[{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""},{"baseVals":{"enabled":0},"init_eqs_eel":"","frame_eqs_eel":"","point_eqs_eel":""}],"init_eqs_eel":"oldy=.4;","frame_eqs_eel":"ib_g = abs(sin(0.1*time))*0.2;\nib_b = abs(sin(0.3*time))*0.2;\nib_r = abs(sin(0.7*time))*0.2;\n\n\nob_b=abs(sin(time*100+time));\nob_r=abs(sin(time*512+time));\nob_g=abs(sin(time*10+time));\nib_b=abs(sin(time*10+time));\nib_r=abs(sin(time*512+time));\nib_g=abs(sin(time*100+time));\n\n\n\n\nmeanbass = 0.01*(meanbass*99+bass);\nmeantreb = 0.01*(meantreb*99+treb);\nmeanmid = 0.01*(meanmid*99+mid);\nbassdiff = (bass - meanbass)*15;\ntrebdiff = (treb - meantreb)*15;\nmiddiff = (mid - meanmid)*15;\nbassdiff = above(bassdiff,0)*bassdiff;\ntrebdiff = above(trebdiff,0)*trebdiff;\nmiddiff = above(middiff,0)*middiff;\n\nob_g = min(1,max(0,0.2*trebdiff));\nob_r = min(1,max(0,0.2*middiff));\nob_b = min(1,max(0,0.2*bassdiff));\n\n\n\n\n//Thanks to krash for beat detection (modified)\nvolume = 0.3*bass+mid;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\nrunmeanbass =(runmeanbass*2 + bass_att)/3;\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*above(bass_att,runmeanbass*1.1)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nq1 = beat;\n\ntemp = y;\ny = if(beat,oldy,y);\noldy=if(beat,temp,oldy);\n\nmonitor =y;","pixel_eqs_eel":"","warp":"","comp":""}}
+{
+	"schema": 1,
+	"id": "mstress-acoustic-nerve-impulses",
+	"name": "Acoustic Nerve Impulses",
+	"author": "Mstress",
+	"sourceUrl": "https://github.com/projectM-visualizer/presets-milkdrop-original/blob/e03b83e3338d8f1ed6cbcf908c719f249ef24288/Milkdrop-Original/Mstress%20-%20Acoustic%20Nerve%20Impulses.milk",
+	"sourceSha1": "eb8f195c89b6d24958e154496e58f1a29fede9bf",
+	"rights": "projectm-presets",
+	"textures": [],
+	"preset": {
+		"version": 1,
+		"baseVals": {
+			"rating": 3,
+			"gammaadj": 1,
+			"decay": 0.988999,
+			"echo_zoom": 1.168096,
+			"additivewave": 1,
+			"modwavealphabyvolume": 1,
+			"wave_brighten": 0,
+			"wrap": 0,
+			"wave_a": 0.0033,
+			"wave_scale": 0.572643,
+			"wave_smoothing": 0,
+			"modwavealphastart": 0.24,
+			"modwavealphaend": 1.300001,
+			"warpscale": 1.331,
+			"zoomexp": 0.999998,
+			"zoom": 1.000509,
+			"warp": 0.000022,
+			"wave_r": 0.65,
+			"wave_g": 0.65,
+			"wave_b": 0.65,
+			"ob_size": 0,
+			"ob_r": 0.34,
+			"ob_g": 0.34,
+			"ob_b": 0.34,
+			"ob_a": 1,
+			"ib_size": 0,
+			"ib_r": 0.34,
+			"ib_g": 0.34,
+			"ib_b": 0.34,
+			"ib_a": 1,
+			"mv_x": 64,
+			"mv_y": 48,
+			"mv_l": 0,
+			"mv_a": 0
+		},
+		"shapes": [
+			{
+				"baseVals": {
+					"enabled": 1,
+					"sides": 73,
+					"textured": 1,
+					"rad": 0.832629,
+					"ang": 6.031858,
+					"tex_ang": 5.78053,
+					"tex_zoom": 0.999998,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"a2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "flag1=int(abs(flag1-q1));\nflag=int(abs(flag-q1*flag1));\nang =ang +if(flag,0,-.4)+abs(sin(bass))*.4*if(flag,1,-1);\n\nx=x+sin(time*.7)*.06;\ny=y+sin(time*.5)*.06;"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"x": 0.81,
+					"y": 0.22,
+					"rad": 0.506271,
+					"g": 1,
+					"b": 1,
+					"a": 0.89,
+					"b2": 1,
+					"a2": 0.31,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "flag = abs(flag-q1);\ny = if(flag,.8,.2);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"textured": 1,
+					"x": 0.181,
+					"y": 0.8,
+					"rad": 0.599578,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"border_a": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "flag = abs(flag-q1);\ny = if(flag,.2,.8);"
+			},
+			{
+				"baseVals": {
+					"enabled": 1,
+					"x": 0.56,
+					"y": 0.15,
+					"rad": 0.230671,
+					"ang": 5.403541,
+					"tex_zoom": 0.01,
+					"g": 1,
+					"b": 1,
+					"r2": 1,
+					"b2": 1,
+					"a2": 0.4
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "meanbass = 0.01*(meanbass*99+bass);\nmeantreb = 0.01*(meantreb*99+treb);\nmeanmid = 0.01*(meanmid*99+mid);\nbassdiff = (bass - meanbass)*15;\ntrebdiff = (treb - meantreb)*15;\nmiddiff = (mid - meanmid)*15;\nbassdiff = above(bassdiff,0)*bassdiff;\ntrebdiff = above(trebdiff,0)*trebdiff;\nmiddiff = above(middiff,0)*middiff;\n\ng = min(1,max(0,0.2*trebdiff));\nr = min(1,max(0,0.2*middiff));\nb = min(1,max(0,0.2*bassdiff));\ng2 = min(1,max(0,0.2*trebdiff));\nr2 = min(1,max(0,0.2*middiff));\nb2 = min(1,max(0,0.2*bassdiff));"
+			}
+		],
+		"waves": [
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			},
+			{
+				"baseVals": {
+					"enabled": 0
+				},
+				"init_eqs_eel": "",
+				"frame_eqs_eel": "",
+				"point_eqs_eel": ""
+			}
+		],
+		"init_eqs_eel": "oldy=.4;",
+		"frame_eqs_eel": "ib_g = abs(sin(0.1*time))*0.2;\nib_b = abs(sin(0.3*time))*0.2;\nib_r = abs(sin(0.7*time))*0.2;\n\n\nob_b=abs(sin(time*100+time));\nob_r=abs(sin(time*512+time));\nob_g=abs(sin(time*10+time));\nib_b=abs(sin(time*10+time));\nib_r=abs(sin(time*512+time));\nib_g=abs(sin(time*100+time));\n\n\n\n\nmeanbass = 0.01*(meanbass*99+bass);\nmeantreb = 0.01*(meantreb*99+treb);\nmeanmid = 0.01*(meanmid*99+mid);\nbassdiff = (bass - meanbass)*15;\ntrebdiff = (treb - meantreb)*15;\nmiddiff = (mid - meanmid)*15;\nbassdiff = above(bassdiff,0)*bassdiff;\ntrebdiff = above(trebdiff,0)*trebdiff;\nmiddiff = above(middiff,0)*middiff;\n\nob_g = min(1,max(0,0.2*trebdiff));\nob_r = min(1,max(0,0.2*middiff));\nob_b = min(1,max(0,0.2*bassdiff));\n\n\n\n\n//Thanks to krash for beat detection (modified)\nvolume = 0.3*bass+mid;\nbeatrate = equal(beatrate,0) + (1-equal(beatrate,0))*(below(volume,0.01) + (1-below(volume,0.01))*beatrate);\nlastbeat = lastbeat + equal(lastbeat,0)*time;\nmeanbass_att = 0.1*(meanbass_att*9 + bass_att);\nrunmeanbass =(runmeanbass*2 + bass_att)/3;\npeakbass_att = max(bass_att,peakbass_att);\nbeat = above(volume,0.8)*above(bass_att,runmeanbass*1.1)*below(peakbass_att - bass_att, 0.05*peakbass_att)*above(time - lastbeat, 0.1 + 0.5*(beatrate - 0.1));\nbeatrate = max(if(beat,if(below(time-lastbeat,2*beatrate),0.1*(beatrate*9 + time - lastbeat),beatrate),beatrate),0.1);\npeakbass_att = beat*bass_att + (1-beat)*peakbass_att*(above(time - lastbeat, 2*beatrate)*0.95 + (1-above(time - lastbeat, 2*beatrate))*0.995);\nlastbeat = beat*time + (1-beat)*lastbeat;\npeakbass_att = max(peakbass_att,1.1*meanbass_att);\nq1 = beat;\n\ntemp = y;\ny = if(beat,oldy,y);\noldy=if(beat,temp,oldy);\n\nmonitor =y;",
+		"pixel_eqs_eel": "",
+		"warp": "",
+		"comp": ""
+	}
+}
