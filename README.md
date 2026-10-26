@@ -44,6 +44,32 @@ The MilkDrop presets come from the projectM preset collection; `rights.json` hol
 Each preset links its projectM source file (`sourceUrl`, pinned to one commit).
 Each preset names its author: from the `Author - Name` file name, or from the author tags at the start of a file name without that separator.
 
+## Bundle
+
+`npm run build:bundle` reads every shader and preset and writes `dist/`:
+
+```
+visualizers-bundle.json       raw bundle
+visualizers-bundle.json.gz    the file the media server pins
+textures/<name>.jpg           served at GET /visualizers/textures/<name>.jpg
+```
+
+The bundle is `{ bundle_schema, bundle_hash, entries, textures }`.
+Each entry has `slug` (`milkdrop/<id>` or `shader/<id>`, unique), `name`, `author`, `license`, `source_url`, `tags`, `format`, `content_hash`, `renderable` and the `payload`.
+`content_hash` is the SHA-256 of the payload as canonical JSON: sorted keys, no whitespace.
+`renderable.webgl2` is false for the presets in `unrenderable.json`; clients hide what they cannot run.
+The build checks every entry against `schema/visualizer-entry.v1.schema.json` and `schema/visualizer-payload.v1.schema.json` (Ajv, strict).
+A payload with `useJS`, a non-empty `*_eqs_str` or an unknown key fails the build.
+
+`packages/converters` holds the converters as pure functions: the twigl and Shadertoy wrappers, the KodeLife folder reader and the MilkDrop preset build.
+The build and the web app import the same code.
+
+`npm test` runs the tests, `npm run typecheck` the type check.
+A `v*` tag runs the same checks and attaches `visualizers-bundle.json.gz` and the textures to the GitHub release.
+
+The media server pins one release: it copies `visualizers-bundle.json.gz` into its repo, embeds it, and fetches nothing from this repo at build time.
+To update, copy the file from a newer release and commit it.
+
 ## Removal
 
 An author can ask for an entry to be removed: open an issue.
