@@ -1,0 +1,39 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "urn:nomercy:visualizer-entry:v1",
+	"title": "NM visualizer bundle entry v1",
+	"type": "object",
+	"additionalProperties": false,
+	"required": ["slug", "name", "author", "license", "source_url", "source_sha1", "format", "tags", "schema", "content_hash", "payload_bytes", "textures", "renderable", "payload"],
+	"properties": {
+		"slug": { "type": "string", "pattern": "^(milkdrop|shader)/[a-z0-9][a-z0-9-]{0,119}$" },
+		"name": { "type": "string", "minLength": 1, "maxLength": 256, "pattern": "^\\S(.*\\S)?$" },
+		"author": { "type": "string", "minLength": 1, "maxLength": 256 },
+		"license": { "type": "string", "minLength": 1, "maxLength": 256 },
+		"source_url": { "type": ["string", "null"], "maxLength": 2048, "pattern": "^https://" },
+		"source_sha1": { "type": ["string", "null"], "pattern": "^[0-9a-f]{40}$" },
+		"format": { "enum": ["twigl-classic", "twigl-geek", "twigl-geeker", "twigl-geekest", "shadertoy", "kodelife", "milkdrop"] },
+		"tags": {
+			"type": "array",
+			"maxItems": 32,
+			"uniqueItems": true,
+			"items": { "type": "string", "minLength": 1, "maxLength": 64, "pattern": "^[^,\\u0000-\\u001f]+$" }
+		},
+		"schema": { "const": 1 },
+		"content_hash": { "type": "string", "pattern": "^[0-9a-f]{64}$" },
+		"payload_bytes": { "type": "integer", "minimum": 2, "maximum": 262144 },
+		"textures": {
+			"type": "array",
+			"maxItems": 8,
+			"uniqueItems": true,
+			"items": { "type": "string", "pattern": "^[a-z0-9_]{1,64}$" }
+		},
+		"renderable": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": ["webgl2"],
+			"properties": { "webgl2": { "type": "boolean" } }
+		},
+		"payload": { "$ref": "urn:nomercy:visualizer-payload:v1" }
+	}
+}

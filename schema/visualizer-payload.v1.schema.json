@@ -1,0 +1,470 @@
+{
+	"$schema": "https://json-schema.org/draft/2020-12/schema",
+	"$id": "urn:nomercy:visualizer-payload:v1",
+	"title": "NM visualizer payload v1",
+	"type": "object",
+	"required": [
+		"schema",
+		"format"
+	],
+	"properties": {
+		"schema": {
+			"const": 1
+		},
+		"format": {
+			"enum": [
+				"twigl-classic",
+				"twigl-geek",
+				"twigl-geeker",
+				"twigl-geekest",
+				"shadertoy",
+				"kodelife",
+				"milkdrop"
+			]
+		}
+	},
+	"oneOf": [
+		{
+			"$ref": "#/$defs/shaderPayload"
+		},
+		{
+			"$ref": "#/$defs/kodelifePayload"
+		},
+		{
+			"$ref": "#/$defs/milkdropPayload"
+		}
+	],
+	"$defs": {
+		"text": {
+			"type": "string",
+			"maxLength": 262144
+		},
+		"shaderPayload": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"schema",
+				"format",
+				"source",
+				"passes"
+			],
+			"properties": {
+				"schema": {
+					"const": 1
+				},
+				"format": {
+					"enum": [
+						"twigl-classic",
+						"twigl-geek",
+						"twigl-geeker",
+						"twigl-geekest",
+						"shadertoy"
+					]
+				},
+				"source": {
+					"$ref": "#/$defs/text"
+				},
+				"passes": {
+					"type": "array",
+					"minItems": 1,
+					"maxItems": 5,
+					"items": {
+						"$ref": "#/$defs/shaderPass"
+					},
+					"contains": {
+						"type": "object",
+						"required": [
+							"name"
+						],
+						"properties": {
+							"name": {
+								"const": "image"
+							}
+						}
+					},
+					"minContains": 1,
+					"maxContains": 1
+				}
+			}
+		},
+		"shaderPass": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"name",
+				"channels",
+				"program"
+			],
+			"properties": {
+				"name": {
+					"enum": [
+						"bufferA",
+						"bufferB",
+						"bufferC",
+						"bufferD",
+						"image"
+					]
+				},
+				"channels": {
+					"type": "object",
+					"additionalProperties": false,
+					"properties": {
+						"0": {
+							"enum": [
+								"music",
+								"bufferA",
+								"bufferB",
+								"bufferC",
+								"bufferD"
+							]
+						},
+						"1": {
+							"enum": [
+								"music",
+								"bufferA",
+								"bufferB",
+								"bufferC",
+								"bufferD"
+							]
+						},
+						"2": {
+							"enum": [
+								"music",
+								"bufferA",
+								"bufferB",
+								"bufferC",
+								"bufferD"
+							]
+						},
+						"3": {
+							"enum": [
+								"music",
+								"bufferA",
+								"bufferB",
+								"bufferC",
+								"bufferD"
+							]
+						}
+					}
+				},
+				"program": {
+					"type": "string",
+					"maxLength": 262144,
+					"pattern": "^#version 300 es\\n"
+				}
+			}
+		},
+		"vec3": {
+			"type": "array",
+			"items": {
+				"type": "number"
+			},
+			"minItems": 3,
+			"maxItems": 3
+		},
+		"kodelifePayload": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"schema",
+				"format",
+				"passes"
+			],
+			"properties": {
+				"schema": {
+					"const": 1
+				},
+				"format": {
+					"const": "kodelife"
+				},
+				"passes": {
+					"type": "array",
+					"minItems": 1,
+					"maxItems": 8,
+					"items": {
+						"$ref": "#/$defs/kodelifePass"
+					}
+				}
+			}
+		},
+		"kodelifePass": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"name",
+				"draw",
+				"target",
+				"vertex",
+				"fragment"
+			],
+			"properties": {
+				"name": {
+					"type": "string",
+					"pattern": "^[A-Za-z_][A-Za-z0-9_]{0,63}$"
+				},
+				"draw": {
+					"oneOf": [
+						{
+							"const": "fullscreen"
+						},
+						{
+							"type": "object",
+							"additionalProperties": false,
+							"required": [
+								"mode",
+								"vertices",
+								"instances"
+							],
+							"properties": {
+								"mode": {
+									"enum": [
+										"LINES",
+										"POINTS",
+										"TRIANGLES"
+									]
+								},
+								"vertices": {
+									"type": "integer",
+									"minimum": 1,
+									"maximum": 1048576
+								},
+								"instances": {
+									"type": "integer",
+									"minimum": 1,
+									"maximum": 1048576
+								}
+							}
+						}
+					]
+				},
+				"target": {
+					"enum": [
+						"screen",
+						"spectrum",
+						"offscreen"
+					]
+				},
+				"camera": {
+					"type": "object",
+					"additionalProperties": false,
+					"required": [
+						"eye",
+						"center",
+						"up",
+						"fov",
+						"near",
+						"far"
+					],
+					"properties": {
+						"eye": {
+							"$ref": "#/$defs/vec3"
+						},
+						"center": {
+							"$ref": "#/$defs/vec3"
+						},
+						"up": {
+							"$ref": "#/$defs/vec3"
+						},
+						"fov": {
+							"type": "number",
+							"exclusiveMinimum": 0,
+							"exclusiveMaximum": 180
+						},
+						"near": {
+							"type": "number",
+							"exclusiveMinimum": 0
+						},
+						"far": {
+							"type": "number",
+							"exclusiveMinimum": 0
+						}
+					}
+				},
+				"vertex": {
+					"$ref": "#/$defs/text"
+				},
+				"fragment": {
+					"$ref": "#/$defs/text"
+				}
+			},
+			"if": {
+				"properties": {
+					"draw": {
+						"not": {
+							"const": "fullscreen"
+						}
+					}
+				}
+			},
+			"then": {
+				"required": [
+					"camera"
+				],
+				"properties": {
+					"camera": {
+						"type": "object"
+					}
+				}
+			}
+		},
+		"milkdropPayload": {
+			"type": "object",
+			"additionalProperties": false,
+			"required": [
+				"schema",
+				"format",
+				"preset",
+				"textures"
+			],
+			"properties": {
+				"schema": {
+					"const": 1
+				},
+				"format": {
+					"const": "milkdrop"
+				},
+				"preset": {
+					"$ref": "#/$defs/butterchurnPreset"
+				},
+				"textures": {
+					"type": "array",
+					"maxItems": 8,
+					"uniqueItems": true,
+					"items": {
+						"type": "string",
+						"pattern": "^[a-z0-9_]{1,64}$"
+					}
+				},
+				"milk": {
+					"$ref": "#/$defs/text"
+				}
+			}
+		},
+		"baseVals": {
+			"type": "object",
+			"maxProperties": 128,
+			"propertyNames": {
+				"pattern": "^[A-Za-z0-9_]{1,64}$"
+			},
+			"additionalProperties": {
+				"type": [
+					"number",
+					"null"
+				]
+			}
+		},
+		"eel": {
+			"type": "string",
+			"maxLength": 65536
+		},
+		"noCode": {
+			"description": "No JavaScript. useJS is forbidden; any *_eqs_str key must be the empty string.",
+			"type": "object",
+			"properties": {
+				"useJS": false
+			},
+			"patternProperties": {
+				"_eqs_str$": {
+					"const": ""
+				}
+			}
+		},
+		"butterchurnPreset": {
+			"allOf": [
+				{
+					"$ref": "#/$defs/noCode"
+				}
+			],
+			"type": "object",
+			"required": [
+				"version",
+				"baseVals",
+				"shapes",
+				"waves",
+				"init_eqs_eel",
+				"frame_eqs_eel",
+				"pixel_eqs_eel",
+				"warp",
+				"comp"
+			],
+			"additionalProperties": false,
+			"properties": {
+				"version": {
+					"type": "integer",
+					"minimum": 1,
+					"maximum": 2
+				},
+				"baseVals": {
+					"$ref": "#/$defs/baseVals"
+				},
+				"shapes": {
+					"type": "array",
+					"minItems": 4,
+					"maxItems": 4,
+					"items": {
+						"$ref": "#/$defs/slot"
+					}
+				},
+				"waves": {
+					"type": "array",
+					"minItems": 4,
+					"maxItems": 4,
+					"items": {
+						"$ref": "#/$defs/slot"
+					}
+				},
+				"init_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				},
+				"frame_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				},
+				"pixel_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				},
+				"warp": {
+					"$ref": "#/$defs/eel"
+				},
+				"comp": {
+					"$ref": "#/$defs/eel"
+				}
+			},
+			"patternProperties": {
+				"_eqs_str$": {
+					"const": ""
+				}
+			}
+		},
+		"slot": {
+			"allOf": [
+				{
+					"$ref": "#/$defs/noCode"
+				}
+			],
+			"type": "object",
+			"required": [
+				"baseVals"
+			],
+			"additionalProperties": false,
+			"properties": {
+				"baseVals": {
+					"$ref": "#/$defs/baseVals"
+				},
+				"init_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				},
+				"frame_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				},
+				"point_eqs_eel": {
+					"$ref": "#/$defs/eel"
+				}
+			},
+			"patternProperties": {
+				"_eqs_str$": {
+					"const": ""
+				}
+			}
+		}
+	}
+}
