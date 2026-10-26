@@ -1,0 +1,18 @@
+{
+	"format": "kodelife",
+	"name": "Audio reactive vertices",
+	"author": "mrange",
+	"license": "CC0 1.0 (stated in the files, https://gist.github.com/mrange/2d6a251f40f3a9bfbbc797f796ae08bb)",
+	"passes": [
+		{ "name": "smooth_spectrum", "draw": "fullscreen", "target": "spectrum" },
+		{
+			"name": "lines",
+			"draw": { "mode": "LINES", "vertices": 6, "instances": 20480 },
+			"target": "offscreen",
+			"camera": { "eye": [0, 6, 12], "center": [0, 2, 0], "up": [1, 4, 0], "fov": 60, "near": 1, "far": 1000 }
+		},
+		{ "name": "blur_x", "draw": "fullscreen", "target": "offscreen" },
+		{ "name": "blur_y", "draw": "fullscreen", "target": "offscreen" },
+		{ "name": "post", "draw": "fullscreen", "target": "screen" }
+	]
+}
