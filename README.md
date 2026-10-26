@@ -41,6 +41,8 @@ A preset with JavaScript equations is refused, here and in every client.
 Each entry names its author and license.
 All of mrange's shaders are credited to mrange, at his request.
 The MilkDrop presets come from the projectM preset collection; `rights.json` holds their license texts.
+Each preset links its projectM source file (`sourceUrl`, pinned to one commit).
+Where that file's name gives no author, the link is the credit.
 
 ## Removal
 
